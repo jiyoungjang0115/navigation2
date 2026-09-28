@@ -40,7 +40,7 @@
 | 인터페이스 | 데이터가 드나드는 함수 | 오가는 타입 |
 | --- | --- | --- |
 | `GlobalPlanner` | `createPlan` | `PoseStamped` 시작·목표, `PoseStamped[]` via → `Path` |
-| `Smoother` | 경로를 다듬는 호출 | `Path` → `Path` |
+| `Smoother` | `smooth` | `Path &`를 그 자리에서 고침. 반환은 `bool` (시간 안에 끝났는지) |
 | `Controller` | `computeVelocityCommands` | `PoseStamped`, `Twist`, `Path`, `GoalChecker*` → `TwistStamped` |
 | `Controller` | `setSpeedLimit` | `double` + `bool percentage` |
 | `GoalChecker` | 도착 여부 | 쿼리 자세와 목표 |
