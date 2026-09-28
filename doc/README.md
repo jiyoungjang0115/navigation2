@@ -20,6 +20,8 @@ See the [ROS_COMPARISON](design/ROS_COMPARISON.md) file for an overview of the d
 Notes taken from this tree. They do not replace [docs.nav2.org](https://docs.nav2.org).
 
 - [Architecture](architecture/README.md) — packages, runtime, and extension points
+- [Data structures](data-structure/README.md) — messages, costmap cells, and in-process types
+- [Guide](guide/00-overview.md) — run this host’s loopback stack and check topics
 - [DevOps](devops/README.md) — version lines, release, CI, and container images
 
 # Contributing

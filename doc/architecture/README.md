@@ -51,6 +51,8 @@
 
 지도 위 자세는 `map_server` + `amcl`이 `map→odom`을 내고, 지역 제어는 `odom` 위 롤링 코스트맵을 봅니다. 자세한 그림은 [런타임 아키텍처](03-runtime-architecture.md)에 있습니다.
 
+이 호스트에서 루프백으로 띄우고 토픽으로 판정하는 순서는 [실행 가이드](../guide/00-overview.md)입니다. 그 데모는 AMCL을 끄고 `loopback_simulator`가 `initialpose` 이후에 `map→odom`을 냅니다.
+
 ## 보강 이력
 
 ### 2026-09-28 — 2차 보강
