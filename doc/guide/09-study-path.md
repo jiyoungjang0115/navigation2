@@ -30,7 +30,7 @@ ROS 2가 처음이면 다음만 구분합니다.
 
 | 관문 | 설명할 수 있어야 하는 것 |
 | --- | --- |
-| 초기 자세 | 루프백이 그 전엔 `cmd_vel`을 버리고 스캔 타이머를 안 켬 |
+| 초기 자세 | 루프백이 그 전엔 `map→odom`을 안 냄 → 전역 코스트맵 activate가 대기 → bringup이 절반에서 멈춤. 스캔·오돔 타이머도 그때 켜짐 |
 | 목표 | `GoalTool` → `NavigateToPose` → BT → `ComputePathToPose` → `FollowPath` |
 | 움직임 | `cmd_vel`까지 가야 루프백이 `/odom`을 바꿈. 경로만으로는 부족 |
 | 정지 | 모니터가 0을 내거나, 액션이 끝났거나, 10 s 진행 실패(105) |
@@ -39,7 +39,7 @@ ROS 2가 처음이면 다음만 구분합니다.
 
 | 가이드에서 본 것 | 다음 문서 |
 | --- | --- |
-| 런치가 AMCL을 끄고 맵 서버만 켬 | [구성과 기동](../architecture/06-configuration-and-bringup.md), [map_server](../architecture/localization/nav2_map_server.md) |
+| 런치가 AMCL을 끄고 맵 서버만 켬 | [런치 아키텍처](../launcher/03-launch-architecture.md), [구성과 기동](../architecture/06-configuration-and-bringup.md), [map_server](../architecture/localization/nav2_map_server.md) |
 | `initialpose` 한 번이 로봇을 만듦 | [loopback](../architecture/tools/nav2_loopback_sim.md). 대비: [AMCL](../architecture/localization/nav2_amcl.md)은 이 데모에 없음 |
 | 기본 플래너가 Smac이 아님 | [전역 계획 개요](../architecture/planning/00-overview.md) → [NavFn](../architecture/planning/nav2_navfn_planner.md) |
 | 기본 제어가 MPPI | [제어 개요](../architecture/control/00-overview.md) → [MPPI](../architecture/control/nav2_mppi_controller.md) |

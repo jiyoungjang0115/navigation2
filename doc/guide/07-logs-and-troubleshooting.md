@@ -18,12 +18,17 @@ ls -lt ~/.ros/log | head
 | --- | --- |
 | `Package 'nav2_bringup' not found` | [01](01-host-setup.md). source 순서: Jazzy 다음 install |
 | `nav2_minimal_tb3_sim` / waffle URDF 없음 | `sudo apt install ros-jazzy-nav2-minimal-tb3-sim` 후 셸을 다시 source |
-| `Failed to bring up all requested nodes` | 그 위 노드의 configure 에러. 파라미터 키 이름 |
+| `Timed out waiting for transform from base_link to map to become available` 반복 | **정상.** 전역 코스트맵이 초기 자세를 기다림. 60초 안에 2D Pose Estimate. [02 §2](02-launch-loopback.md#2-기동은-초기-자세에서-한-번-멈춘다) |
+| `Failed to activate global_costmap because transform from base_link to map did not become available before timeout` | 초기 자세를 60초 안에 주지 않음. 런치를 다시 시작 |
+| `Failed to bring up all requested nodes` | 바로 위 줄이 위 항목이면 초기 자세 지연. 아니면 그 위 노드의 configure 에러, 파라미터 키 이름 |
+| `Managed nodes are active`가 끝내 안 나옴 | 초기 자세가 루프백에 닿지 않음. `ros2 topic info /initialpose`의 구독자 수, `-w 1` ([06 §2](06-headless.md#2-초기-자세)) |
+| RViz Goal이 무반응 / `Action server is inactive. Rejecting the goal.` | `Managed nodes are active` 전에 목표를 보냄 |
 | `/map` echo가 비어 있음 | `--qos-durability transient_local` 없이 구독. [03](03-verify-map-and-nodes.md) |
 | `tf2_echo map base_footprint`가 무한 대기 | 초기 자세 전. [04](04-initialize-and-drive.md). 버그가 아님 |
 | `Received initial pose!` 없이 `/odom` hz 없음 | 같음 |
-| 목표는 갔는데 오돔이 그대로 | `/cmd_vel` hz. 0이면 모니터 또는 제어기. 있으면 루프백이 `initialpose` 전이라 명령을 버림 |
-| 즉시 206 | 목표 칸이 벽. `(2, 0)`처럼 빈 칸으로 |
+| 목표는 갔는데 오돔이 그대로 | `/cmd_vel` hz. 0이면 모니터 또는 제어기. 있으면 `cmd_vel`이 `TwistStamped`인데 stamp가 1초보다 오래됨(루프백이 버림), 또는 초기 자세 전 |
+| 즉시 206 | 목표 칸이 벽. [04 §1](04-initialize-and-drive.md#1-초기-자세) 표의 `(1.5, 0.5)`처럼 자유 셀로 |
+| 205 `START_OCCUPIED` 또는 이상한 경로 | 초기 자세를 미지 셀(`(0, 0)` 등, 픽셀 205)이나 벽 근처에 찍음. `(-2.0, -0.5)`로 다시 찍기 |
 | 9002 `Initial robot pose is not available` | `map→base_link` 없음. 베이스 프레임은 BT가 `base_link`, 루프백·URDF는 `base_footprint`. 둘 사이 TF는 `robot_state_publisher` |
 | RViz `cannot open display` | `DISPLAY`. [01](01-host-setup.md) 5절 |
 | `example_nav_to_pose.py`가 바로 실패 | 목표 x=17.86은 샌드박스 밖. [06](06-headless.md) |

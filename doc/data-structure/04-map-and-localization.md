@@ -10,10 +10,24 @@
 
 | 서비스 | 요청 | 응답 |
 | --- | --- | --- |
-| `LoadMap` | 지도 경로 | 결과 코드와 읽은 `OccupancyGrid` |
-| `SaveMap` | 저장 경로와 지도 | 결과 |
+| `LoadMap` | `string map_url` (지도 YAML 경로) | `OccupancyGrid map`, `uint8 result` |
+| `SaveMap` | `map_topic`, `map_url`, `image_format`, `map_mode`, `free_thresh`, `occupied_thresh` | `bool result` |
 
-필드 전체는 [06](06-field-reference.md)의 해당 서비스입니다. `LoadMap`이 돌려주는 격자가 정적 레이어의 입력이 됩니다.
+`SaveMap`은 지도 **데이터를 받지 않습니다.** 구독할 토픽 이름을 받고, 세이버가 그 토픽을 구독해 이미지와 YAML을 씁니다. 저장 모드와 임계가 요청에 있는 것은 [02 §0단계](02-costmap.md#0단계-이미지--점유-격자-map_iocpp)의 변환을 거꾸로 하기 위해서입니다. `scale` 모드로 저장하면 이미지 형식이 png가 됩니다(`map_io.cpp`).
+
+`LoadMap.result`는 성공/실패 bool이 아니라 상수입니다.
+
+| 상수 | 값 |
+| --- | ---: |
+| `RESULT_SUCCESS` | 0 |
+| `RESULT_MAP_DOES_NOT_EXIST` | 1 |
+| `RESULT_INVALID_MAP_DATA` | 2 |
+| `RESULT_INVALID_MAP_METADATA` | 3 |
+| `RESULT_UNDEFINED_FAILURE` | 255 |
+
+`LoadMap`이 성공하면 map_server는 응답과 별도로 `/map`에 새 지도를 발행합니다. 정적 레이어와 AMCL이 받는 것은 그 토픽입니다. 응답의 `map`은 호출자에게 주는 사본입니다.
+
+루프백 시뮬레이터는 또 다른 경로로 지도를 받습니다. `nav_msgs/srv/GetMap` 서비스 `/map_server/map`을 호출해 한 번 받아 두고 가상 스캔을 만듭니다(`loopback_simulator.cpp`의 `getMap`). 이후 `LoadMap`으로 지도를 바꿔도 루프백의 스캔은 **처음 받은 지도 그대로**입니다.
 
 ## 파티클
 

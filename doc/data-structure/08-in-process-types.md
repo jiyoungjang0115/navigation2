@@ -30,6 +30,10 @@
 | `Route` | `route_cost`, 노드·간선 배열 | `Node* start_node`, `Edge*` 목록 |
 | `SearchState` | 없음 | `parent_edge`, `integrated_cost`, `traversal_cost` |
 | `Operation` | 실행된 타입 문자열이 피드백에 | `trigger` (`NODE`, `ON_ENTER`, `ON_EXIT`), `Metadata` |
+| `Graph` = `std::vector<Node>` | 없음 | 벡터 인덱스. id → 인덱스는 `GraphToIDMap` |
+| `RouteTrackingState`, `OperationsResult`, `ReroutingState` | 추적 피드백의 id와 `rerouted` | 포인터, `blocked_ids`, 재경로 시작점 |
+
+`DirectionalEdge::start/end`가 `Graph` 벡터 원소의 날 포인터라서, 그래프를 읽은 뒤 벡터 크기가 바뀌면 포인터가 무효가 됩니다. 추적 상태 타입과 메시지 변환 규칙은 [03](03-route-graph.md#추적-중의-상태--메시지에-없는-타입)에 있습니다.
 
 `SearchState` 주석은 사용자가 고치면 안 되는 검색 내부 상태라고 적습니다.
 

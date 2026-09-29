@@ -16,7 +16,7 @@
 | 스캔 | `ros2 topic hz /scan` | 약 10 Hz |
 | AMCL | `ros2 node list \| grep amcl` | **출력 없음** |
 
-스캔이 없는데 TF `base_footprint` → `base_scan`도 없으면 URDF입니다. TF는 있는데 스캔만 없으면 `initialpose`가 아직입니다. 스캔 발행 조건은 지도, 초기 자세, 레이저 TF입니다 (`publishLaserScan` 앞의 가드).
+스캔 **타이머**는 초기 자세 뒤에만 생깁니다. 타이머가 돈 뒤에는 지도(`/map_server/map` 서비스), 초기 자세, `base_footprint → base_scan` TF 셋 중 하나라도 없으면 스캔은 **발행되지만 모든 빔이 무한대**입니다(`getLaserScan`의 가드, `scan_use_inf: true`). 그래서 `/scan` hz가 10이어도 지역 코스트맵에 장애물이 없으면 이 셋을 확인합니다. 광선은 지도 값이 60 이상인 셀(점유)에서만 멈추고 미지 셀은 통과합니다.
 
 ## 2. 전역 계획
 

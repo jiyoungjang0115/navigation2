@@ -51,9 +51,24 @@
 
 지도 위 자세는 `map_server` + `amcl`이 `map→odom`을 내고, 지역 제어는 `odom` 위 롤링 코스트맵을 봅니다. 자세한 그림은 [런타임 아키텍처](03-runtime-architecture.md)에 있습니다.
 
-이 호스트에서 루프백으로 띄우고 토픽으로 판정하는 순서는 [실행 가이드](../guide/00-overview.md)입니다. 그 데모는 AMCL을 끄고 `loopback_simulator`가 `initialpose` 이후에 `map→odom`을 냅니다.
+이 호스트에서 루프백으로 띄우고 토픽으로 판정하는 순서는 [실행 가이드](../guide/00-overview.md)입니다. 그 데모는 AMCL을 끄고 `loopback_simulator`가 `initialpose` 이후에 `map→odom`을 냅니다. 진입점마다 측위·존·컴포지션을 어떻게 넘기는지는 [런치](../launcher/README.md)입니다.
 
 ## 보강 이력
+
+### 2026-09-28 — 3차: 인접 문서 묶음 대조
+
+[데이터 구조](../data-structure/README.md), [실행 가이드](../guide/00-overview.md), [런처](../launcher/README.md), [도구](../tools/README.md)를 소스와 대조해 보강했습니다. 주요 정정은 다음과 같습니다.
+
+| 문서 | 이전 서술 | 소스 기준 |
+| --- | --- | --- |
+| 가이드 02–04, 06, 08 | 기동 → `Managed nodes are active` → 초기 자세 | **초기 자세 전에는 bringup이 끝나지 않음.** 전역 코스트맵 `on_activate`가 `map→base_link`를 최대 60 s 기다리고, 루프백·AMCL(기본) 모두 초기 자세 전에는 `map→odom`을 내지 않음 |
+| 가이드 03–04, 06 | `(0, 0)`은 자유 셀, 지도 [-10, 9.2) 안이면 클릭 가능 | `(0, 0)`의 픽셀 205는 `free_thresh`를 넘어 **미지**. 알려진 자유 공간은 약 x ∈ [-2.6, 2.3], y ∈ [-2.3, 2.2]. 초기 자세 `(-2.0, -0.5)`, 목표 `(1.5, 0.5)` |
+| 가이드 06 | `ros2 topic pub ... --ros-args -p use_sim_time:=true` | 루프백은 `initialpose` stamp를 쓰지 않음. 대신 `-w 1`로 구독 연결을 기다림 |
+| 런처 06 | `ros2 lifecycle get /lifecycle_manager_nav2` | 매니저는 `rclcpp::Node`. `is_active` 서비스·`managed_nodes_activated` 토픽으로 확인 |
+| 도구 loopback | 로컬 코스트맵은 `StaticLayer` 없으면 빈 공간, TF `odom→base_link`, 런치 이름 `.launch.py` | 가상 스캔이 지도를 레이캐스트하므로 벽이 찍힘. `odom→base_footprint`. bringup 런치는 `_launch.py` |
+| 도구 플래너 벤치 | “100×100 맵” | 100 m × 100 m(2000×2000 셀). 샘플 좌표가 지도 origin을 무시 |
+| 데이터 구조 02 | 변환 두 단계 | PGM → 점유 격자(`map_io.cpp`) 단계를 추가. `trinary_costmap` 등은 코스트맵 **최상위** 파라미터, 점유 99 → 253 |
+| 데이터 구조 04 | `SaveMap`은 경로와 지도를 받음 | 지도가 아니라 `map_topic`을 받음. `LoadMap.result`는 상수 |
 
 ### 2026-09-28 — 2차 보강
 

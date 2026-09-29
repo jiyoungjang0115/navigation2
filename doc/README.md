@@ -22,7 +22,10 @@ Notes taken from this tree. They do not replace [docs.nav2.org](https://docs.nav
 - [Architecture](architecture/README.md) — packages, runtime, and extension points
 - [Data structures](data-structure/README.md) — messages, costmap cells, and in-process types
 - [Guide](guide/00-overview.md) — run this host’s loopback stack and check topics
+- [Launcher](launcher/README.md) — how `nav2_bringup` selects nodes, params, and robot descriptions
 - [DevOps](devops/README.md) — version lines, release, CI, and container images
+- [Tools](tools/README.md) — commander, RViz, loopback, benchmarks, and validation scripts
+- [Simulator](simulator/README.md) — loopback integrator and Gazebo launch contracts
 
 # Contributing
 To propose additions or changes to the design or requirements, please file an issue to initiate a discussion of the topic. Then, once the discussion has completed and the group has agreed to move forward on the item, you can submit a pull request and link to the issue.

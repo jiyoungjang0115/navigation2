@@ -24,7 +24,34 @@ NO_INFORMATION                = 255
 
 253은 "장애물 중심은 아닌데, 로봇을 그 셀에 두면 외곽이 장애물에 닿는" 인플레이션입니다. 252는 인플레이션이 쓸 수 있는 가장 큰 비장애물 값입니다. 이 세 값은 일반 비용과 겹치지 않게 위에 고정되어 있습니다.
 
-## 변환이 두 개다
+## 변환은 세 단계다
+
+지도 이미지 한 픽셀이 비용이 되기까지 세 함수를 거칩니다. 각 단계에 임계가 있고, 경계값에서 결과가 갈립니다.
+
+```mermaid
+flowchart LR
+  PX["PGM 픽셀<br/>uint8 0..255"] -->|"map_io.cpp<br/>occupied/free_thresh"| OG["OccupancyGrid<br/>int8 -1, 0..100"]
+  OG -->|"StaticLayer::interpretValue<br/>lethal_cost_threshold"| CL["정적 레이어 셀<br/>uint8 0..255"]
+  CL -->|"updateCosts<br/>use_maximum"| MG["마스터 그리드"]
+```
+
+### 0단계: 이미지 → 점유 격자 (`map_io.cpp`)
+
+`negate: 0`이면 점유 확률은 `p = 1 - 픽셀/255`입니다. 모드별 규칙은 다음과 같습니다.
+
+| 모드 | `p >= occupied_thresh` | `p <= free_thresh` | 그 사이 |
+| --- | --- | --- | --- |
+| `trinary` (기본) | 100 | 0 | **-1 (미지)** |
+| `scale` | 100 | 0 | `(p - free) / (occupied - free) * 100` 반올림 |
+| `raw` | 픽셀 값을 그대로 점유 값으로 | | |
+
+알파 채널이 있으면 투명 픽셀은 -1입니다.
+
+경계값 예시: `tb3_sandbox.yaml`은 `occupied_thresh: 0.65`, `free_thresh: 0.196`입니다. PGM의 회색 205는 `p = 50/255 = 0.19608`이라 `free_thresh`를 **0.00008 넘어** 미지가 됩니다. 이 지도의 원점 `(0, 0)`이 그런 셀입니다. 흰색 254는 `p = 0.0039`로 자유입니다. [실행 가이드 04](../guide/04-initialize-and-drive.md#1-초기-자세)가 이 계산으로 초기 자세를 고릅니다.
+
+기본 trinary에서는 1..99가 **나오지 않습니다.** 아래 표의 “그 사이” 칸은 `scale` 모드이거나 SLAM이 낸 지도일 때만 의미가 있습니다.
+
+## 두 눈금의 나머지 변환
 
 ### 정적 레이어 — 기본은 삼진
 
@@ -38,6 +65,19 @@ NO_INFORMATION                = 255
 | `trinary_costmap` | **true** | 치사·미지·내접이 아니면 **0** |
 
 `trinary_costmap`이 false일 때만 치사 미만 값을 `value / lethal_threshold * 254`로 스케일합니다. 기본 설정에서는 지도의 1..98이 비용으로 살아남지 않고 자유 공간이 됩니다.
+
+이 네 파라미터는 `static_layer.` 아래가 아니라 **코스트맵 노드 최상위**(`global_costmap.global_costmap.ros__parameters.trinary_costmap`)에 있습니다. `Costmap2DROS` 생성자가 선언하고 `StaticLayer::getParameters()`가 `node->get_parameter("trinary_costmap", ...)`처럼 접두사 없이 읽습니다(`static_layer.cpp:169-173`). `static_layer.trinary_costmap`으로 적으면 무시됩니다.
+
+판정 순서도 중요합니다(`interpretValue`). ① 미지 값 → ② **정확히 99** → 253 → ③ 100 이상 → 254 → ④ trinary면 0. 점유 격자의 99가 “거의 확실한 장애물”이 아니라 **내접 팽창(253)** 으로 해석됩니다. SLAM 지도를 `scale`로 넣을 때 99 셀이 치사가 아닌 이유입니다.
+
+### 정적 레이어가 마스터에 쓰는 방식
+
+| `use_maximum` (최상위, 기본 false) | 함수 | 결과 |
+| --- | --- | --- |
+| false | `updateWithTrueOverwrite` | 정적 값이 창 안 마스터를 **그대로 덮어씀**. 미지(255)도 복사 |
+| true | `updateWithMax` | 큰 값만. 미지는 투명 |
+
+정적 레이어는 보통 목록 맨 앞이라 덮어쓰기가 문제 되지 않습니다. 순서를 바꿔 장애물 레이어 뒤에 두면 장애물이 지워집니다.
 
 `track_unknown_space`가 false이면 미지 셀은 `FREE_SPACE`로 내려갑니다. bringup 기본 `nav2_params.yaml`의 전역 코스트맵은 `track_unknown_space: true`입니다.
 
@@ -76,7 +116,16 @@ NO_INFORMATION                = 255
 | 1 | `Max` | 둘 중 큰 값. 마스터가 미지면 레이어 값으로 덮음 |
 | 2 | `MaxWithoutUnknownOverwrite` | 둘 중 큰 값. 마스터가 미지여도 덮지 않음 |
 
-주석의 기본 서술은 maximum입니다.
+주석의 기본 서술은 maximum입니다. 실제로 이 열거를 파라미터(`<레이어>.combination_method`, 기본 **1 = Max**)로 받는 곳은 `ObstacleLayer`, `VoxelLayer`, `PluginContainerLayer` 셋입니다. 나머지 레이어는 고정 규칙입니다.
+
+| 레이어 | 마스터에 쓰는 함수 |
+| --- | --- |
+| `StaticLayer` | `use_maximum`에 따라 TrueOverwrite 또는 Max (위) |
+| `ObstacleLayer`, `VoxelLayer` | `combination_method` (기본 Max) |
+| `InflationLayer` | 자체 루프로 마스터 셀을 직접 올림 (기존 값보다 클 때) |
+| 코스트맵 필터 | 레이어 합성 **뒤** 별도 격자에 적용. [nav2_costmap_2d](../architecture/costmap/nav2_costmap_2d.md#필터는-레이어와-다른-격자에-적용된다) |
+
+`CostmapLayer`에는 열거에 없는 `updateWithAddition`도 있습니다. 두 값을 더하되 253 이상이 되면 252로 자릅니다. 치사 값을 더하기로 만들어 내지 않으려는 규칙입니다.
 
 ## 도형으로 넣는 비용
 
@@ -101,3 +150,7 @@ NO_INFORMATION                = 255
 | 4 | `CostmapUpdate.msg` | 주석이 점유 격자 0..100과 비용 0..255를 구분합니다. |
 | 5 | `IsPathValid.srv` | `max_cost` 기본값 254는 `LETHAL_OBSTACLE`와 같은 수입니다. |
 | 6 | `PolygonObject.value` | 비용 배열은 `uint8`, 도형 값은 `int8`입니다. |
+| 7 | `map_io.cpp` | 삼진 경계는 `p >= occupied_thresh`, `p <= free_thresh`입니다. PGM 회색 205는 `free_thresh` 0.196을 0.00008 넘어 미지가 됩니다. |
+| 8 | `static_layer.cpp:169-173` | `trinary_costmap` 등 네 파라미터를 코스트맵 **최상위**에서 읽습니다. `static_layer.` 아래에 적으면 무시됩니다. |
+| 9 | `interpretValue` | 점유값 99는 치사가 아니라 253(내접 팽창)으로 해석됩니다. |
+| 10 | `updateWithTrueOverwrite` | 정적 레이어 기본(`use_maximum: false`)은 미지까지 그대로 덮어씁니다. |

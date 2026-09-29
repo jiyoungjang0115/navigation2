@@ -1,7 +1,7 @@
 # 00. 실행 가이드 개요 — 이 호스트에서 루프백으로 돌려 보기
 
 이 묶음은 **한 단계씩 명령을 치고, 그때 나오는 로그와 토픽으로 "지금 무엇이 됐는가"를 확인하는 런북**입니다.
-패키지가 왜 이렇게 나뉘는지는 [아키텍처](../architecture/README.md)를 가리키고, 여기서는 **실행·관찰·판정**만 다룹니다.
+패키지가 왜 이렇게 나뉘는지는 [아키텍처](../architecture/README.md)를 가리키고, 진입점이 무엇을 켜는지는 [런치](../launcher/README.md)를 가리킵니다. 여기서는 **실행·관찰·판정**만 다룹니다.
 
 기본 실습은 Gazebo가 아닙니다. `nav2_bringup`의 **tb3 루프백**입니다. `nav2_loopback_sim`이 `cmd_vel`을 적분해 오돔을 만들고, 정적 지도에서 가상 스캔을 냅니다.
 
@@ -19,7 +19,7 @@
 | `colcon` | `/usr/bin/colcon` | 빌드 도구는 있음 |
 | 디스플레이 | `DISPLAY=:20.0`, `/tmp/.X11-unix`에 `X20` | RViz는 이 세션에 띄움. Docker 경로는 쓰지 않음 |
 | 디스크 | 홈 파티션 여유 약 1.2 TB | 빌드에 충분 |
-| 샘플 지도 | `nav2_bringup/maps/tb3_sandbox.pgm` 384×384, 5 cm, origin `(-10, -10)` | 세계 좌표 약 **x, y ∈ [-10, 9.2)** |
+| 샘플 지도 | `nav2_bringup/maps/tb3_sandbox.pgm` 384×384, 5 cm, origin `(-10, -10)` | 파일은 x, y ∈ [-10, 9.2)이지만 셀의 94%가 미지. **알려진 자유 공간은 x ≈ -2.6…2.3, y ≈ -2.3…2.2**. 초기 자세 `(-2.0, -0.5)`, 목표 `(1.5, 0.5)` ([04](04-initialize-and-drive.md#1-초기-자세)) |
 
 ## 왜 루프백인가
 
@@ -47,16 +47,16 @@
 | 단계 | 문서 | 끝났을 때 |
 | ---: | --- | --- |
 | 1 | [호스트 준비](01-host-setup.md) | `install/setup.bash`가 생김 |
-| 2 | [루프백 기동](02-launch-loopback.md) | 런치 로그에 managed nodes are active, RViz에 지도 |
-| 3 | [노드·지도 관문](03-verify-map-and-nodes.md) | `/map`이 나오고, `initialpose` 전에는 `map→odom`이 없음 |
-| 4 | [초기 자세와 주행](04-initialize-and-drive.md) | 샌드박스 안의 목표로 **오돔이 변함** |
+| 2 | [루프백 기동](02-launch-loopback.md) | RViz에 지도. 로그에 `Timed out waiting for transform from base_link to map`이 반복(정상, 초기 자세 대기) |
+| 3 | [노드·지도 관문](03-verify-map-and-nodes.md) | `/map`이 나오고, `initialpose` 전에는 `map→odom`이 없고 `bt_navigator`가 inactive |
+| 4 | [초기 자세와 주행](04-initialize-and-drive.md) | 초기 자세 후 `Managed nodes are active`, 목표로 **오돔이 변함** |
 | 5 | [도메인별 관문](05-verify-by-domain.md) | 계획·제어·속도 사슬·루프백이 각 토픽을 냄 |
 | 6 | [RViz 없이](06-headless.md) | `use_rviz:=False`와 CLI 목표 |
 | 7 | [로그와 문제 해결](07-logs-and-troubleshooting.md) | 막힌 단계의 다음 확인 |
 | 8 | [런타임 체크리스트](08-runtime-checklist.md) | 이 호스트에서 통과했는지 기록 |
 | 9 | [공부 순서](09-study-path.md) | 본 현상에서 아키텍처 문서로 |
 
-**앞 단계가 끝나야 다음이 의미가 있습니다.** 단계 3에서 `/map`이 없으면 단계 4의 클릭은 빈 공간에 찍힙니다. `initialpose` 없이 목표만 주면 루프백은 `cmd_vel`을 버립니다.
+**앞 단계가 끝나야 다음이 의미가 있습니다.** 단계 3에서 `/map`이 없으면 단계 4의 클릭은 빈 공간에 찍힙니다. `initialpose` 없이 목표만 주면 `bt_navigator`가 아직 inactive라 목표가 거절됩니다. 초기 자세를 준 뒤에도 루프백은 1초보다 오래된 `cmd_vel`을 버립니다.
 
 ## 판정 기준 — 세 층
 
@@ -66,7 +66,7 @@
 | **데이터** | `ros2 topic hz`, `ros2 run tf2_ros tf2_echo` | 지도·TF·경로·속도가 흐른다 |
 | **거동** | `/odom`의 위치, RViz의 로봇 | **목표가 지도 안에서 로봇이 그쪽으로 간다** |
 
-노드가 떠 있어도 `initialpose` 전에는 스캔과 `map→odom`이 없습니다. 경로가 나와도 `cmd_vel` 사슬이 끊기면 오돔은 그대로입니다.
+노드가 떠 있어도 `initialpose` 전에는 스캔과 `map→odom`이 없고, 그 때문에 **bringup 자체가 절반에서 멈춰 있습니다**(전역 코스트맵이 `map→base_link`를 60초까지 기다림). 이 런북에서 가장 먼저 헷갈리는 지점입니다. 경로가 나와도 `cmd_vel` 사슬이 끊기면 오돔은 그대로입니다.
 
 ## 관련 문서
 

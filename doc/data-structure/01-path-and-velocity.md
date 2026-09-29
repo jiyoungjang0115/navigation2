@@ -20,7 +20,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | 목표 | `PoseStamped` + BT XML 문자열 | 맵 프레임의 목표, 쓸 트리 | 경로 |
 | 계획 | `Path` | 시작부터 목표까지의 자세 배열, `planning_time` | 속도, 시간 간격 |
-| 평활화 | `Path` | 같은 타입의 다른 기하, `was_completed` | 속도 |
+| 평활화 | `Path` | 같은 타입의 다른 기하, `smoothing_duration`, `was_completed` | 속도 |
 | 추종 | `TwistStamped` | `linear`/`angular` | 다음 자세의 배열 |
 | 공개 속도 | `Twist` 또는 `TwistStamped` | `cmd_vel_nav` → `cmd_vel_smoothed` → `cmd_vel` | 경로 |
 

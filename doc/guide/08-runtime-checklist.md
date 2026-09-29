@@ -16,28 +16,32 @@
 | A4 | colcon 성공 | `install/setup.bash` 존재 | |
 | A5 | 오버레이 | `ros2 pkg prefix nav2_bringup`가 워크스페이스 install | |
 
-## B. 기동
+## B. 기동 — 초기 자세 전 (60초 안)
 
-| # | 확인 | 결과 |
-| --- | --- | --- |
-| B1 | 런치가 죽지 않음 | |
-| B2 | 로그 `Managed nodes are active` | |
-| B3 | RViz에 샌드박스 지도 (또는 06이면 RViz 없음) | |
+| # | 확인 | 기대 | 결과 |
+| --- | --- | --- | --- |
+| B1 | 런치가 죽지 않음 | | |
+| B2 | 로그 `Loopback simulator activated` | 있음 | |
+| B3 | 로그 `Timed out waiting for transform from base_link to map` | **반복됨** | |
+| B4 | 로그 `Managed nodes are active` | **아직 없음** | |
+| B5 | RViz에 샌드박스 지도 (또는 06이면 RViz 없음) | | |
 
-## C. 초기 자세 전
+## C. 초기 자세 전 관찰
 
 | # | 확인 | 기대 | 결과 |
 | --- | --- | --- | --- |
 | C1 | `/map` resolution | 0.05, transient local | |
 | C2 | `/amcl` | 없음 | |
-| C3 | `map` → `base_footprint` | 대기 (아직 없음) | |
-| C4 | `/odom`, `/scan` | hz 없음 | |
+| C3 | `odom` → `base_footprint` | 항등 변환 | |
+| C4 | `map` → `base_footprint` | 대기 (아직 없음) | |
+| C5 | `/odom`, `/scan` | hz 없음 | |
+| C6 | `ros2 lifecycle get /bt_navigator` | `inactive [2]` | |
 
-## D. 초기 자세 후, 목표 `(2, 0)` 또는 RViz로 찍은 빈 칸
+## D. 초기 자세 `(-2.0, -0.5)` 후, 목표 `(1.5, 0.5)` 또는 RViz로 찍은 자유 셀
 
 | # | 확인 | 기대 | 결과 |
 | --- | --- | --- | --- |
-| D1 | 로그 `Received initial pose!` | 있음 | |
+| D1 | 로그 `Received initial pose!` 다음 `Managed nodes are active` | 둘 다 있음 | |
 | D2 | `tf2_echo map base_footprint` | 변환 출력 | |
 | D3 | `/odom`, `/scan` | 약 50 Hz, 약 10 Hz | |
 | D4 | `/plan` | 목표 후 메시지 | |
@@ -49,8 +53,8 @@
 
 | # | 확인 | 결과 |
 | --- | --- | --- |
-| E1 | `use_rviz:=False`로 B2까지 | |
-| E2 | `/initialpose` 한 번 후 D2 | |
+| E1 | `use_rviz:=False`로 B3까지 (전역 코스트맵 대기) | |
+| E2 | `ros2 topic pub --once -w 1 /initialpose ...` 후 D1·D2 | |
 | E3 | `/tmp/nav2_sandbox_goal.py`가 거리 감소 후 종료 | |
 
 ## F. 기록하지 않은 것
