@@ -44,7 +44,8 @@ cmd_vel ← collision_monitor ← cmd_vel_smoothed ← velocity_smoother ← cmd
 | 패턴 | 원인 후보 | 확인 |
 | --- | --- | --- |
 | clear → spin → wait → backup 반복 후 실패 | 105/104. 실제 원인이 센서 정지, 잘못된 측위, 좁은 통로 | `collision_monitor_state`, `particle_cloud` 분산 |
-| spin만 실패하고 다음 복구로 넘어감 | 703 `COLLISION_AHEAD`. 지역 코스트맵에 회전 여유 없음 | `RoundRobin`이 흡수함. 재시도 한 번 소모 |
+| spin만 실패하고 다음 복구로 넘어감 | 703 `COLLISION_AHEAD`, 또는 collision monitor에 막혀 701 time allowance | `RoundRobin`이 같은 틱에 다음 자식으로 넘김 |
+| backup 직후 내비게이션이 끝남(재시도 남았는데) | `RoundRobin` `wrap_around` 기본 false. 마지막 자식을 지나면 FAILURE | [08 §2](08-failure-and-recovery.md#두-단계-복구) |
 | 복구 후 같은 자리에서 다시 막힘 | clear가 지우는 것은 장애물 레이어 관측. 센서가 계속 같은 것을 보면 다음 갱신에 다시 찍힘 | 스캔 원본. 바닥·로봇 몸체 반사 |
 | 결과 코드가 원인과 무관해 보임 | 블랙보드에 남은 **가장 작은** 0 아닌 코드가 보고됨 | [08 §1 4단계](08-failure-and-recovery.md#4단계-블랙보드--내비게이터-결과) |
 

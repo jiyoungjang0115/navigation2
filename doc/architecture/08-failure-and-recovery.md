@@ -153,7 +153,7 @@ RecoveryNode(retries=6) "NavigateRecovery"
 | 층 | 트리거 | 행동 | 한도 |
 | --- | --- | --- | --- |
 | 문맥 복구 | 계획 또는 제어 서버 실패 + `Would*Help` | 해당 코스트맵 하나만 clear 후 그 액션 재시도 | 각 1회 |
-| 전역 복구 | 파이프라인 실패 + 둘 중 하나의 `Would*Help` | `RoundRobin`: clear 둘 → spin → wait → backup 순으로 한 번에 하나 | 6회 |
+| 전역 복구 | 파이프라인 실패 + 둘 중 하나의 `Would*Help` | `RoundRobin`: clear 둘 → spin → wait → backup 순으로 한 번에 하나 | `RecoveryNode` 6회지만, **backup에 도달하면 그 뒤 끝남** (아래) |
 
 `RecoveryNode`의 동작 (`recovery_node.cpp`):
 
@@ -164,9 +164,15 @@ RecoveryNode(retries=6) "NavigateRecovery"
 기본 트리에서 복구 자식이 FAILURE가 되는 경로는 두 가지입니다.
 
 1. 앞의 `Fallback(WouldAControllerRecoveryHelp, WouldAPlannerRecoveryHelp)`가 둘 다 거짓인 경우. 복구 대상이 아닌 코드입니다. 이것이 “복구 없이 즉시 실패”의 실제 경로입니다.
-2. `RoundRobin`의 네 자식이 모두 연속으로 실패한 경우.
+2. `RoundRobin`이 **마지막 자식(backup)까지 간 경우.** 아래 `wrap_around`.
 
-`RoundRobin` (`round_robin_node.cpp`)은 자식이 FAILURE를 내면 **곧바로 다음 자식을 같은 틱에서 시도**하고, 하나라도 SUCCESS면 SUCCESS를 반환합니다. Spin이 `COLLISION_AHEAD`(703)로 실패하면 Wait로 넘어가므로, 좁은 곳에서 회전이 막혀도 전역 복구는 계속됩니다. 다음 호출은 마지막에 멈춘 다음 자식부터 시작합니다. 전역 복구 6회는 모두 성공한다고 가정하면 “clear → spin → wait → backup → clear → spin” 순서입니다.
+`RoundRobin` (`round_robin_node.cpp`)은 자식이 FAILURE를 내면 **곧바로 다음 자식을 같은 틱에서 시도**하고, SUCCESS면 SUCCESS를 반환합니다. 다음 호출은 마지막에 멈춘 다음 자식부터 시작합니다. Spin이 실패하면 같은 틱에서 Wait로 넘어갑니다.
+
+**`wrap_around` 기본값이 `false`입니다** (#5308, 2025-12; 기본 XML에 이 포트가 없음). 인덱스가 마지막 자식을 지나면 첫 자식으로 돌아가지 않고 `halt()`(인덱스 0으로 리셋) 후 **FAILURE**를 반환합니다. 그래서 기본 트리의 전역 복구는 “clear → spin → wait → backup”을 한 바퀴 돌면 끝나고, `RecoveryNode`의 재시도 6회에는 도달하지 않습니다.
+
+코드상 이 분기는 자식 상태를 보기 **전에** `break`하므로, 마지막 자식(backup)이 **성공해도** FAILURE가 됩니다. 단위 테스트는 no-wrap에서 “모두 실패”와 “모두 스킵”만 다루고 이 경우는 확인하지 않습니다(소스 판독, 실행 검증은 backup이 실패한 경우만).
+
+**실행 로그로 확인**했습니다 ([로그 해설 §7](../guide/logs/2026-09-30/log-walkthrough.md#7-시작점을-기둥-위에-둔-실패-복구-8번-run4-440501행)): 시작점을 기둥 위에 둔 목표에서 spin은 10초 time allowance 초과(701)로 실패하고 같은 틱에 wait가 성공했고, 그다음 backup이 711로 실패하자 **남은 재시도가 있는데도** 곧바로 `Goal failed error_code:208`이 났습니다.
 
 문맥 복구(`ComputePathToPose`/`FollowPath` 안쪽 `RecoveryNode`)는 `RoundRobin`이 없어서, `Would*Help`가 거짓이거나 clear 서비스 호출이 실패하면 그 `RecoveryNode`가 바로 FAILURE가 됩니다. 이 실패가 파이프라인을 거쳐 전역 복구로 올라갑니다.
 
@@ -237,6 +243,7 @@ RViz의 `goal_pose` 토픽(2D Goal Pose)은 `onGoalPoseReceived()`가 받아 자
 | AMCL이 틀린 곳에 수렴 | 계획은 성공하고 제어는 105 → clear/spin 반복 | 측위. `initialpose`를 다시 줘야 함 |
 | collision monitor가 정지 | 제어기는 속도를 계속 냄 → 10 s 뒤 105 | 모니터 폴리곤, 센서 높이 필터 |
 | 복구 spin이 충돌 예측 | 703 → RoundRobin이 wait로 넘어감. 재시도 한 번을 소모 | 좁은 공간. spin을 빼거나 backup을 앞에 둔 트리 |
+| 복구 중 collision monitor가 `approach` | spin·backup이 속도를 못 내 10초 time allowance 초과(701·711). backup 뒤 내비게이션 종료 (실측) | 로봇이 장애물 안/바로 옆. 초기 자세 |
 
 마지막 세 경우는 BT가 원인을 모른 채 같은 복구를 반복하는 구조입니다. collision monitor의 정지는 액션 결과로 올라오지 않고, `collision_monitor_state` 토픽에만 나타납니다.
 

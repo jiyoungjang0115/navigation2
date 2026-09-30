@@ -20,6 +20,8 @@ $ 명령
 컨테이너:   docker run (compose 아님)
 ```
 
+> 로그를 줄 단위로 소스 코드와 연결해 해설한 문서: [log-walkthrough.md](log-walkthrough.md)
+
 ## 결과
 
 | 묶음 | 판정 | 로그 |
@@ -62,6 +64,7 @@ $ 명령
 | `K-rviz.log`, `rviz-after-init.png`, `rviz-driving.png` | RViz 창 확인 | 02 §5 |
 | `L-cleanup.log` | 종료 시간 측정 L0–L5 | 02 §6 |
 | `M-replay.log` | 가이드 본문 그대로 재실행 M0–M2 | 08 §G |
+| `log-walkthrough.md` | 위 로그의 줄 단위 해설과 소스 연결 | — |
 
 ## 가이드와 달랐던 점 (이번 실행에서 고친 것)
 

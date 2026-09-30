@@ -72,7 +72,7 @@ goal이 서버에서 거절되면(`"Goal was rejected by the action server"`) `o
 | 노드 | 주의할 동작 | 근거 |
 | --- | --- | --- |
 | `RecoveryNode` | 복구 자식이 FAILURE면 남은 재시도와 관계없이 즉시 FAILURE. 자식은 정확히 2개 | `recovery_node.cpp` |
-| `RoundRobin` | 자식 FAILURE면 같은 틱에서 다음 자식 시도. 모두 실패해야 FAILURE. 다음 호출은 이어서 시작 | `round_robin_node.cpp` |
+| `RoundRobin` | 자식 FAILURE면 같은 틱에서 다음 자식 시도. 다음 호출은 이어서 시작. **`wrap_around` 기본 false라 마지막 자식을 지나면(성공이어도) FAILURE** | `round_robin_node.cpp` |
 | `PipelineSequence` | 매 틱 첫 자식부터 다시 틱. 뒤쪽 자식이 이미 RUNNING이면 앞쪽 RUNNING을 넘어 진행 | `pipeline_sequence.cpp` |
 | `RateController` | 벽시계(`high_resolution_clock`) 기준. 자식이 RUNNING이면 주기와 관계없이 계속 틱. 주기 전에는 **마지막 상태**를 반환 | `rate_controller.cpp` |
 
