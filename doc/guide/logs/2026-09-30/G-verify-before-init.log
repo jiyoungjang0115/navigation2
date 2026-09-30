@@ -1,0 +1,122 @@
+### [G0] 2026-09-30 22:03:14
+$ docker exec nav2 nav2env ros2 node list 2>&1 | sort
+/behavior_server
+/bt_navigator
+/bt_navigator_navigate_through_poses_rclcpp_node
+/bt_navigator_navigate_to_pose_rclcpp_node
+/collision_monitor
+/controller_server
+/docking_server
+/following_server
+/global_costmap/global_costmap
+/lifecycle_manager_nav2
+/local_costmap/local_costmap
+/loopback_simulator
+/map_server
+/nav2_rviz_docking_panel_node
+/nav2_rviz_selector_node
+/planner_server
+/robot_state_publisher
+/route_server
+/rviz
+/rviz_navigation_dialog_action_client
+/smoother_server
+/transform_listener_impl_5aef5e05f660
+/transform_listener_impl_5aef5e774d20
+/transform_listener_impl_5d7d2cda1850
+/transform_listener_impl_5ec4c6cc0230
+/transform_listener_impl_60c57cd59650
+/velocity_smoother
+/waypoint_follower
+→ exit=0
+
+### [G1] 2026-09-30 22:03:15
+$ docker exec nav2 nav2env bash -c "for n in map_server controller_server smoother_server planner_server route_server behavior_server velocity_smoother collision_monitor bt_navigator waypoint_follower docking_server following_server; do printf \"%-20s\" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done"
+map_server          active [3]
+controller_server   active [3]
+smoother_server     active [3]
+planner_server      inactive [2]
+route_server        inactive [2]
+behavior_server     inactive [2]
+velocity_smoother   inactive [2]
+collision_monitor   inactive [2]
+bt_navigator        inactive [2]
+waypoint_follower   inactive [2]
+docking_server      inactive [2]
+following_server    inactive [2]
+→ exit=0
+
+### [G2] 2026-09-30 22:03:53
+$ docker exec nav2 nav2env ros2 topic echo /map --qos-durability transient_local --once --field info 2>&1 | head -20
+→ exit=124
+
+### [G3] 2026-09-30 22:04:53
+$ docker exec nav2 nav2env bash -c "echo == odom-base_footprint; timeout -k 1 6 ros2 run tf2_ros tf2_echo odom base_footprint 2>&1 | head -8; echo; echo == map-base_footprint; timeout -k 1 6 ros2 run tf2_ros tf2_echo map base_footprint 2>&1 | head -4"
+== odom-base_footprint
+[INFO] [1790773493.769199959] [tf2_echo]: Waiting for transform odom ->  base_footprint: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+At time 145.500149243
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.000
+
+== map-base_footprint
+[INFO] [1790773495.899364299] [tf2_echo]: Waiting for transform map ->  base_footprint: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1790773497.889620241] [tf2_echo]: Waiting for transform map ->  base_footprint: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1790773498.889628008] [tf2_echo]: Waiting for transform map ->  base_footprint: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1790773500.889620482] [tf2_echo]: Waiting for transform map ->  base_footprint: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+→ exit=0
+
+### [G4] 2026-09-30 22:05:01
+$ docker exec nav2 nav2env bash -c "for t in /clock /odom /scan; do printf \"%-8s \" \$t; timeout -k 1 5 ros2 topic hz \$t -w 5 2>&1 | grep -E \"average rate\" | tail -1 || true; echo; done; echo == topics; ros2 topic list | wc -l; ros2 node list | grep -c amcl || true"
+/clock   average rate: 97.878
+
+/odom    
+/scan    
+== topics
+101
+0
+→ exit=0
+
+### [G5] 2026-09-30 22:05:35
+$ docker exec nav2 nav2env ros2 topic info /map -v 2>&1 | grep -E "Topic type|Publisher count|Node name|Durability|Reliability|Subscription count" | head -14
+Publisher count: 1
+Node name: map_server
+Node namespace: /
+Topic type: nav_msgs/msg/OccupancyGrid
+Topic type hash: RIHS01_8d348150c12913a31ee0ec170fbf25089e4745d17035792a1ba94d6f0bc0cfc7
+  Reliability: RELIABLE
+  Durability: TRANSIENT_LOCAL
+Subscription count: 3
+Node name: rviz
+Node namespace: /
+Topic type: nav_msgs/msg/OccupancyGrid
+Topic type hash: RIHS01_8d348150c12913a31ee0ec170fbf25089e4745d17035792a1ba94d6f0bc0cfc7
+  Reliability: RELIABLE
+  Durability: TRANSIENT_LOCAL
+→ exit=0
+
+### [G6] 2026-09-30 22:05:36
+$ docker exec nav2 nav2env bash -c "timeout -k 1 20 ros2 topic echo /map --qos-durability transient_local --qos-reliability reliable --once --field info 2>&1 | head -12; echo rc=\${PIPESTATUS[0]}"
+map_load_time:
+  sec: 0
+  nanosec: 130096910
+resolution: 0.05000000074505806
+width: 384
+height: 384
+origin:
+  position:
+    x: -10.0
+    y: -10.0
+    z: 0.0
+  orientation:
+rc=0
+→ exit=0
+
+### [G7] 2026-09-30 22:05:48
+$ S=$(date +%s); docker exec nav2 nav2env timeout -k 1 25 ros2 topic echo /map --qos-durability transient_local --once --field info 2>&1 | head -4; echo "rc=${PIPESTATUS[0]} elapsed=$(( $(date +%s)-S ))s"
+rc=124 elapsed=26s
+→ exit=0
+

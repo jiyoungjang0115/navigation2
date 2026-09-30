@@ -1,0 +1,174 @@
+### [M0] 2026-09-30 22:29:35 — 재실행 스크립트 (가이드 md의 코드 블록을 기계적으로 추출)
+$ cat replay.sh
+set -u
+n2() { docker exec nav2 nav2env "$@"; }
+docker rm -f nav2 >/dev/null 2>&1
+
+echo "### 02 §1 (가이드 그대로)"; date +%T
+docker run -d --name nav2 --init \
+  --hostname "$(hostname)" \
+  -e DISPLAY -e XAUTHORITY=/root/.Xauthority \
+  -v "$HOME/.Xauthority:/root/.Xauthority:ro" \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  --device /dev/dri \
+  nav2-guide:jazzy \
+  ros2 launch nav2_bringup tb3_loopback_simulation_launch.py use_composition:=False
+
+sleep 14
+
+echo "### C7: 초기 자세 전 NavigateToPose 목표"; date +%T
+n2 timeout -k 1 15 ros2 action send_goal /navigate_to_pose nav2_msgs/action/NavigateToPose "{pose: {header: {frame_id: map}, pose: {position: {x: 1.5, y: 0.5, z: 0.0}, orientation: {w: 1.0}}}}" 2>&1 | grep -v "^$" | head -8
+echo "rc=${PIPESTATUS[0]}"
+
+echo "### 04 §1 초기 자세 (가이드 그대로)"; date +%T
+n2() { docker exec nav2 nav2env "$@"; }
+n2 ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped \
+  "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}}}"
+
+sleep 10
+docker logs nav2 2>&1 | grep -E "Received initial pose|Managed nodes are active" | cut -c1-140
+
+echo "### is_active (03 §5)"
+n2 ros2 service call /lifecycle_manager_nav2/is_active std_srvs/srv/Trigger 2>&1 | tail -2
+
+echo "### /behavior_tree_log (05 §4)"
+n2 timeout -k 1 8 ros2 topic echo /behavior_tree_log --once 2>&1 | head -6; echo "rc=${PIPESTATUS[0]}"
+
+echo "### 05 §6 스크립트 (가이드 그대로)"
+docker exec -i nav2 nav2env bash -s <<'EOF'
+ros2 action send_goal /navigate_to_pose nav2_msgs/action/NavigateToPose \
+  "{pose: {header: {frame_id: map}, pose: {position: {x: -1.5, y: 1.5, z: 0.0}, orientation: {w: 1.0}}}}" --feedback > /tmp/goal.out 2>&1 &
+G=$!; sleep 2
+for t in /cmd_vel_nav /cmd_vel_smoothed /cmd_vel /odom; do
+  ( timeout -k 1 8 ros2 topic hz $t -w 6 > /tmp/hz$(echo $t | tr / _).out 2>&1 ) &
+done
+sleep 9
+for t in /cmd_vel_nav /cmd_vel_smoothed /cmd_vel /odom; do
+  printf "%-18s %s\n" $t "$(grep 'average rate' /tmp/hz$(echo $t | tr / _).out | tail -1)"
+done
+wait $G; grep -E "Goal finished|error_code" /tmp/goal.out | tail -2
+EOF
+
+echo "### 06 §3 Python (가이드 그대로)"
+docker exec -i nav2 nav2env python3 - --ros-args -p use_sim_time:=true <<'EOF'
+import rclpy
+from geometry_msgs.msg import PoseStamped
+from nav2_simple_commander.robot_navigator import BasicNavigator
+
+rclpy.init()
+nav = BasicNavigator()
+# 기본 localizer 'amcl'은 이 데모에 없어서 영원히 기다립니다.
+nav.waitUntilNav2Active(localizer="loopback_simulator")
+goal = PoseStamped()
+goal.header.frame_id = "map"
+goal.header.stamp = nav.get_clock().now().to_msg()
+goal.pose.position.x = 1.5
+goal.pose.position.y = 0.5
+goal.pose.orientation.w = 1.0
+task = nav.goToPose(goal)
+n = 0
+while not nav.isTaskComplete(task=task):
+    fb = nav.getFeedback(task=task)
+    n += 1
+    if fb and n % 20 == 0:
+        print("distance_remaining %.2f" % fb.distance_remaining, flush=True)
+print("result", nav.getResult(), "error_code", nav.getTaskError(), flush=True)
+rclpy.shutdown()
+EOF
+
+### [M1] 2026-09-30 22:29:35
+$ bash replay.sh
+### 02 §1 (가이드 그대로)
+22:29:35
+2792ac8c8b68fab7df910c31765a4d5cff2850c32c13e47c52e7dd43290b1fb1
+### C7: 초기 자세 전 NavigateToPose 목표
+22:29:49
+Waiting for an action server to become available...
+Sending goal:
+     pose:
+  header:
+    stamp:
+      sec: 0
+      nanosec: 0
+    frame_id: map
+rc=0
+### 04 §1 초기 자세 (가이드 그대로)
+22:29:51
+publisher: beginning loop
+publishing #1: geometry_msgs.msg.PoseWithCovarianceStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='map'), pose=geometry_msgs.msg.PoseWithCovariance(pose=geometry_msgs.msg.Pose(position=geometry_msgs.msg.Point(x=-2.0, y=-0.5, z=0.0), orientation=geometry_msgs.msg.Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)), covariance=array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+       0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+       0., 0.])))
+
+[loopback_simulator-2] [INFO] [1790774992.669630979] [loopback_simulator]: Received initial pose!
+[lifecycle_manager-16] [INFO] [1790774996.561318971] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+### is_active (03 §5)
+std_srvs.srv.Trigger_Response(success=True, message='')
+
+### /behavior_tree_log (05 §4)
+rc=124
+### 05 §6 스크립트 (가이드 그대로)
+/cmd_vel_nav       average rate: 19.677
+/cmd_vel_smoothed  average rate: 19.451
+/cmd_vel           average rate: 18.728
+/odom              average rate: 49.732
+    error_code: 0
+Goal finished with status: SUCCEEDED
+### 06 §3 Python (가이드 그대로)
+[INFO] [1790775030.818380065] [basic_navigator]: Nav2 is ready for use!
+[INFO] [1790775030.818958789] [basic_navigator]: Navigating to goal: 1.5 0.5...
+distance_remaining 3.80
+distance_remaining 3.12
+distance_remaining 2.42
+distance_remaining 1.82
+distance_remaining 1.20
+distance_remaining 0.77
+distance_remaining 0.65
+distance_remaining 0.55
+result TaskResult.SUCCEEDED error_code (0, '')
+→ exit=0
+
+### [M2] 2026-09-30 22:31:26 — 초기 자세 전 목표와 /behavior_tree_log 재확인
+$ bash replay2.sh
+### C7: 초기 자세 전 목표 (전체 출력, 15초 제한)
+22:31:40
+rc=0
+Waiting for an action server to become available...
+Sending goal:
+behavior_tree: ''
+Goal was rejected.
+--- bt_navigator 상태 / 액션 서버:
+Node not found
+Action: /navigate_to_pose
+Action clients: 0
+Action servers: 0
+Managed nodes are active: 1
+### /behavior_tree_log QoS
+Publisher count: 2
+Node name: bt_navigator_navigate_to_pose_rclcpp_node
+Node namespace: /
+  Reliability: RELIABLE
+  Durability: VOLATILE
+Node name: bt_navigator_navigate_through_poses_rclcpp_node
+### 목표 중 /behavior_tree_log echo
+timestamp:
+  sec: 30
+  nanosec: 510107154
+event_log:
+- timestamp:
+    sec: 1790775118
+    nanosec: 453834780
+  node_name: ComputePathToPose
+  uid: 9
+  previous_status: IDLE
+  current_status: RUNNING
+- timestamp:
+rc(reliable)=0
+timestamp:
+  sec: 33
+  nanosec: 520105351
+event_log:
+rc(default)=0
+goal 결과:
+Goal finished with status: SUCCEEDED
+→ exit=0
+

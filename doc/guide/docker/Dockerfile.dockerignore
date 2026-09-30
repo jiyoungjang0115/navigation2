@@ -1,0 +1,13 @@
+# 이 Dockerfile 전용 무시 목록 (루트 .dockerignore 보다 우선)
+.git
+.github
+.circleci
+.devcontainer
+.omc
+doc
+# 호스트에서 시도한 소스 빌드 산출물
+build
+install
+log
+run_*.sh
+**/__pycache__

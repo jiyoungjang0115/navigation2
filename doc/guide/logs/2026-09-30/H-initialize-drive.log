@@ -1,0 +1,221 @@
+### [H0] 2026-09-30 22:06:31
+$ echo "초기 자세 전 코스트맵 대기 로그: $(docker logs nav2 2>&1 | grep -c "Timed out waiting for transform from base_link to map")줄"; docker logs nav2 2>&1 | grep -c "Managed nodes are active" | sed "s/^/Managed nodes are active: /"
+초기 자세 전 코스트맵 대기 로그: 122줄
+Managed nodes are active: 0
+→ exit=0
+
+### [H1] 2026-09-30 22:06:31
+$ docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}}}" 2>&1 | tail -4
+publishing #1: geometry_msgs.msg.PoseWithCovarianceStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='map'), pose=geometry_msgs.msg.PoseWithCovariance(pose=geometry_msgs.msg.Pose(position=geometry_msgs.msg.Point(x=-2.0, y=-0.5, z=0.0), orientation=geometry_msgs.msg.Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)), covariance=array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+       0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+       0., 0.])))
+
+→ exit=0
+
+### [H2] 2026-09-30 22:06:38
+$ sleep 12; docker logs nav2 2>&1 | grep -E "Received initial pose|Managed nodes are active|Creating bond timer|Failed to activate|Failed to bring up|CRITICAL|Aborting" | cut -c1-200
+[planner_server-7] [ERROR] [1790773411.211109213] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_link to map did not become available before timeout
+[lifecycle_manager-16] [ERROR] [1790773411.212669325] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[loopback_simulator-2] [INFO] [1790773592.873522845] [loopback_simulator]: Received initial pose!
+→ exit=0
+
+### [H3] 2026-09-30 22:06:50
+$ docker exec nav2 nav2env bash -c "for n in map_server controller_server smoother_server planner_server route_server behavior_server velocity_smoother collision_monitor bt_navigator waypoint_follower docking_server following_server; do printf \"%-20s\" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done"
+map_server          active [3]
+controller_server   active [3]
+smoother_server     active [3]
+planner_server      inactive [2]
+route_server        inactive [2]
+behavior_server     inactive [2]
+velocity_smoother   inactive [2]
+collision_monitor   inactive [2]
+bt_navigator        inactive [2]
+waypoint_follower   inactive [2]
+docking_server      inactive [2]
+following_server    inactive [2]
+→ exit=0
+
+### [H4] 2026-09-30 22:07:27
+$ docker exec nav2 nav2env ros2 service call /lifecycle_manager_nav2/is_active std_srvs/srv/Trigger 2>&1 | tail -2; echo "--- STARTUP(0) 재시도"; docker exec nav2 nav2env ros2 service call /lifecycle_manager_nav2/manage_nodes nav2_msgs/srv/ManageLifecycleNodes "{command: 0}" 2>&1 | tail -2; docker logs nav2 2>&1 | tail -n 12 | grep -E "lifecycle_manager|planner_server|Failed|active" | cut -c1-200
+std_srvs.srv.Trigger_Response(success=False, message='')
+
+--- STARTUP(0) 재시도
+nav2_msgs.srv.ManageLifecycleNodes_Response(success=False)
+
+[lifecycle_manager-16] [INFO] [1790773652.571556440] [lifecycle_manager_nav2]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773652.571629820] [lifecycle_manager_nav2]: [34m[1mConfiguring map_server[0m[0m
+[map_server-4] [WARN] [1790773652.572184591] [rcl_lifecycle]: No transition matching 1 found for current state active
+[map_server-4] [WARN] [1790773652.572213760] [rcl_lifecycle]: No transition matching 1 found for current state active
+[map_server-4] [ERROR] [1790773652.572227046] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [ERROR] [1790773652.572921774] [lifecycle_manager_nav2]: Failed to change state for node: map_server
+[lifecycle_manager-16] [ERROR] [1790773652.572971040] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+→ exit=0
+
+### [H5] 2026-09-30 22:07:38
+$ docker exec nav2 nav2env ros2 service call /lifecycle_manager_nav2/manage_nodes nav2_msgs/srv/ManageLifecycleNodes "{command: 3}" 2>&1 | tail -1; docker logs nav2 2>&1 | grep -E "lifecycle_manager_nav2.*(Resetting|Failed to reset|have been reset|aborting reset)" | tail -3 | cut -c1-200; echo "--- 이후 상태"; docker exec nav2 nav2env bash -c "for n in map_server controller_server planner_server bt_navigator; do printf \"%-18s\" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done"
+
+[lifecycle_manager-16] [INFO] [1790773660.916627958] [lifecycle_manager_nav2]: [34m[1mResetting managed nodes...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773661.579859602] [lifecycle_manager_nav2]: [34m[1mManaged nodes have been reset[0m[0m
+--- 이후 상태
+map_server        unconfigured [1]
+controller_server unconfigured [1]
+planner_server    unconfigured [1]
+bt_navigator      unconfigured [1]
+→ exit=0
+
+### [H6] 2026-09-30 22:07:51
+$ docker exec nav2 nav2env ros2 service call /lifecycle_manager_nav2/manage_nodes nav2_msgs/srv/ManageLifecycleNodes "{command: 0}" 2>&1 | tail -1; docker logs nav2 2>&1 | grep -E "Managed nodes are active|Creating bond timer|Failed to|Aborting" | tail -4 | cut -c1-200; echo "--- is_active"; docker exec nav2 nav2env ros2 service call /lifecycle_manager_nav2/is_active std_srvs/srv/Trigger 2>&1 | tail -1
+
+[lifecycle_manager-16] [ERROR] [1790773652.572921774] [lifecycle_manager_nav2]: Failed to change state for node: map_server
+[lifecycle_manager-16] [ERROR] [1790773652.572971040] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[lifecycle_manager-16] [ERROR] [1790773673.121322881] [lifecycle_manager_nav2]: Failed to change state for node: collision_monitor
+[lifecycle_manager-16] [ERROR] [1790773673.121354016] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+--- is_active
+
+→ exit=0
+
+### [H7] 2026-09-30 22:07:55
+$ docker exec nav2 nav2env bash -c "for n in map_server controller_server smoother_server planner_server route_server behavior_server velocity_smoother collision_monitor bt_navigator waypoint_follower docking_server following_server; do printf \"%-20s\" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done"
+map_server          inactive [2]
+controller_server   inactive [2]
+smoother_server     inactive [2]
+planner_server      inactive [2]
+route_server        inactive [2]
+behavior_server     inactive [2]
+velocity_smoother   inactive [2]
+collision_monitor   unconfigured [1]
+bt_navigator        unconfigured [1]
+waypoint_follower   unconfigured [1]
+docking_server      unconfigured [1]
+following_server    unconfigured [1]
+→ exit=0
+
+### [H8] 2026-09-30 22:08:27
+$ docker logs nav2 2>&1 | grep "collision_monitor" | grep -vE "rviz" | tail -14 | cut -c1-260
+[collision_monitor-13] [ERROR] [1790773660.921150718] [collision_monitor]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773661.505595033] [lifecycle_manager_nav2]: [34m[1mCleaning up collision_monitor[0m[0m
+[collision_monitor-13] [INFO] [1790773661.505818175] [collision_monitor]: Cleaning up
+[collision_monitor-13] [INFO] [1790773661.507847738] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[collision_monitor-13] [INFO] [1790773661.508196670] [collision_monitor]: [scan]: Destroying Scan
+[lifecycle_manager-16] [INFO] [1790773673.117787758] [lifecycle_manager_nav2]: [34m[1mConfiguring collision_monitor[0m[0m
+[collision_monitor-13] [INFO] [1790773673.117873302] [collision_monitor]: Configuring
+[collision_monitor-13] [INFO] [1790773673.118725358] [collision_monitor]: [scan]: Creating Scan
+[collision_monitor-13] [INFO] [1790773673.120087586] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[collision_monitor-13] [ERROR] [1790773673.120116469] [collision_monitor]: Error while getting parameters: parameter 'FootprintApproach.points' is not initialized
+[collision_monitor-13] [INFO] [1790773673.120138825] [collision_monitor]: Cleaning up
+[collision_monitor-13] [INFO] [1790773673.120144977] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[collision_monitor-13] [INFO] [1790773673.120150406] [collision_monitor]: [scan]: Destroying Scan
+[lifecycle_manager-16] [ERROR] [1790773673.121322881] [lifecycle_manager_nav2]: Failed to change state for node: collision_monitor
+→ exit=0
+
+### [H9] 2026-09-30 22:09:06
+$ docker rm -f nav2 >/dev/null; docker run -d --name nav2 --hostname "$(hostname)" -e DISPLAY -e XAUTHORITY=/root/.Xauthority -v "$HOME/.Xauthority:/root/.Xauthority:ro" -v /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py use_composition:=False >/dev/null; echo "기동 $(date +%T)"; sleep 8; docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}}}" 2>&1 | grep -c "publishing #1" | sed "s/^/발행 성공: /"; echo "발행 $(date +%T)"; sleep 15; docker logs nav2 2>&1 | grep -E "Received initial pose|Managed nodes are active|Failed to (activate|bring up)|Creating bond timer" | cut -c1-190
+기동 22:09:06
+발행 성공: 1
+발행 22:09:16
+[loopback_simulator-2] [INFO] [1790773756.062170279] [loopback_simulator]: Received initial pose!
+[lifecycle_manager-16] [INFO] [1790773759.907595035] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-16] [INFO] [1790773759.907625382] [lifecycle_manager_nav2]: [34m[1mCreating bond timer...[0m[0m
+→ exit=0
+
+### [H10] 2026-09-30 22:09:39
+$ docker exec nav2 nav2env bash -c "for n in map_server controller_server smoother_server planner_server route_server behavior_server velocity_smoother collision_monitor bt_navigator waypoint_follower docking_server following_server; do printf \"%-20s\" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done; ros2 service call /lifecycle_manager_nav2/is_active std_srvs/srv/Trigger 2>&1 | tail -1"
+map_server          active [3]
+controller_server   active [3]
+smoother_server     active [3]
+planner_server      active [3]
+route_server        active [3]
+behavior_server     active [3]
+velocity_smoother   active [3]
+collision_monitor   active [3]
+bt_navigator        active [3]
+waypoint_follower   active [3]
+docking_server      active [3]
+following_server    active [3]
+
+→ exit=0
+
+### [H11] 2026-09-30 22:10:03
+$ docker exec nav2 nav2env bash -c "echo == map-base_footprint; timeout -k 1 6 ros2 run tf2_ros tf2_echo map base_footprint 2>&1 | grep -E \"Translation|At time\" | head -2; echo == map-odom; timeout -k 1 6 ros2 run tf2_ros tf2_echo map odom 2>&1 | grep -E \"Translation|At time\" | head -2; for t in /odom /scan /global_costmap/costmap /local_costmap/costmap; do printf \"%-24s\" \$t; timeout -k 1 6 ros2 topic hz \$t -w 5 2>&1 | grep -E \"average rate\" | tail -1; echo; done"
+== map-base_footprint
+At time 57.60176017
+- Translation: [-2.000, -0.500, 0.000]
+== map-odom
+At time 63.240138777
+- Translation: [-2.000, -0.500, 0.000]
+/odom                   average rate: 49.845
+
+/scan                   average rate: 9.842
+
+/global_costmap/costmap average rate: 0.800
+
+/local_costmap/costmap  average rate: 1.667
+
+→ exit=0
+
+### [H12] 2026-09-30 22:10:54
+$ docker exec nav2 nav2env ros2 topic echo /odom --once --field pose.pose.position 2>&1 | tr "\n" " "; echo "(출발 전 odom)"; docker exec nav2 nav2env ros2 action send_goal /navigate_to_pose nav2_msgs/action/NavigateToPose "{pose: {header: {frame_id: map}, pose: {position: {x: 1.5, y: 0.5, z: 0.0}, orientation: {w: 1.0}}}}" --feedback > /tmp/nav2-goal.out 2>&1 &
+sleep 6; for t in /plan /cmd_vel_nav /cmd_vel_smoothed /cmd_vel; do printf "%-18s" $t; docker exec nav2 nav2env timeout -k 1 5 ros2 topic hz $t -w 5 2>&1 | grep -E "average rate" | tail -1; echo; done; docker exec nav2 nav2env ros2 topic echo /odom --once --field pose.pose.position 2>&1 | tr "\n" " "; echo "(주행 중 odom)"; docker exec nav2 nav2env ros2 topic echo /cmd_vel --once --field twist.linear 2>&1 | tr "\n" " "; echo "(cmd_vel)"; wait; echo "=== 액션 출력 (앞 6줄 / 마지막 8줄)"; grep -v "^$" /tmp/nav2-goal.out | head -6 | cut -c1-200; echo ...; grep -v "^$" /tmp/nav2-goal.out | tail -8 | cut -c1-200
+x: 0.0 y: 0.0 z: 0.0 --- (출발 전 odom)
+/plan             
+/cmd_vel_nav      average rate: 19.648
+
+/cmd_vel_smoothed 
+/cmd_vel          
+x: 3.277663862393721 y: 0.9975802683332251 z: 0.0 --- (주행 중 odom)
+→ exit=124
+
+### [H13] 2026-09-30 22:12:57
+$ grep -v "^$" /tmp/nav2-goal.out | head -8 | cut -c1-220; echo ...; grep -v "^$" /tmp/nav2-goal.out | tail -10 | cut -c1-220; echo; echo "피드백 수: $(grep -c "distance_remaining" /tmp/nav2-goal.out)"
+Waiting for an action server to become available...
+Sending goal:
+     pose:
+  header:
+    stamp:
+      sec: 0
+      nanosec: 0
+    frame_id: map
+...
+  sec: 1
+  nanosec: 155216399
+number_of_recoveries: 0
+distance_remaining: 0.2914215922355652
+position_tracking_error: 0.0017675692215561867
+heading_tracking_error: -0.009441357105970383
+Result:
+    error_code: 0
+error_msg: ''
+Goal finished with status: SUCCEEDED
+
+피드백 수: 1368
+→ exit=0
+
+### [H14] 2026-09-30 22:13:22
+$ docker exec nav2 nav2env bash /tmp/chain.sh
+/plan              
+/cmd_vel_nav       average rate: 20.715
+/cmd_vel_smoothed  average rate: 20.018
+/cmd_vel           average rate: 20.005
+/odom              average rate: 54.263
+collision_monitor_state 메시지: 0
+cmd_vel 샘플:
+x: 0.31605473160743713 y: 0.0 z: 0.0 --- 
+odom 샘플:
+A message was lost!!! 	total count change:6752 	total count: 6752--- x: 0.5404410020892597 y: 1.14685054372044 z: 0.0 --- 
+=== 결과
+number_of_recoveries: 0
+    error_code: 0
+Goal finished with status: SUCCEEDED
+피드백 수: 1743
+→ exit=0
+
+### [H15] 2026-09-30 22:14:00
+$ echo "목표 2개 후 planner 계산 횟수: $(docker logs nav2 2>&1 | grep -c "Computing path to goal")"; docker exec nav2 nav2env ros2 topic echo /odom --once --field pose.pose.position 2>&1 | tr "\n" " "; echo "(현재 odom)"; docker exec nav2 nav2env bash -c "ros2 action send_goal /navigate_to_pose nav2_msgs/action/NavigateToPose \"{pose: {header: {frame_id: map}, pose: {position: {x: 1.5, y: -1.5, z: 0.0}, orientation: {w: 1.0}}}}\" --feedback 2>&1 | grep -E \"Goal finished|error_code|number_of_recoveries\" | tail -3"; echo "목표 3개 후 planner 계산 횟수: $(docker logs nav2 2>&1 | grep -c "Computing path to goal")"
+목표 2개 후 planner 계산 횟수: 5
+x: 0.47610591765600524 y: 1.9357521257201875 z: 0.0 --- (현재 odom)
+number_of_recoveries: 0
+    error_code: 0
+Goal finished with status: SUCCEEDED
+목표 3개 후 planner 계산 횟수: 11
+→ exit=0
+

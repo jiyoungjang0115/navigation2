@@ -1,0 +1,31 @@
+### [J0] 2026-09-30 22:17:10
+$ docker exec -i nav2 nav2env python3 - --ros-args -p use_sim_time:=true < /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav_goal.py 2>&1 | grep -vE "^$" | cut -c1-160 | head -40
+[INFO] [1790774236.247938435] [basic_navigator]: Nav2 is ready for use!
+[INFO] [1790774236.248550382] [basic_navigator]: Navigating to goal: 1.5 0.5...
+distance_remaining 4.32
+distance_remaining 3.79
+distance_remaining 3.17
+distance_remaining 2.34
+distance_remaining 1.44
+distance_remaining 0.72
+result TaskResult.SUCCEEDED error_code (0, '')
+→ exit=0
+
+### [J1] 2026-09-30 22:18:53
+$ docker rm -f nav2 >/dev/null; docker run -d --name nav2 nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py use_rviz:=False use_composition:=False >/dev/null; echo "기동 $(date +%T) (X11 마운트 없음, RViz 없음)"; sleep 8; docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}}}" 2>&1 | grep -c "publishing #1" | sed "s/^/초기 자세 발행: /"; sleep 14; docker logs nav2 2>&1 | grep -E "Received initial pose|Managed nodes are active|Failed to (activate|bring up)|process has died" | cut -c1-170; echo "프로세스 수: $(docker logs nav2 2>&1 | grep -c "process started") / rviz2: $(docker logs nav2 2>&1 | grep -c "rviz2")"
+기동 22:18:53 (X11 마운트 없음, RViz 없음)
+초기 자세 발행: 1
+[loopback_simulator-2] [INFO] [1790774344.702859915] [loopback_simulator]: Received initial pose!
+[lifecycle_manager-15] [INFO] [1790774348.526744370] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+프로세스 수: 15 / rviz2: 0
+→ exit=0
+
+### [J2] 2026-09-30 22:19:27
+$ docker rm -f nav2 >/dev/null; docker run -d --name nav2 nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py use_rviz:=False use_composition:=False >/dev/null; sleep 10; echo "초기 자세 없이 스크립트 실행 (45초 제한):"; ( docker exec -i nav2 nav2env timeout -k 2 45 python3 - --ros-args -p use_sim_time:=true < /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav_goal.py 2>&1 | grep -vE "^$" | cut -c1-150 | head -6; echo "스크립트 rc=${PIPESTATUS[0]}" ); echo "--- 그 사이 매니저 상태:"; docker logs nav2 2>&1 | grep -cE "Managed nodes are active" | sed "s/^/Managed nodes are active: /"
+초기 자세 없이 스크립트 실행 (45초 제한):
+[INFO] [1790774379.519414901] [basic_navigator]: loopback_simulator/get_state service not available, waiting...
+스크립트 rc=137
+--- 그 사이 매니저 상태:
+Managed nodes are active: 0
+→ exit=0
+

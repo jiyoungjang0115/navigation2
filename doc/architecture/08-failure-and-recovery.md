@@ -77,7 +77,7 @@ BT 액션 노드는 결과를 출력 포트 `error_code_id`, `error_msg`에 씁�
 
 | 코드 | 이유 |
 | --- | --- |
-| 205 `START_OCCUPIED`, 206 `GOAL_OCCUPIED` | 코스트맵 clear나 회전으로 해결되지 않는다고 보는 설계. 목표를 장애물 위에 찍으면 복구 없이 실패 |
+| 205 `START_OCCUPIED`, 206 `GOAL_OCCUPIED` | 코스트맵 clear나 회전으로 해결되지 않는다고 보는 설계. 다만 **NavFn은 `tolerance`(0.5 m) 안의 자유 셀로 목표를 대체**해서, 목표가 막혀 있어도 근처에 자유 셀이 있으면 206이 나지 않고 성공합니다. tb3_sandbox에서는 기둥 `(1,1)`을 찍어도 `SUCCEEDED`(복구 0)였습니다([가이드 04 §4](../guide/04-initialize-and-drive.md#4-실패-케이스-실측)) |
 | 203/204 `*_OUTSIDE_MAP` | 동상 |
 | 102/202 `TF_ERROR` | 측위·TF 문제는 로봇을 움직여도 해결되지 않음 |
 | 101/201 `INVALID_*` | 설정 오류 |
@@ -232,7 +232,8 @@ RViz의 `goal_pose` 토픽(2D Goal Pose)은 `onGoalPoseReceived()`가 받아 자
 | --- | --- | --- |
 | 스캔이 끊김 (기본 설정) | collision monitor가 1 s 뒤 STOP → 10 s 뒤 105 → clear/spin 반복 | 센서. 결과 코드가 원인을 가림 |
 | 스캔이 끊김 (`expected_update_rate` 설정) | 107 → 복구 없이 실패 | 센서 |
-| 목표가 벽 안쪽 | 206 → 복구 없이 실패 | 목표 선택, keepout |
+| 목표가 벽 안쪽 | 반경 0.5 m 안에 자유 셀이 없을 때만 206 → 복구 없이 실패. 작은 기둥·얇은 벽은 대체 셀로 성공 | 목표 선택, keepout |
+| 시작점이 기둥·벽 위 (잘못된 초기 자세) | **205가 아니라 208**, 복구 8번 뒤 실패 (실측) | 초기 자세 |
 | AMCL이 틀린 곳에 수렴 | 계획은 성공하고 제어는 105 → clear/spin 반복 | 측위. `initialpose`를 다시 줘야 함 |
 | collision monitor가 정지 | 제어기는 속도를 계속 냄 → 10 s 뒤 105 | 모니터 폴리곤, 센서 높이 필터 |
 | 복구 spin이 충돌 예측 | 703 → RoundRobin이 wait로 넘어감. 재시도 한 번을 소모 | 좁은 공간. spin을 빼거나 backup을 앞에 둔 트리 |

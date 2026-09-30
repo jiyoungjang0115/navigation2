@@ -1,0 +1,107 @@
+### [D0] 2026-09-30 21:44:10
+$ docker --version; docker compose version 2>&1 | head -1; id -nG | tr " " "\n" | grep -E "^docker$" || echo "docker 그룹 아님"; docker info 2>&1 | grep -E "Server Version|Storage Driver|Runtimes|Cgroup Version|permission denied|Cannot connect" | head -6; docker images 2>&1 | head -8
+Docker version 29.6.1, build 8900f1d
+Docker Compose version v5.3.1
+docker
+ Server Version: 29.6.1
+ Storage Driver: overlay2
+ Cgroup Version: 2
+ Runtimes: io.containerd.runc.v2 nvidia runc
+IMAGE                                                ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpine:latest                                        1991bd789d71       8.66MB             0B        
+camandel/django-wiki:latest                          c7db0e9b15a1        196MB             0B   U    
+filebrowser/filebrowser:latest                       e74490ae34c4       34.1MB             0B   U    
+ghcr.io/autowarefoundation/autoware:universe-jazzy   589ec7e599f2       8.03GB             0B        
+hello-world:latest                                   74cc54e27dc4       10.1kB             0B        
+hugo/swiri_serverless_v1:latest                      aac8d7f58ba0       15.6GB             0B   U    
+jenkins/jenkins:jdk11                                9287960b6b5d        470MB             0B   U    
+→ exit=0
+
+### [D1] 2026-09-30 21:44:10
+$ df -h /var/lib/docker 2>&1 | tail -1; ls Dockerfile* .dockerignore 2>&1 | head; ls doc/devops/03-docker-images.md
+/dev/nvme0n1p7  1.6T  298G  1.2T   21% /
+.dockerignore
+Dockerfile
+doc/devops/03-docker-images.md
+→ exit=0
+
+### [D2] 2026-09-30 21:44:33
+$ docker manifest inspect ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard 2>&1 | head -12; echo ---; docker manifest inspect ros:jazzy 2>&1 | grep -E "architecture|digest" | head -4
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.oci.image.index.v1+json",
+   "manifests": [
+      {
+         "mediaType": "application/vnd.oci.image.manifest.v1+json",
+         "size": 3355,
+         "digest": "sha256:cb4641755e5454a2b181b3c3528bb807dc58a16849874569515d53f3fdc9823b",
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+---
+         "digest": "sha256:efbc8cb259b6346f1c8944ffd49d3fbffd647116ec05006df8b36444a13b7bdf",
+            "architecture": "amd64",
+         "digest": "sha256:db8c8b5afe2132072734b362953fd1f91a2440301fae5914ba0ed1447f3d0690",
+            "architecture": "unknown",
+→ exit=0
+
+### [D3] 2026-09-30 21:44:53
+$ git log --oneline -8 -- .github/workflows/build_main_against_distros.yml; echo ---; git log -S"nav2_loopback_sim navigation2" --oneline -- .github/workflows/build_main_against_distros.yml | head -3; echo --- package_skips; grep -rn "packages-skip\|packages-ignore" .circleci/config.yml .github/workflows/*.yml | cut -c1-200 | head -8
+d6520554 Lyrical branch off process   (#6293)
+7e382cb7 OMPL and Qt API update, bump cmake minimum version requirement (#6136)
+536c5619 🛠️ Bump actions/checkout from 6 to 7 (#6215)
+e427671b Comment out rosdep update and pin Rviz version to 15.2.1 (#6116)
+67355ead Replace nav2_msgs::msg::Trajectory with nav_msgs::msg::Trajectory (#5976)
+826f1d52 Using underlay workspace in github actions build against existing distro jobs (#6069)
+5429a681 🛠️ Bump actions/checkout from 5 to 6 (#5702)
+2a377c36 🛠️ Bump actions/checkout from 4 to 5 (#5445)
+---
+23efde4c Save 2 minutes in Main-Jazzy build times to align with other CI job lengths (#5169)
+--- package_skips
+.circleci/config.yml:164:                        --packages-skip-build-finished \
+.circleci/config.yml:191:                          --packages-skip-regex << parameters.packages_skip_regex >> \
+.circleci/config.yml:255:                  --packages-skip-test-passed \
+.circleci/config.yml:282:                    --packages-skip-regex << parameters.packages_skip_regex >> \
+.circleci/config.yml:293:                    --packages-skip-regex << parameters.packages_skip_regex >> )
+.github/workflows/build_main_against_distros.yml:46:        RUN . /opt/ros/${{ matrix.ros_distro }}/setup.sh && colcon build --packages-skip nav2_system_tests nav2_bringup nav2_simple_commander nav2_l
+→ exit=0
+
+### [D4] 2026-09-30 21:45:07
+$ docker pull ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard 2>&1 | tail -6; docker image inspect ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard --format "id={{.Id}} size={{.Size}} created={{.Created}} digest={{index .RepoDigests 0}}"
+49436a1431fe: Pull complete
+583a0d4c4dc3: Pull complete
+081c44cfe359: Pull complete
+Digest: sha256:e96ec1270daead1bb205de5a38d98ebb25624e78f34bc2e4a245af60c280ba41
+Status: Downloaded newer image for ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard
+ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard
+id=sha256:ceed0bbb8889b13f48a789287d8e5353ea4f3ce0e4fc93d3271f4e8e2444205d size=5252316507 created=2026-09-29T14:21:29.772916124Z digest=ghcr.io/ros-navigation/nav2_docker@sha256:e96ec1270daead1bb205de5a38d98ebb25624e78f34bc2e4a245af60c280ba41
+→ exit=0
+
+### [D5] 2026-09-30 21:47:24
+$ docker run --rm ghcr.io/ros-navigation/nav2_docker:jazzy-nightly-standard bash -c "source /opt/ros/jazzy/setup.bash; echo ROS_DISTRO=\$ROS_DISTRO user=\$(whoami) py=\$(python3 --version) arch=\$(uname -m); for t in colcon rosdep vcs git ccache rviz2 gz; do printf \"%-8s %s\n\" \$t \"\$(command -v \$t || echo -)\"; done; echo --- nav2 pkgs; ros2 pkg list | grep -cE \"^nav2_|^navigation2\"; ros2 pkg list | grep -E \"^(nav2_minimal_tb3_sim|nav2_bringup|behaviortree_cpp|slam_toolbox|rviz2|ros_gz_sim)\$\"; echo --- dpkg; dpkg -l | grep -E \"ros-jazzy-(behaviortree|nav2-minimal|rviz2|bond|robot-local)\" | awk \"{print \\\$2,\\\$3}\"; cat /etc/os-release | grep PRETTY; ls /opt | head; env | grep -E \"^(RMW|ROS_|AMENT_PREFIX)\" | head"
+ROS_DISTRO=jazzy user=root py=Python 3.12.3 arch=x86_64
+colcon   /usr/bin/colcon
+rosdep   /usr/bin/rosdep
+vcs      /usr/bin/vcs
+git      /usr/bin/git
+ccache   -
+rviz2    /opt/ros/jazzy/bin/rviz2
+gz       /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz
+--- nav2 pkgs
+3
+behaviortree_cpp
+nav2_minimal_tb3_sim
+ros_gz_sim
+rviz2
+--- dpkg
+ros-jazzy-rviz2 14.1.22-1noble.20260615.174609
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+ros
+ROS_VERSION=2
+ROS_PYTHON_VERSION=3
+AMENT_PREFIX_PATH=/opt/ros/jazzy
+ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+ROS_DISTRO=jazzy
+→ exit=0
+

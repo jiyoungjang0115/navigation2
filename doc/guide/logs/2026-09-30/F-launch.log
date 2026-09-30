@@ -1,0 +1,213 @@
+### [F0] 2026-09-30 21:54:41
+$ ls -d /dev/dri 2>&1; docker ps -a --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; echo "(위가 비어 있으면 이름 충돌 없음)"
+/dev/dri
+(위가 비어 있으면 이름 충돌 없음)
+→ exit=0
+
+### [F1] 2026-09-30 21:54:41
+$ docker run -d --name nav2 --hostname "$(hostname)" -e DISPLAY -e XAUTHORITY=/root/.Xauthority -v "$HOME/.Xauthority:/root/.Xauthority:ro" -v /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py; docker ps --filter name=^nav2$ --format "{{.ID}} {{.Names}} {{.Status}}"
+0b4b0cb433a7271b9cedcc998fefa64ae3350c0620b9bb062151c5c7960d625d
+0b4b0cb433a7 nav2 Up Less than a second
+→ exit=0
+
+### [F2] 2026-09-30 21:54:48
+$ sleep 25; docker ps --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; echo "--- 핵심 로그"; docker logs nav2 2>&1 | grep -E "Loopback simulator activated|Sim clock|Laser scan will be|Timed out waiting for transform|Managed nodes are active|Received initial pose|Failed to|process has died|rviz2|X11|cannot open display|Could not connect" | cut -c1-190 | head -20; echo "--- 줄 수: $(docker logs nav2 2>&1 | wc -l)"
+nav2 Up 31 seconds
+--- 핵심 로그
+[INFO] [rviz2-3]: process started with pid [53]
+[rviz2-3] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[loopback_simulator-2] [INFO] [1790772883.390929612] [loopback_simulator]: Sim clock publisher started (resolution: 0.010s, speed: 1.00x)
+[loopback_simulator-2] [INFO] [1790772883.391635320] [loopback_simulator]: Loopback simulator activated
+[rviz2-3] [INFO] [1790772883.641266245] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-3] [INFO] [1790772883.641299120] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-3] [INFO] [1790772883.665580678] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-3] [INFO] [1790772883.738273799] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.738498532] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.748942787] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.751648123] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.761125998] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.762597150] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790772883.763517659] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+--- 줄 수: 83
+→ exit=0
+
+### [F3] 2026-09-30 21:55:23
+$ docker logs nav2 2>&1 | grep -vE "rviz|Subscribing|^\[rviz2-3\] *$" | grep -E "Timed out waiting|Checking transform|Managed nodes|Received initial|Failed to|Configuring|Activating|Server .* connected with bond|Starting managed|lifecycle_manager|Loopback|Laser scan|Creating bond" | cut -c1-200 | head -30
+[loopback_simulator-2] [INFO] [1790772883.384850701] [loopback_simulator]: Configuring
+[loopback_simulator-2] [INFO] [1790772883.390905389] [loopback_simulator]: Activating
+[loopback_simulator-2] [INFO] [1790772883.390934501] [loopback_simulator]: Creating bond (loopback_simulator) to lifecycle manager.
+[loopback_simulator-2] [INFO] [1790772883.391635320] [loopback_simulator]: Loopback simulator activated
+[component_container-4] [INFO] [1790772883.399825223] [nav2_container]: Load Library: /opt/overlay_ws/install/nav2_lifecycle_manager/lib/libnav2_lifecycle_manager_core.so
+[component_container-4] [INFO] [1790772883.401106802] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container-4] [INFO] [1790772883.401116072] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container-4] [INFO] [1790772883.404051869] [lifecycle_manager_nav2]: Creating
+[component_container-4] [INFO] [1790772883.404243225] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_nav2' in container '/nav2_container'
+[component_container-4] [INFO] [1790772883.404514844] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[component_container-4] [INFO] [1790772885.405694200] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772887.405952528] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772889.406184870] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772891.406414111] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772893.406655989] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772895.406865307] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772897.407075505] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772899.407307300] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772901.407553509] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772903.407755822] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772905.407963832] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772907.408192968] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772909.408505021] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772911.408767608] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772913.408991329] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772915.409306998] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772917.409589445] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772919.409827038] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+[component_container-4] [INFO] [1790772921.410039723] [lifecycle_manager_nav2]: Waiting for service smoother_server/get_state...
+→ exit=0
+
+### [F4] 2026-09-30 21:55:23
+$ docker exec nav2 nav2env bash -c "for n in map_server controller_server planner_server bt_navigator; do printf \"%-18s \" \$n; ros2 lifecycle get /\$n 2>&1 | head -1; done"
+map_server         → exit=124
+
+### [F5] 2026-09-30 21:57:39
+$ docker logs nav2 > /tmp/nav2-launch-full.log 2>&1; wc -l /tmp/nav2-launch-full.log; echo "--- Loaded/Failed node"; grep -E "Loaded node|Failed to load|failed to load|Could not|ERROR|FATAL|died|exception|terminate|Segmentation|symbol lookup|cannot open shared" /tmp/nav2-launch-full.log | grep -v rviz | cut -c1-230 | head -25
+155 /tmp/nav2-launch-full.log
+--- Loaded/Failed node
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/map_server' in container '/nav2_container'
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/controller_server' in container '/nav2_container'
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_nav2' in container '/nav2_container'
+→ exit=0
+
+### [F6] 2026-09-30 21:57:45
+$ grep -vE "rviz|Subscribing|^\[rviz2-3\] *$|Waiting for service smoother" /tmp/nav2-launch-full.log | sed -n "1,60p" | cut -c1-240
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-30-12-54-42-472845-HUGO-AI-1
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_state_publisher-1]: process started with pid [51]
+[INFO] [loopback_simulator-2]: process started with pid [52]
+[INFO] [component_container-4]: process started with pid [54]
+[robot_state_publisher-1] [INFO] [1790772883.172619995] [robot_state_publisher]: Robot initialized
+[loopback_simulator-2] [INFO] [1790772883.174376107] [loopback_simulator]: 
+[loopback_simulator-2] 	loopback_simulator lifecycle node launched. 
+[loopback_simulator-2] 	Waiting on external lifecycle transitions to activate
+[loopback_simulator-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container-4] [INFO] [1790772883.345096073] [nav2_container]: Load Library: /opt/overlay_ws/install/nav2_map_server/lib/libmap_server_core.so
+[component_container-4] [INFO] [1790772883.380100594] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::CostmapFilterInfoServer>
+[component_container-4] [INFO] [1790772883.380124753] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapSaver>
+[component_container-4] [INFO] [1790772883.380127708] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container-4] [INFO] [1790772883.380130070] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container-4] [INFO] [1790772883.384040777] [map_server]: 
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/map_server' in container '/nav2_container'
+[component_container-4] 	map_server lifecycle node launched. 
+[component_container-4] 	Waiting on external lifecycle transitions to activate
+[component_container-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container-4] [INFO] [1790772883.384052803] [map_server]: Creating
+[component_container-4] [INFO] [1790772883.384315397] [nav2_container]: Load Library: /opt/overlay_ws/install/nav2_controller/lib/libcontroller_server_core.so
+[loopback_simulator-2] [INFO] [1790772883.384850701] [loopback_simulator]: Configuring
+[component_container-4] [INFO] [1790772883.387842715] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container-4] [INFO] [1790772883.387852330] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container-4] [INFO] [1790772883.390499208] [controller_server]: 
+[component_container-4] 	controller_server lifecycle node launched. 
+[component_container-4] 	Waiting on external lifecycle transitions to activate
+[component_container-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[loopback_simulator-2] [INFO] [1790772883.390905389] [loopback_simulator]: Activating
+[loopback_simulator-2] [INFO] [1790772883.390929612] [loopback_simulator]: Sim clock publisher started (resolution: 0.010s, speed: 1.00x)
+[loopback_simulator-2] [INFO] [1790772883.390934501] [loopback_simulator]: Creating bond (loopback_simulator) to lifecycle manager.
+[loopback_simulator-2] [INFO] [1790772883.391635320] [loopback_simulator]: Loopback simulator activated
+[component_container-4] [INFO] [1790772883.396434786] [controller_server]: Creating controller server
+[component_container-4] [INFO] [1790772883.399020508] [local_costmap.local_costmap]: 
+[component_container-4] 	local_costmap lifecycle node launched. 
+[component_container-4] 	Waiting on external lifecycle transitions to activate
+[component_container-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container-4] [INFO] [1790772883.399551362] [local_costmap.local_costmap]: Creating Costmap
+[component_container-4] [INFO] [1790772883.399825223] [nav2_container]: Load Library: /opt/overlay_ws/install/nav2_lifecycle_manager/lib/libnav2_lifecycle_manager_core.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/controller_server' in container '/nav2_container'
+[component_container-4] [INFO] [1790772883.401106802] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container-4] [INFO] [1790772883.401116072] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container-4] [INFO] [1790772883.404051869] [lifecycle_manager_nav2]: Creating
+[component_container-4] [INFO] [1790772883.404243225] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_nav2' in container '/nav2_container'
+[component_container-4] [INFO] [1790772883.404514844] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[loopback_simulator-2] [WARN] [1790772883.742405132] [loopback_simulator]: New subscription discovered on topic '/scan', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY
+→ exit=0
+
+### [F7] 2026-09-30 21:58:56
+$ docker rm -f nav2 >/dev/null; docker run -d --name nav2 --hostname "$(hostname)" -e DISPLAY -e XAUTHORITY=/root/.Xauthority -v "$HOME/.Xauthority:/root/.Xauthority:ro" -v /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py >/dev/null; sleep 30; echo "--- run2 Loaded node:"; docker logs nav2 2>&1 | grep -E "Loaded node" | sed "s/.*Loaded node//"; echo "--- waiting lines: $(docker logs nav2 2>&1 | grep -c "Waiting for service")"
+--- run2 Loaded node:
+ '/map_server' in container '/nav2_container'
+ '/controller_server' in container '/nav2_container'
+ '/lifecycle_manager_nav2' in container '/nav2_container'
+--- waiting lines: 14
+→ exit=0
+
+### [F8] 2026-09-30 21:59:42
+$ sed -n 234,246p nav2_bringup/launch/bringup_launch.py
+            Node(
+                condition=IfCondition(use_composition),
+                name=container_name,
+                namespace=namespace,
+                package='rclcpp_components',
+                executable='component_container',
+                parameters=[configured_params, {'autostart': autostart}],
+                arguments=['--isolated', '--executor-type', 'single-threaded',
+                           '--ros-args', '--log-level', log_level],
+                remappings=remappings,
+                output='screen',
+            ),
+            IncludeLaunchDescription(
+→ exit=0
+
+### [F9] 2026-09-30 21:59:42
+$ docker run --rm nav2-guide:jazzy bash -c "ros2 pkg executables rclcpp_components; echo ---; ros2 run rclcpp_components component_container --help 2>&1 | head -20; echo ---; dpkg -s ros-jazzy-rclcpp-components | grep ^Version"
+rclcpp_components component_container
+rclcpp_components component_container_events_cbg
+rclcpp_components component_container_isolated
+rclcpp_components component_container_mt
+---
+→ exit=137
+
+### [F9] 2026-09-30 22:01:57
+$ docker exec nav2 nav2env bash -c "ros2 pkg executables rclcpp_components; echo ---; dpkg -s ros-jazzy-rclcpp-components | grep ^Version; P=\$(ros2 pkg prefix rclcpp_components)/lib/rclcpp_components; for b in component_container component_container_mt component_container_isolated; do echo \"== \$b\"; strings \$P/\$b 2>/dev/null | grep -E \"^--(isolated|executor-type|use_multi_threaded_executor|use_events_executor|thread-num)|single-threaded|multi-threaded|events\" | sort -u | head -8; done"
+rclcpp_components component_container
+rclcpp_components component_container_events_cbg
+rclcpp_components component_container_isolated
+rclcpp_components component_container_mt
+---
+Version: 28.1.21-1noble.20260615.140757
+== component_container
+== component_container_mt
+== component_container_isolated
+→ exit=0
+
+### [F10] 2026-09-30 22:02:08
+$ docker exec nav2 nav2env bash -c "command -v strings || echo strings-없음; P=\$(ros2 pkg prefix rclcpp_components)/lib/rclcpp_components; for b in component_container component_container_isolated component_container_mt; do printf \"%-30s isolated=%s executor-type=%s use_multi_threaded=%s\n\" \$b \$(grep -ac -- \"isolated\" \$P/\$b) \$(grep -ac -- \"executor-type\" \$P/\$b) \$(grep -ac -- \"use_multi_threaded_executor\" \$P/\$b); done; ls \$P; ls /opt/ros/jazzy/lib/librclcpp_components* | head -3; grep -al -- \"executor-type\" /opt/ros/jazzy/lib/librclcpp_components* 2>/dev/null | head -2"
+/usr/bin/strings
+component_container            isolated=0 executor-type=0 use_multi_threaded=0
+component_container_isolated   isolated=0 executor-type=0 use_multi_threaded=0
+component_container_mt         isolated=0 executor-type=0 use_multi_threaded=0
+component_container
+component_container_events_cbg
+component_container_isolated
+component_container_mt
+ls: cannot access '/opt/ros/jazzy/lib/librclcpp_components*': No such file or directory
+→ exit=0
+
+### [F11] 2026-09-30 22:02:27
+$ docker rm -f nav2 >/dev/null; docker run -d --name nav2 --hostname "$(hostname)" -e DISPLAY -e XAUTHORITY=/root/.Xauthority -v "$HOME/.Xauthority:/root/.Xauthority:ro" -v /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri nav2-guide:jazzy ros2 launch nav2_bringup tb3_loopback_simulation_launch.py use_composition:=False >/dev/null; sleep 40; docker ps --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; echo "--- 프로세스 시작 수: $(docker logs nav2 2>&1 | grep -c "process started")"; docker logs nav2 2>&1 | grep -vE "rviz|Subscribing|^\[rviz2-3\] *$" | grep -E "Timed out waiting for transform|Managed nodes|Received initial|Failed to|process has died|Waiting for service|Creating bond timer" | cut -c1-200 | sort | uniq -c | sort -rn | head -8
+nav2 Up 40 seconds
+--- 프로세스 시작 수: 16
+      1 [smoother_server-6] [WARN] [1790773349.277445618] [rclcpp]: Failed to get parameters: smoother_plugins
+      1 [planner_server-7] [WARN] [1790773349.225797716] [rclcpp]: Failed to get parameters: planner_plugins
+      1 [planner_server-7] [INFO] [1790773387.711020107] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+      1 [planner_server-7] [INFO] [1790773387.210991506] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+      1 [planner_server-7] [INFO] [1790773386.711019767] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+      1 [planner_server-7] [INFO] [1790773386.211022327] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+      1 [planner_server-7] [INFO] [1790773385.710993512] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+      1 [planner_server-7] [INFO] [1790773385.211024431] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to 
+→ exit=0
+

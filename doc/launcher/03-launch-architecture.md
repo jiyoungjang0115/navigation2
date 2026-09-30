@@ -97,6 +97,16 @@ SLAM 분기에서는 localization 런치가 `UnlessCondition`으로 빠집니다
 | 노드 적재 | 각 하위 런치의 `LoadComposableNodes` |
 | 매니저 | 같은 컨테이너의 `nav2_lifecycle_manager::LifecycleManager` |
 
+### Jazzy에서는 `True`가 교착한다 (실측)
+
+Jazzy 이미지(`nav2_docker:jazzy` + 이 트리)에서 `use_composition` 기본값(`True`)으로 띄우면 **재현되게(2/2)** 서버가 로드되지 않습니다. `map_server` → `controller_server` → `lifecycle_manager_nav2`까지 로드되고 `smoother_server` 이하는 요청조차 처리되지 않습니다. 매니저의 `LifecycleServiceClient` 생성자가 서비스가 뜰 때까지 블로킹하는데, 컨테이너 실행기 스레드가 그 콜백에 묶이기 때문입니다.
+
+- 런치가 컨테이너에 넘기는 `--isolated --executor-type single-threaded`는 Jazzy의 `component_container` 실행 파일 세 종류에서 문자열이 **검색되지 않았습니다** (`grep -ac` 0). 옵션이 효과가 없어 모든 노드가 단일 스레드를 공유한다고 보면 관측과 맞습니다. Jazzy 소스를 읽어 확정한 것은 아닙니다.
+- 우회는 `use_composition:=False` (노드마다 프로세스). 저장소를 고치지 않아도 됩니다.
+- 저장소 CI의 Jazzy 호환 검사는 `nav2_bringup`을 **빌드 시간 절약** 때문에 건너뛰므로(커밋 `23efde4c`) 이 조합은 CI에서 실행되지 않습니다.
+
+상세: [가이드 02 §3](../guide/02-launch-loopback.md#3-composition을-끄는-이유), 로그 `guide/logs/2026-09-30/F-launch-run1…`.
+
 `False`이면 서버마다 `Node` 프로세스이고, 매니저는 별도 `lifecycle_manager` 실행 파일입니다. `use_respawn`은 이 모드의 프로세스 재시작(지연 2초)에만 런치가 연결합니다. 컴포지션의 사망 감지는 bond 쪽입니다 ([lifecycle_manager](../architecture/common/nav2_lifecycle_manager.md)).
 
 `navigation_launch.py`를 **혼자** 띄우면 기본 `use_composition`이 `False`이고, 컨테이너를 만들지 않습니다. bringup을 통해 들어오면 부모가 `True`를 넘깁니다. 컨테이너 이름만 넘기고 컨테이너 프로세스가 없으면 `LoadComposableNodes`는 붙을 곳이 없습니다.

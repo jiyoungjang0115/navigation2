@@ -1,0 +1,62 @@
+### [L0] 2026-09-30 22:20:43
+$ docker stats --no-stream --format "CPU={{.CPUPerc}} MEM={{.MemUsage}} PIDS={{.PIDs}}" nav2; S=$(date +%s.%N); docker stop nav2 >/dev/null; echo "docker stop 소요: $(echo "$(date +%s.%N) - $S" | bc | cut -c1-5)s"; docker inspect nav2 --format "종료코드={{.State.ExitCode}} OOM={{.State.OOMKilled}}"; docker logs nav2 2>&1 | tail -4 | cut -c1-150
+CPU=51.80% MEM=358.9MiB / 62.5GiB PIDS=289
+docker stop 소요: 10.21s
+종료코드=137 OOM=false
+[planner_server-6] [INFO] [1790774430.978993500] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become avai
+[planner_server-6] [ERROR] [1790774430.979072232] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_link 
+[lifecycle_manager-15] [ERROR] [1790774430.979860748] [lifecycle_manager_nav2]: Failed to change state for node: planner_server
+[lifecycle_manager-15] [ERROR] [1790774430.979929062] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+→ exit=0
+
+### [L1] 2026-09-30 22:20:54
+$ docker rm nav2; docker ps -a --filter ancestor=nav2-guide:jazzy --format "{{.Names}}" | wc -l | sed "s/^/남은 nav2-guide 컨테이너: /"; docker images nav2-guide --format "{{.Repository}}:{{.Tag}} {{.Size}}"; du -sh build install log 2>/dev/null; du -sh /home/hwanjun/projects/navigation2_underlay_ws 2>/dev/null; xhost 2>&1 | head -3
+nav2
+남은 nav2-guide 컨테이너: 0
+nav2-guide:jazzy 6.5GB
+358M	build
+78M	install
+12M	log
+32M	/home/hwanjun/projects/navigation2_underlay_ws
+access control enabled, only authorized clients can connect
+SI:localuser:hwanjun
+→ exit=0
+
+### [L2] 2026-09-30 22:21:10
+$ bash /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/healthy.sh; docker stats --no-stream --format 'CPU={{.CPUPerc}} MEM={{.MemUsage}} PIDS={{.PIDs}}' nav2; S=$(date +%s.%N); docker stop -t 60 nav2 >/dev/null; echo "SIGTERM(docker stop -t 60) 소요: $(echo "$(date +%s.%N) - $S" | bc | cut -c1-5)s"; docker inspect nav2 --format '종료코드={{.State.ExitCode}}'; docker logs nav2 2>&1 | tail -3 | cut -c1-140
+Managed nodes are active: 1
+CPU=86.56% MEM=380.5MiB / 62.5GiB PIDS=291
+SIGTERM(docker stop -t 60) 소요: 60.21s
+종료코드=137
+[lifecycle_manager-15] [INFO] [1790774483.112109644] [lifecycle_manager_nav2]: Server following_server connected with bond.
+[lifecycle_manager-15] [INFO] [1790774483.112191738] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-15] [INFO] [1790774483.112240446] [lifecycle_manager_nav2]: [34m[1mCreating bond timer...[0m[0m
+→ exit=0
+
+### [L3] 2026-09-30 22:22:25
+$ bash /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/healthy.sh; S=$(date +%s.%N); docker kill --signal=SIGINT nav2 >/dev/null; while [ "$(docker inspect -f '{{.State.Running}}' nav2)" = true ]; do sleep 0.2; done; echo "SIGINT(docker kill -s INT) 소요: $(echo "$(date +%s.%N) - $S" | bc | cut -c1-5)s"; docker inspect nav2 --format '종료코드={{.State.ExitCode}}'; docker logs nav2 2>&1 | tail -3 | cut -c1-140; docker rm nav2 >/dev/null
+Managed nodes are active: 1
+SIGINT(docker kill -s INT) 소요: 10.51s
+종료코드=0
+[INFO] [controller_server-4]: sending signal 'SIGKILL' to process[controller_server-4]
+[ERROR] [planner_server-6]: process has died [pid 53, exit code -9, cmd '/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_serve
+[ERROR] [controller_server-4]: process has died [pid 51, exit code -9, cmd '/opt/overlay_ws/install/nav2_controller/lib/nav2_controller/cont
+→ exit=0
+
+### [L4] 2026-09-30 22:23:03
+$ EXTRA=--init bash /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/healthy.sh; S=$(date +%s.%N); docker stop -t 40 nav2 >/dev/null; echo "--init + docker stop 소요: $(echo "$(date +%s.%N) - $S" | bc | cut -c1-5)s"; docker inspect nav2 --format '종료코드={{.State.ExitCode}}'; docker logs nav2 2>&1 | grep -cE 'process has died' | sed 's/^/process has died 줄: /'; docker logs nav2 2>&1 | tail -2 | cut -c1-140; docker rm nav2 >/dev/null
+Managed nodes are active: 1
+--init + docker stop 소요: .2153s
+종료코드=143
+process has died 줄: 0
+[lifecycle_manager-15] [INFO] [1790774596.868962031] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-15] [INFO] [1790774596.869016570] [lifecycle_manager_nav2]: [34m[1mCreating bond timer...[0m[0m
+→ exit=0
+
+### [L5] 2026-09-30 22:32:50
+$ docker ps -a --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; docker logs nav2 > doc/guide/logs/2026-09-30/F-launch-run5-replay.log 2>&1; wc -l doc/guide/logs/2026-09-30/F-launch-run5-replay.log; docker stop nav2 >/dev/null && docker rm nav2 >/dev/null; docker ps -a --filter ancestor=nav2-guide:jazzy --format "{{.Names}}" | wc -l | sed "s/^/남은 컨테이너: /"
+nav2 Up About a minute
+421 doc/guide/logs/2026-09-30/F-launch-run5-replay.log
+남은 컨테이너: 0
+→ exit=0
+

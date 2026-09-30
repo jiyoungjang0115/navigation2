@@ -21,7 +21,7 @@ Notes taken from this tree. They do not replace [docs.nav2.org](https://docs.nav
 
 - [Architecture](architecture/README.md) — packages, runtime, and extension points
 - [Data structures](data-structure/README.md) — messages, costmap cells, and in-process types
-- [Guide](guide/00-overview.md) — run this host’s loopback stack and check topics
+- [Guide](guide/00-overview.md) — run the loopback stack in Docker and check topics (every command was executed; logs in `guide/logs/`)
 - [Launcher](launcher/README.md) — how `nav2_bringup` selects nodes, params, and robot descriptions
 - [DevOps](devops/README.md) — version lines, release, CI, and container images
 - [Tools](tools/README.md) — commander, RViz, loopback, benchmarks, and validation scripts

@@ -64,6 +64,8 @@ bond는 각 서버가 `on_activate`에서 직접 `createBond()`를 호출해 만
 
 서비스로 `startup`, `configure`, `cleanup`, `activate`, `deactivate`, `reset`, `shutdown`을 따로 보낼 수 있습니다. RViz Nav2 패널의 Startup / Pause / Reset이 이 서비스입니다.
 
+**`startup()`이 실패한 뒤 서비스로 재시도해도 복구되지 않습니다** (Jazzy + 이 트리, 실측). `STARTUP`만 보내면 이미 active인 노드에 `CONFIGURE`를 보내 실패하고, `RESET` 뒤 `STARTUP`은 `collision_monitor`가 `Error while getting parameters: parameter 'FootprintApproach.points' is not initialized`로 재configure에 실패합니다. 이 노드는 `polygon.cpp`가 `points`를 초기화하지 않은 채 선언하고 특정 예외만 잡는 구조라 두 번째 configure에서 다른 예외가 나는 것으로 보입니다(추정, 패치 검증 안 함). 실패 뒤 복구는 프로세스를 다시 띄우는 것입니다 ([가이드 02 §2](../guide/02-launch-loopback.md#2-기동은-초기-자세에서-한-번-멈춘다)).
+
 ## 3. 기본 알고리즘이 의미하는 것
 
 현재 기본값은 **원형에 가까운 차동 구동, 실내, 낮은 속도**에 맞춰져 있습니다.

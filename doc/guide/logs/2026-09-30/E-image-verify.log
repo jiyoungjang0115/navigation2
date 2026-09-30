@@ -1,0 +1,50 @@
+### [E0] 2026-09-30 21:54:25
+$ docker run --rm nav2-guide:jazzy bash -c "echo ROS_DISTRO=\$ROS_DISTRO; for p in nav2_bringup nav2_loopback_sim nav2_simple_commander nav2_minimal_tb3_sim behaviortree_cpp; do printf \"%-24s %s\n\" \$p \$(ros2 pkg prefix \$p); done; echo; ros2 pkg list | grep -cE \"^(nav2_|navigation2|opennav_|dwb_|nav_2d)\"; grep -c wakeUpSignal /opt/underlay_ws/install/behaviortree_cpp/include/behaviortree_cpp/bt_factory.h; ros2 pkg executables nav2_loopback_sim"
+ROS_DISTRO=jazzy
+nav2_bringup             /opt/overlay_ws/install/nav2_bringup
+nav2_loopback_sim        /opt/overlay_ws/install/nav2_loopback_sim
+nav2_simple_commander    /opt/overlay_ws/install/nav2_simple_commander
+nav2_minimal_tb3_sim     /opt/ros/jazzy
+behaviortree_cpp         /opt/underlay_ws/install/behaviortree_cpp
+
+47
+1
+nav2_loopback_sim loopback_simulator
+→ exit=0
+
+### [E1] 2026-09-30 21:54:27
+$ docker image inspect nav2-guide:jazzy --format "id={{.Id}} size={{.Size}}"; docker history nav2-guide:jazzy --format "{{.Size}}\t{{.CreatedBy}}" | head -8 | cut -c1-110
+id=sha256:a366421a7052895262ce3d6821f65b02a79d022abc69e63560a1b2cf45ced945 size=6502777067
+0B	CMD ["bash"]
+0B	ENTRYPOINT ["/usr/local/bin/nav2env"]
+0B	WORKDIR /root
+155B	RUN |2 UNDERLAY_WS=/opt/underlay_ws OVERLAY_…
+693MB	RUN |2 UNDERLAY_WS=/opt/underlay_ws OVERLAY_…
+434MB	RUN |2 UNDERLAY_WS=/opt/underlay_ws OVERLAY_…
+0B	WORKDIR /opt/overlay_ws
+89.1MB	COPY . navigation2 # buildkit
+→ exit=0
+
+### [E2] 2026-09-30 21:54:27
+$ echo DISPLAY=$DISPLAY; ls -la /tmp/.X11-unix/ 2>&1; xauth list 2>&1 | head -3; ls -la ~/.Xauthority 2>&1; command -v xhost xdpyinfo 2>&1; xdpyinfo 2>&1 | grep -E "name of display|dimensions|OpenGL|GLX" | head -4
+DISPLAY=:20.0
+합계 64
+drwxrwxrwt  2 root    root     4096  9월 30 20:50 .
+drwxrwxrwt 41 root    root    57344  9월 30 21:54 ..
+srwxrwxrwx  1 root    root        0  9월 30 20:50 X0
+srwxrwxrwx  1 lightdm lightdm     0  9월 30 20:50 X1001
+srwxrwxrwx  1 hwanjun hwanjun     0  9월 30 20:50 X20
+HUGO-AI/unix:20  MIT-MAGIC-COOKIE-1  <REDACTED>
+HUGO-AI:1  MIT-MAGIC-COOKIE-1  <REDACTED>
+HUGO-AI/unix:1  MIT-MAGIC-COOKIE-1  <REDACTED>
+-rw------- 1 hwanjun hwanjun 258  9월 30 20:50 /home/hwanjun/.Xauthority
+/usr/bin/xhost
+/usr/bin/xdpyinfo
+name of display:    :20.0
+    GLX
+  dimensions:    2880x1474 pixels (762x389 millimeters)
+→ exit=0
+
+
+### [E2-redaction] 2026-09-30 22:36:09
+(공개 저장소에 올리기 전에 E2 출력의 MIT-MAGIC-COOKIE-1 값 3줄을 <REDACTED>로 치환. 그 외 내용은 그대로)

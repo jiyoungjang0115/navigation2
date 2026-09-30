@@ -1,0 +1,141 @@
+### [B1] 2026-09-30 20:22:20
+$ source /opt/ros/jazzy/setup.bash; echo PATH=$PATH | tr ":" "\n" | head -12; echo ---; type -a python3 python; ls -la ~/.local/bin/python* 2>&1; ~/.local/bin/python3.11 --version; /usr/bin/python3 -c "import catkin_pkg,sys;print(sys.version.split()[0],\"catkin_pkg ok\")"
+PATH=/opt/ros/jazzy/opt/gz_msgs_vendor/bin
+/opt/ros/jazzy/opt/gz_tools_vendor/bin
+/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin
+/opt/ros/jazzy/bin
+/home/hwanjun/.local/bin
+/home/hwanjun/.local/bin
+/home/hwanjun/.local/bin
+/home/hwanjun/.local/bin
+/home/hwanjun/bin
+/home/hwanjun/.local/bin
+/home/hwanjun/.local/bin
+/tmp/.mount_cursorfMuVV4/usr/bin/
+---
+python3은(는) /usr/bin/python3 임
+python3은(는) /bin/python3 임
+python은(는) /usr/bin/python 임
+python은(는) /bin/python 임
+lrwxrwxrwx 1 hwanjun hwanjun 81  8월 11 15:37 /home/hwanjun/.local/bin/python3.11 -> /home/hwanjun/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11
+Python 3.11.15
+3.12.3 catkin_pkg ok
+→ exit=0
+
+### [B2] 2026-09-30 20:22:20
+$ grep -n "Python3_EXECUTABLE\|PYTHON_EXECUTABLE" build/nav2_common/CMakeCache.txt 2>/dev/null | head -5; cat ~/.config/uv/uv.toml 2>/dev/null | head -3; env | grep -iE "^(PYENV|UV_|VIRTUAL_ENV|CONDA)" | head
+155:_Python3_EXECUTABLE:INTERNAL=/home/hwanjun/.local/bin/python3.11
+→ exit=0
+
+### [B3] 2026-09-30 20:22:31
+$ ls -la --time-style=+%T -d build install log; git status --short --ignored build install log | head -3; rm -rf build install log; ls -d build install log 2>&1 | head -3
+drwxrwxr-x 4 hwanjun hwanjun 4096 20:22:08 build
+drwxrwxr-x 3 hwanjun hwanjun 4096 20:22:09 install
+drwxrwxr-x 5 hwanjun hwanjun 4096 20:22:07 log
+!! build/
+!! install/
+!! log/
+ls: 'build'에 접근할 수 없음: 그런 파일이나 디렉터리가 없습니다
+ls: 'install'에 접근할 수 없음: 그런 파일이나 디렉터리가 없습니다
+ls: 'log'에 접근할 수 없음: 그런 파일이나 디렉터리가 없습니다
+→ exit=0
+
+### [B4] 2026-09-30 20:23:31
+$ grep -n "test_msgs" nav2_ros_common/test/CMakeLists.txt nav2_ros_common/package.xml | head -3; dpkg -s ros-jazzy-test-msgs 2>&1 | head -1; rm -rf build install log; ls -d build install log 2>&1 | wc -l
+nav2_ros_common/test/CMakeLists.txt:2:find_package(test_msgs REQUIRED)
+nav2_ros_common/test/CMakeLists.txt:84:  test_msgs::test_msgs
+nav2_ros_common/package.xml:39:  <test_depend>test_msgs</test_depend>
+dpkg-query: 패키지 'ros-jazzy-test-msgs'는 설치되지 않았으며 정보가 없습니다
+3
+→ exit=0
+
+### [B5] 2026-09-30 20:25:35
+$ grep -rn "wakeUpSignal\|WakeUpSignal" nav2_behavior_tree/ --include=*.hpp --include=*.cpp | head -6; echo --- installed; dpkg -s ros-jazzy-behaviortree-cpp | grep -E "^Version"; grep -n "wakeUp\|WakeUp" /opt/ros/jazzy/include/behaviortree_cpp/bt_factory.h | head
+nav2_behavior_tree/test/test_loop_rate.cpp:99:// Verify that emitWakeUpSignal() preempts an in-progress sleep() early
+nav2_behavior_tree/test/test_loop_rate.cpp:109:      tree_->rootNode()->emitWakeUpSignal();
+nav2_behavior_tree/include/nav2_behavior_tree/bt_action_node.hpp:496:          emitWakeUpSignal();
+nav2_behavior_tree/include/nav2_behavior_tree/bt_action_node.hpp:503:        emitWakeUpSignal();
+nav2_behavior_tree/include/nav2_behavior_tree/utils/loop_rate.hpp:63:    // Sleep until the target time, preemptible by emitWakeUpSignal().
+nav2_behavior_tree/include/nav2_behavior_tree/utils/loop_rate.hpp:64:    auto wake_up = tree_->wakeUpSignal();
+--- installed
+Version: 4.9.0-1noble.20260615.161133
+127:    * TreeNode::emitWakeUpSignal() or Tree::emitWakeUpSignal()
+138:  void emitWakeUpSignal();
+143:  /// emitWakeUpSignal()
+149:   * invoking TreeNode::emitWakeUpSignal(), it will be ticked again.
+198:  std::shared_ptr<WakeUpSignal> wake_up_;
+→ exit=0
+
+### [B6] 2026-09-30 20:25:35
+$ echo --- repo-pins; grep -n -B2 -A6 -i "behaviortree" tools/underlay.repos tools/*.repos 2>/dev/null | head -20; grep -n "behaviortree" nav2_behavior_tree/CMakeLists.txt | head -5; grep -n "behaviortree" nav2_behavior_tree/package.xml; ls .circleci .github/workflows 2>/dev/null | head; grep -rn "BehaviorTree.CPP\|behaviortree_cpp" .github/workflows/*.yml Dockerfile* 2>/dev/null | head -5
+--- repo-pins
+tools/underlay.repos-1-repositories:
+tools/underlay.repos:2:  # BehaviorTree/BehaviorTree.CPP:
+tools/underlay.repos-3-  #   type: git
+tools/underlay.repos:4:  #   url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
+tools/underlay.repos-5-  #   version: edf12f109c92c9ac509ce71973cd4b18268a885a
+tools/underlay.repos-6-  # Pin to 15.2.1 until we switch to Ubuntu Resolute to avoid Qt5 Qt6 mismatch between Rviz and Gazebo
+tools/underlay.repos-7-  # ros2/rviz:
+tools/underlay.repos-8-  #   type: git
+tools/underlay.repos-9-  #   url: https://github.com/ros2/rviz.git
+tools/underlay.repos-10-  #   version: 2cbba6bbeb32b2b2c917f75d3142e32769276045
+--
+tools/underlay.jazzy.repos-1-repositories:
+tools/underlay.jazzy.repos:2:  BehaviorTree/BehaviorTree.CPP:
+tools/underlay.jazzy.repos-3-    type: git
+tools/underlay.jazzy.repos:4:    url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
+tools/underlay.jazzy.repos-5-    version: 7119df95a17086f55e3690cf8d7b7663b59319d0
+--
+tools/underlay.lyrical.repos-1-repositories:
+tools/underlay.lyrical.repos:2:  # BehaviorTree/BehaviorTree.CPP:
+tools/underlay.lyrical.repos-3-  #   type: git
+7:find_package(behaviortree_cpp REQUIRED)
+36:  behaviortree_cpp::behaviortree_cpp
+285:    behaviortree_cpp::behaviortree_cpp
+316:  behaviortree_cpp::behaviortree_cpp
+353:  behaviortree_cpp
+18:  <depend>behaviortree_cpp</depend>
+.circleci:
+config.yml
+defaults.yaml
+
+.github/workflows:
+bt_nodes_validation.yml
+build_main_against_distros.yml
+lint.yml
+update_ci_image.yaml
+→ exit=0
+
+### [B7] 2026-09-30 20:25:44
+$ cat tools/underlay.jazzy.repos; echo ---; grep -rn "underlay" .circleci/config.yml .github/workflows/*.yml Dockerfile 2>/dev/null | head -12; echo ---; git ls-remote https://github.com/BehaviorTree/BehaviorTree.CPP.git 2>&1 | grep -E "7119df95|refs/heads/(master|main)|refs/tags/4\.[789]" | head
+repositories:
+  BehaviorTree/BehaviorTree.CPP:
+    type: git
+    url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
+    version: 7119df95a17086f55e3690cf8d7b7663b59319d0
+---
+.circleci/config.yml:77:        underlay:
+.circleci/config.yml:86:              . << parameters.underlay >>/install/setup.sh
+.circleci/config.yml:94:              cat << parameters.underlay >>/lockfile.txt > lockfile.txt
+.circleci/config.yml:95:              vcs export --exact << parameters.underlay >>/src | \
+.circleci/config.yml:118:        underlay:
+.circleci/config.yml:215:                    . << parameters.underlay >>/install/setup.sh
+.circleci/config.yml:377:          $OVERLAY_WS/src/navigation2/tools/underlay.repos \
+.circleci/config.yml:378:          $UNDERLAY_WS/underlay.repos >/dev/null 2>&1
+.circleci/config.yml:381:          cp $OVERLAY_WS/src/navigation2/tools/underlay.repos \
+.circleci/config.yml:382:            $UNDERLAY_WS/underlay.repos
+.circleci/config.yml:384:            < $UNDERLAY_WS/underlay.repos
+.circleci/config.yml:386:  install_underlay_dependencies: &install_underlay_dependencies
+---
+ca4edbf39366157e644c2757f7207f10feb1d050	refs/heads/master
+d5100e6f81edcf9b370f68f3576f1f52879644ad	refs/tags/4.7.0
+793a6bdd75386a557382697dd2d7940351a6357d	refs/tags/4.7.1
+1296e8dc0aa8c1389ac1dd3f8b726aca0a6bf5e2	refs/tags/4.7.2
+9b3e791f8c09845866bf50faf2c56d7bcd99ea42	refs/tags/4.7.3
+22929a25473fee1e852fa06734e947e889b433b4	refs/tags/4.8.0
+36d13ed5f7f0a240d1d86668ac3442ec392585cd	refs/tags/4.8.1
+aa2426082c3767ee8ca751f55b99984e7f13711e	refs/tags/4.8.2
+6e469c6ba133aaa842dac9b096b41f2d33ee2b0e	refs/tags/4.8.3
+ded902738f6072ac9853ea531fc67da933d71e85	refs/tags/4.8.4
+→ exit=0
+

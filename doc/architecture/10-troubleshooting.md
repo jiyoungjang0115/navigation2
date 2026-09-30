@@ -33,7 +33,8 @@ cmd_vel ← collision_monitor ← cmd_vel_smoothed ← velocity_smoother ← cmd
 | `Action server is inactive. Rejecting the goal.` | 라이프사이클이 active가 아님 | 매니저 로그 `Managed nodes are active` 확인 |
 | 9001 `FAILED_TO_LOAD_BEHAVIOR_TREE` | XML 경로·노드 ID, `plugin_lib_names` 누락. 또는 **트리의 액션 노드가 서버를 1 s(`wait_for_service_timeout`) 안에 못 찾음**. 로그 `"X" action server not available after waiting` | `bt_search_directories`, 해당 서버의 라이프사이클 |
 | 9002 `TF_ERROR`, `Initial robot pose is not available.` | 목표 수신 시 `map→base_link` 없음 | AMCL 초기 자세, `map→odom` 발행자 |
-| 206 `GOAL_OCCUPIED`, 복구 없음 | 목표가 lethal 셀. `WouldAPlannerRecoveryHelp`가 206을 제외 | 목표 위치, keepout 마스크 |
+| 206 `GOAL_OCCUPIED`, 복구 없음 | 목표 주변 0.5 m(`tolerance`)에 자유 셀이 없음. 작은 장애물 위의 목표는 대체 셀로 **성공**하므로 206이 안 남. `WouldAPlannerRecoveryHelp`가 206을 제외 | 목표 위치, keepout 마스크 |
+| 208 `NO_VALID_PATH`, 복구를 여러 번 | 시작점이 장애물 위(잘못된 초기 자세)여도 205가 아니라 208이 남 (실측 복구 8번) | 초기 자세 |
 | 205 `START_OCCUPIED` | 로봇 중심이 lethal. 측위 오차나 inflation 과다 | 코스트맵 확인, `initialpose` |
 | 선점 목표가 무시됨, `Preemption request was rejected since the requested BT XML file is not the same` | 실행 중 트리와 다른 XML로 선점 | 취소 후 새 목표 |
 | `NavigateThroughPoses` 실행 중 `NavigateToPose` 거절 | `NavigatorMuxer` | 먼저 취소 |

@@ -50,7 +50,7 @@ navigation 11개 안에 `route_server`, `docking_server`, `smoother_server`가 �
 ```bash
 ros2 node list
 ros2 service call /lifecycle_manager_nav2/is_active std_srvs/srv/Trigger
-ros2 topic echo /lifecycle_manager_nav2/managed_nodes_activated --qos-durability transient_local --once
+ros2 topic echo /lifecycle_manager_nav2/managed_nodes_activated --qos-durability transient_local --qos-reliability reliable --once
 ros2 lifecycle get /controller_server
 ros2 param get /controller_server FollowPath.plugin
 ```
@@ -67,7 +67,7 @@ ros2 param get /controller_server FollowPath.plugin
 
 컴포지션 기본(`use_composition:=True`)이면 서버는 `/nav2_container` 프로세스 안의 컴포넌트입니다. `node list`에는 컴포넌트 이름이 보입니다. 매니저 노드 이름은 `lifecycle_manager_nav2` 하나입니다. `lifecycle_manager_navigation`이라는 이름은 이 런치에 없습니다.
 
-루프백에서 지도는 `/map`이고 durability는 transient local입니다. `ros2 topic echo`에 `--qos-durability transient_local`이 없으면 메시지가 안 보입니다. `initialpose` 전에는 `odom`과 `scan`이 없는 것이 루프백 구현과 맞습니다.
+루프백에서 지도는 `/map`이고 durability는 transient local입니다. `ros2 topic echo`에 `--qos-durability transient_local`**과 `--qos-reliability reliable`** 이 둘 다 없으면 메시지가 안 보입니다. durability만 주면 재현되게 무응답이었습니다([가이드 03 §2](../guide/03-verify-map-and-nodes.md#2-지도--초기-자세-전에도-보임)). `initialpose` 전에는 `odom`과 `scan`이 없는 것이 루프백 구현과 맞습니다.
 
 AMCL을 켠 진입점에서는 `ros2 lifecycle get /amcl`이 목록에 있어야 합니다. 루프백 진입점에서 `/amcl`이 있으면 `use_localization` 전달이 깨진 것입니다.
 

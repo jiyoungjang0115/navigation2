@@ -1,0 +1,825 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-30-13-02-28-576807-HUGO-AI-1
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_state_publisher-1]: process started with pid [48]
+[INFO] [loopback_simulator-2]: process started with pid [49]
+[INFO] [rviz2-3]: process started with pid [50]
+[INFO] [map_server-4]: process started with pid [51]
+[INFO] [controller_server-5]: process started with pid [52]
+[INFO] [smoother_server-6]: process started with pid [53]
+[INFO] [planner_server-7]: process started with pid [54]
+[INFO] [route_server-8]: process started with pid [55]
+[INFO] [behavior_server-9]: process started with pid [56]
+[INFO] [bt_navigator-10]: process started with pid [57]
+[INFO] [waypoint_follower-11]: process started with pid [58]
+[INFO] [velocity_smoother-12]: process started with pid [59]
+[INFO] [collision_monitor-13]: process started with pid [60]
+[INFO] [opennav_docking-14]: process started with pid [61]
+[INFO] [opennav_following-15]: process started with pid [62]
+[INFO] [lifecycle_manager-16]: process started with pid [63]
+[robot_state_publisher-1] [INFO] [1790773348.986138016] [robot_state_publisher]: Robot initialized
+[waypoint_follower-11] [INFO] [1790773348.989374512] [waypoint_follower]: 
+[waypoint_follower-11] 	waypoint_follower lifecycle node launched. 
+[waypoint_follower-11] 	Waiting on external lifecycle transitions to activate
+[waypoint_follower-11] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[waypoint_follower-11] [INFO] [1790773348.991472736] [waypoint_follower]: Creating
+[opennav_following-15] [INFO] [1790773348.992644764] [following_server]: 
+[opennav_following-15] 	following_server lifecycle node launched. 
+[opennav_following-15] 	Waiting on external lifecycle transitions to activate
+[opennav_following-15] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[opennav_following-15] [INFO] [1790773348.992725044] [following_server]: Creating following_server
+[velocity_smoother-12] [INFO] [1790773348.993468417] [velocity_smoother]: 
+[velocity_smoother-12] 	velocity_smoother lifecycle node launched. 
+[velocity_smoother-12] 	Waiting on external lifecycle transitions to activate
+[velocity_smoother-12] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-5] [INFO] [1790773348.993857946] [controller_server]: 
+[controller_server-5] 	controller_server lifecycle node launched. 
+[controller_server-5] 	Waiting on external lifecycle transitions to activate
+[controller_server-5] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[collision_monitor-13] [INFO] [1790773348.994038517] [collision_monitor]: 
+[collision_monitor-13] 	collision_monitor lifecycle node launched. 
+[collision_monitor-13] 	Waiting on external lifecycle transitions to activate
+[collision_monitor-13] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[bt_navigator-10] [INFO] [1790773348.994959119] [bt_navigator]: 
+[bt_navigator-10] 	bt_navigator lifecycle node launched. 
+[bt_navigator-10] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-10] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[bt_navigator-10] [INFO] [1790773348.996791453] [bt_navigator]: Creating
+[loopback_simulator-2] [INFO] [1790773349.004384804] [loopback_simulator]: 
+[loopback_simulator-2] 	loopback_simulator lifecycle node launched. 
+[loopback_simulator-2] 	Waiting on external lifecycle transitions to activate
+[loopback_simulator-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[smoother_server-6] [INFO] [1790773349.005457712] [smoother_server]: 
+[smoother_server-6] 	smoother_server lifecycle node launched. 
+[smoother_server-6] 	Waiting on external lifecycle transitions to activate
+[smoother_server-6] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[lifecycle_manager-16] [INFO] [1790773349.006269449] [lifecycle_manager_nav2]: Creating
+[lifecycle_manager-16] [INFO] [1790773349.006730135] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[controller_server-5] [INFO] [1790773349.006899848] [controller_server]: Creating controller server
+[rviz2-3] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[lifecycle_manager-16] [INFO] [1790773349.007302421] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[smoother_server-6] [INFO] [1790773349.007574937] [smoother_server]: Creating smoother server
+[route_server-8] [INFO] [1790773349.007856246] [route_server]: 
+[route_server-8] 	route_server lifecycle node launched. 
+[route_server-8] 	Waiting on external lifecycle transitions to activate
+[route_server-8] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-4] [INFO] [1790773349.008034398] [map_server]: 
+[map_server-4] 	map_server lifecycle node launched. 
+[map_server-4] 	Waiting on external lifecycle transitions to activate
+[map_server-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-4] [INFO] [1790773349.008100012] [map_server]: Creating
+[planner_server-7] [INFO] [1790773349.008936028] [planner_server]: 
+[planner_server-7] 	planner_server lifecycle node launched. 
+[planner_server-7] 	Waiting on external lifecycle transitions to activate
+[planner_server-7] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[behavior_server-9] [INFO] [1790773349.009675520] [behavior_server]: 
+[behavior_server-9] 	behavior_server lifecycle node launched. 
+[behavior_server-9] 	Waiting on external lifecycle transitions to activate
+[behavior_server-9] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[opennav_docking-14] [INFO] [1790773349.010283869] [docking_server]: 
+[opennav_docking-14] 	docking_server lifecycle node launched. 
+[opennav_docking-14] 	Waiting on external lifecycle transitions to activate
+[opennav_docking-14] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[opennav_docking-14] [INFO] [1790773349.010319039] [docking_server]: Creating docking_server
+[planner_server-7] [INFO] [1790773349.010805432] [planner_server]: Creating
+[controller_server-5] [INFO] [1790773349.011349037] [local_costmap.local_costmap]: 
+[controller_server-5] 	local_costmap lifecycle node launched. 
+[controller_server-5] 	Waiting on external lifecycle transitions to activate
+[controller_server-5] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-5] [INFO] [1790773349.011782399] [local_costmap.local_costmap]: Creating Costmap
+[planner_server-7] [INFO] [1790773349.013930193] [global_costmap.global_costmap]: 
+[planner_server-7] 	global_costmap lifecycle node launched. 
+[planner_server-7] 	Waiting on external lifecycle transitions to activate
+[planner_server-7] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-7] [INFO] [1790773349.014287924] [global_costmap.global_costmap]: Creating Costmap
+[rviz2-3] [INFO] [1790773349.089302482] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-3] [INFO] [1790773349.089342644] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-3] [INFO] [1790773349.108304234] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-3] [INFO] [1790773349.163560368] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.163909369] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.166269810] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.173692867] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.185202189] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.185958720] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.188716936] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-3] 
+[rviz2-3] [INFO] [1790773349.213774106] [nav2_rviz_selector_node]: Trying to load plugins...
+[loopback_simulator-2] [INFO] [1790773349.216367237] [loopback_simulator]: Configuring
+[controller_server-5] [WARN] [1790773349.217789110] [rclcpp]: Failed to get parameters: controller_plugins
+[rviz2-3] [ERROR] [1790773349.217861718] [nav2_rviz_selector_node]: Parameter 'controller_plugins' not found on server 'controller_server'
+[planner_server-7] [WARN] [1790773349.225797716] [rclcpp]: Failed to get parameters: planner_plugins
+[rviz2-3] [ERROR] [1790773349.225894281] [nav2_rviz_selector_node]: Parameter 'planner_plugins' not found on server 'planner_server'
+[loopback_simulator-2] [INFO] [1790773349.228329572] [loopback_simulator]: Activating
+[loopback_simulator-2] [INFO] [1790773349.228367933] [loopback_simulator]: Sim clock publisher started (resolution: 0.010s, speed: 1.00x)
+[loopback_simulator-2] [INFO] [1790773349.228376007] [loopback_simulator]: Creating bond (loopback_simulator) to lifecycle manager.
+[loopback_simulator-2] [INFO] [1790773349.229334370] [loopback_simulator]: Loopback simulator activated
+[controller_server-5] [WARN] [1790773349.232032177] [rclcpp]: Failed to get parameters: goal_checker_plugins
+[rviz2-3] [ERROR] [1790773349.232084832] [nav2_rviz_selector_node]: Parameter 'goal_checker_plugins' not found on server 'controller_server'
+[smoother_server-6] [WARN] [1790773349.277445618] [rclcpp]: Failed to get parameters: smoother_plugins
+[rviz2-3] [ERROR] [1790773349.277535433] [nav2_rviz_selector_node]: Parameter 'smoother_plugins' not found on server 'smoother_server'
+[controller_server-5] [WARN] [1790773349.284658637] [rclcpp]: Failed to get parameters: progress_checker_plugins
+[rviz2-3] [ERROR] [1790773349.284738612] [nav2_rviz_selector_node]: Parameter 'progress_checker_plugins' not found on server 'controller_server'
+[controller_server-5] [WARN] [1790773349.292047856] [rclcpp]: Failed to get parameters: path_handler_plugins
+[rviz2-3] [ERROR] [1790773349.292130006] [nav2_rviz_selector_node]: Parameter 'path_handler_plugins' not found on server 'controller_server'
+[rviz2-3] [INFO] [1790773349.295540776] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[lifecycle_manager-16] [INFO] [1790773349.352399087] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service servers[0m[0m
+[lifecycle_manager-16] [INFO] [1790773349.359668053] [lifecycle_manager_nav2]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773349.359714076] [lifecycle_manager_nav2]: [34m[1mConfiguring map_server[0m[0m
+[map_server-4] [INFO] [1790773349.360085305] [map_server]: Configuring
+[map_server-4] [INFO] [1790773349.360387593] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.yaml
+[map_server-4] [INFO] [1790773349.360711417] [map_io]: resolution: 0.05
+[map_server-4] [INFO] [1790773349.360721620] [map_io]: origin[0]: -10
+[map_server-4] [INFO] [1790773349.360726789] [map_io]: origin[1]: -10
+[map_server-4] [INFO] [1790773349.360731094] [map_io]: origin[2]: 0
+[map_server-4] [INFO] [1790773349.360735846] [map_io]: free_thresh: 0.196
+[map_server-4] [INFO] [1790773349.360740550] [map_io]: occupied_thresh: 0.65
+[map_server-4] [INFO] [1790773349.360746414] [map_io]: mode: trinary
+[map_server-4] [INFO] [1790773349.360751571] [map_io]: negate: 0
+[map_server-4] [INFO] [1790773349.360932320] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm
+[map_server-4] [INFO] [1790773349.363994727] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm: 384 X 384 map @ 0.05 m/cell
+[lifecycle_manager-16] [INFO] [1790773349.372183507] [lifecycle_manager_nav2]: [34m[1mConfiguring controller_server[0m[0m
+[controller_server-5] [INFO] [1790773349.372354648] [controller_server]: Configuring controller interface
+[controller_server-5] [INFO] [1790773349.372383587] [local_costmap.local_costmap]: Configuring
+[controller_server-5] [INFO] [1790773349.377486141] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[controller_server-5] [INFO] [1790773349.380332483] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[controller_server-5] [INFO] [1790773349.388053550] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[controller_server-5] [INFO] [1790773349.388088469] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[controller_server-5] [INFO] [1790773349.388746500] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[controller_server-5] [INFO] [1790773349.388765174] [local_costmap.local_costmap]: Using costmap filter "keepout_filter"
+[controller_server-5] [INFO] [1790773349.396208883] [local_costmap.local_costmap]: Initialized costmap filter "keepout_filter"
+[controller_server-5] [INFO] [1790773349.412424209] [controller_server]: Controller frequency set to 20.0000Hz
+[controller_server-5] [INFO] [1790773349.412451066] [controller_server]: getting progress checker plugins..
+[controller_server-5] [INFO] [1790773349.412591432] [controller_server]: getting goal checker plugins..
+[controller_server-5] [INFO] [1790773349.412656500] [controller_server]: getting controller plugins..
+[controller_server-5] [INFO] [1790773349.412795511] [controller_server]: getting path handler plugins..
+[controller_server-5] [INFO] [1790773349.413792759] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[controller_server-5] [INFO] [1790773349.413825253] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[controller_server-5] [INFO] [1790773349.414373247] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[controller_server-5] [INFO] [1790773349.414390218] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[controller_server-5] [INFO] [1790773349.414976906] [controller_server]: Created path handler : PathHandler of type nav2_controller::FeasiblePathHandler
+[controller_server-5] [INFO] [1790773349.414991651] [controller_server]: Controller Server has PathHandler  path handlers available.
+[controller_server-5] [INFO] [1790773349.416844875] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[controller_server-5] [INFO] [1790773349.419708401] [controller_server]: Loaded motion model plugin: mppi::DiffDriveMotionModel
+[controller_server-5] [INFO] [1790773349.419738556] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[controller_server-5] [INFO] [1790773349.422166778] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[controller_server-5] [INFO] [1790773349.422182791] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[controller_server-5] [INFO] [1790773349.422482796] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on circular cost.
+[controller_server-5] [INFO] [1790773349.422493242] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[controller_server-5] [INFO] [1790773349.422617908] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-5] [INFO] [1790773349.422622641] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[controller_server-5] [INFO] [1790773349.422766100] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[controller_server-5] [INFO] [1790773349.422786625] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[controller_server-5] [INFO] [1790773349.423042446] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[controller_server-5] [INFO] [1790773349.423050715] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[controller_server-5] [INFO] [1790773349.423193616] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[controller_server-5] [INFO] [1790773349.423405090] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[controller_server-5] [INFO] [1790773349.423411343] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[controller_server-5] [INFO] [1790773349.423606409] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-5] [INFO] [1790773349.423613433] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[controller_server-5] [INFO] [1790773349.425420700] [controller_server]: Loaded trajectory validator plugin: mppi::DefaultOptimalTrajectoryValidator
+[controller_server-5] [INFO] [1790773349.427605827] [controller_server]: Optimizer reset
+[map_server-4] [WARN] [1790773349.428629621] [map_server]: Received GetMap request but not in ACTIVE state, ignoring!
+[loopback_simulator-2] [WARN] [1790773349.428735160] [loopback_simulator]: Map server returned empty/invalid map (0x0, res=0.000), will retry
+[controller_server-5] [INFO] [1790773349.431363894] [MPPIController]: Configured MPPI Controller: FollowPath
+[controller_server-5] [INFO] [1790773349.431377682] [controller_server]: Controller Server has FollowPath  controllers available.
+[lifecycle_manager-16] [INFO] [1790773349.436971978] [lifecycle_manager_nav2]: [34m[1mConfiguring smoother_server[0m[0m
+[smoother_server-6] [INFO] [1790773349.437119810] [smoother_server]: Configuring smoother server
+[smoother_server-6] [INFO] [1790773349.447116187] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-6] [INFO] [1790773349.447541150] [smoother_server]: Created smoother : route_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-6] [INFO] [1790773349.447875653] [smoother_server]: Smoother Server has simple_smoother route_smoother  smoothers available.
+[lifecycle_manager-16] [INFO] [1790773349.452051645] [lifecycle_manager_nav2]: [34m[1mConfiguring planner_server[0m[0m
+[planner_server-7] [INFO] [1790773349.452192907] [planner_server]: Configuring
+[planner_server-7] [INFO] [1790773349.452213067] [global_costmap.global_costmap]: Configuring
+[planner_server-7] [INFO] [1790773349.457171676] [global_costmap.global_costmap]: Using plugin "static_layer"
+[planner_server-7] [INFO] [1790773349.460366570] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[planner_server-7] [INFO] [1790773349.461531001] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[planner_server-7] [INFO] [1790773349.461542024] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[planner_server-7] [INFO] [1790773349.461778198] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[planner_server-7] [INFO] [1790773349.463422072] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[planner_server-7] [INFO] [1790773349.463430540] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-7] [INFO] [1790773349.463639326] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-7] [INFO] [1790773349.463643291] [global_costmap.global_costmap]: Using costmap filter "keepout_filter"
+[planner_server-7] [INFO] [1790773349.466032499] [global_costmap.global_costmap]: Initialized costmap filter "keepout_filter"
+[planner_server-7] [INFO] [1790773349.466039864] [global_costmap.global_costmap]: Using costmap filter "speed_filter"
+[planner_server-7] [INFO] [1790773349.466414934] [global_costmap.global_costmap]: Initialized costmap filter "speed_filter"
+[planner_server-7] [INFO] [1790773349.476460364] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[planner_server-7] [INFO] [1790773349.476474594] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[planner_server-7] [INFO] [1790773349.476631705] [planner_server]: Planner Server has GridBased  planners available.
+[lifecycle_manager-16] [INFO] [1790773349.480141372] [lifecycle_manager_nav2]: [34m[1mConfiguring route_server[0m[0m
+[route_server-8] [INFO] [1790773349.480295046] [route_server]: Configuring
+[route_server-8] [INFO] [1790773349.497364823] [route_server]: Created GraphFileLoader GeoJsonGraphFileLoader of type nav2_route::GeoJsonGraphFileLoader
+[route_server-8] [INFO] [1790773349.497387435] [route_server]: Configuring geojson graph file loader
+[route_server-8] [INFO] [1790773349.497394794] [route_server]: Loading graph file from /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/graphs/turtlebot3_graph.geojson, by parser nav2_route::GeoJsonGraphFileLoader
+[route_server-8] [INFO] [1790773349.500572716] [route_server]: Created edge cost function plugin DistanceScorer of type nav2_route::DistanceScorer
+[route_server-8] [INFO] [1790773349.500593421] [route_server]: Configuring distance scorer.
+[route_server-8] [INFO] [1790773349.500749549] [route_server]: Created edge cost function plugin CostmapScorer of type nav2_route::CostmapScorer
+[route_server-8] [INFO] [1790773349.500758680] [route_server]: Configuring costmap scorer.
+[route_server-8] [INFO] [1790773349.503426539] [route_server]: Created route operation AdjustSpeedLimit of type nav2_route::AdjustSpeedLimit
+[route_server-8] [INFO] [1790773349.503443524] [route_server]: Configuring Adjust speed limit operation.
+[route_server-8] [INFO] [1790773349.504404773] [route_server]: Created route operation ReroutingService of type nav2_route::ReroutingService
+[route_server-8] [INFO] [1790773349.504417725] [route_server]: Configuring Rerouting service operation.
+[route_server-8] [INFO] [1790773349.505336177] [route_server]: Created route operation CollisionMonitor of type nav2_route::CollisionMonitor
+[route_server-8] [INFO] [1790773349.505405569] [route_server]: Using costmap topic: local_costmap/costmap_raw instead of server costmap topic: global_costmap/costmap_raw for CollisionMonitor.
+[lifecycle_manager-16] [INFO] [1790773349.507815818] [lifecycle_manager_nav2]: [34m[1mConfiguring behavior_server[0m[0m
+[behavior_server-9] [INFO] [1790773349.507959159] [behavior_server]: Configuring
+[behavior_server-9] [INFO] [1790773349.511688681] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors::Spin
+[behavior_server-9] [INFO] [1790773349.513132467] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors::BackUp
+[behavior_server-9] [INFO] [1790773349.514297335] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors::DriveOnHeading
+[behavior_server-9] [INFO] [1790773349.515454687] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors::AssistedTeleop
+[behavior_server-9] [INFO] [1790773349.517941458] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+[behavior_server-9] [INFO] [1790773349.527108895] [behavior_server]: Configuring spin
+[map_server-4] [WARN] [1790773349.528700125] [map_server]: Received GetMap request but not in ACTIVE state, ignoring!
+[loopback_simulator-2] [WARN] [1790773349.528767767] [loopback_simulator]: Map server returned empty/invalid map (0x0, res=0.000), will retry
+[behavior_server-9] [INFO] [1790773349.531017885] [behavior_server]: Configuring backup
+[behavior_server-9] [INFO] [1790773349.533580598] [behavior_server]: Configuring drive_on_heading
+[behavior_server-9] [INFO] [1790773349.536133867] [behavior_server]: Configuring assisted_teleop
+[behavior_server-9] [INFO] [1790773349.539960292] [behavior_server]: Configuring wait
+[lifecycle_manager-16] [INFO] [1790773349.542723615] [lifecycle_manager_nav2]: [34m[1mConfiguring velocity_smoother[0m[0m
+[velocity_smoother-12] [INFO] [1790773349.542880633] [velocity_smoother]: Configuring velocity smoother
+[lifecycle_manager-16] [INFO] [1790773349.548107320] [lifecycle_manager_nav2]: [34m[1mConfiguring collision_monitor[0m[0m
+[collision_monitor-13] [INFO] [1790773349.548226758] [collision_monitor]: Configuring
+[collision_monitor-13] [INFO] [1790773349.552712625] [collision_monitor]: [scan]: Creating Scan
+[collision_monitor-13] [INFO] [1790773349.557963844] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[collision_monitor-13] [INFO] [1790773349.558051161] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[collision_monitor-13] [INFO] [1790773349.558550455] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on local_costmap/published_footprint topic
+[collision_monitor-13] [INFO] [1790773349.566456691] [collision_monitor]: Collision monitor is enabled at startup.
+[lifecycle_manager-16] [INFO] [1790773349.566664137] [lifecycle_manager_nav2]: [34m[1mConfiguring bt_navigator[0m[0m
+[bt_navigator-10] [INFO] [1790773349.566760601] [bt_navigator]: Configuring
+[bt_navigator-10] [INFO] [1790773349.571835919] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[bt_navigator-10] [INFO] [1790773349.576128403] [bt_navigator]: Error_code parameters were set to: assisted_teleop backup compute_path dock_robot drive_on_heading follow_object follow_path nav_thru_poses nav_to_pose route spin smoother undock_robot wait
+[bt_navigator-10] [INFO] [1790773349.586648533] [bt_navigator_navigate_to_pose_rclcpp_node]: 
+[bt_navigator-10] 	bt_navigator_navigate_to_pose_rclcpp_node lifecycle node launched. 
+[bt_navigator-10] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-10] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-4] [WARN] [1790773349.629100989] [map_server]: Received GetMap request but not in ACTIVE state, ignoring!
+[loopback_simulator-2] [WARN] [1790773349.629354307] [loopback_simulator]: Map server returned empty/invalid map (0x0, res=0.000), will retry
+[bt_navigator-10] [INFO] [1790773349.659863871] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[bt_navigator-10] [INFO] [1790773349.661229464] [bt_navigator]: Error_code parameters were set to: assisted_teleop backup compute_path dock_robot drive_on_heading follow_object follow_path nav_thru_poses nav_to_pose route spin smoother undock_robot wait
+[bt_navigator-10] [INFO] [1790773349.671358506] [bt_navigator_navigate_through_poses_rclcpp_node]: 
+[bt_navigator-10] 	bt_navigator_navigate_through_poses_rclcpp_node lifecycle node launched. 
+[bt_navigator-10] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-10] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[lifecycle_manager-16] [INFO] [1790773349.680637100] [lifecycle_manager_nav2]: [34m[1mConfiguring waypoint_follower[0m[0m
+[waypoint_follower-11] [INFO] [1790773349.680789096] [waypoint_follower]: Configuring
+[waypoint_follower-11] [INFO] [1790773349.697153216] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[lifecycle_manager-16] [INFO] [1790773349.697478263] [lifecycle_manager_nav2]: [34m[1mConfiguring docking_server[0m[0m
+[opennav_docking-14] [INFO] [1790773349.697617927] [docking_server]: Configuring docking_server
+[opennav_docking-14] [INFO] [1790773349.698154271] [docking_server]: Controller frequency set to 50.0000Hz
+[rviz2-3] [INFO] [1790773349.706754673] [nav2_rviz_docking_panel_node]: Loading dock plugins
+[opennav_docking-14] [INFO] [1790773349.712697734] [docking_server]: Created charging dock plugin simple_charging_dock of type opennav_docking::SimpleChargingDock
+[opennav_docking-14] [WARN] [1790773349.714447561] [docking_server]: Dock database filepath nor dock parameters set. Docking actions can only be executed specifying the dock pose via the action request. Or update the dock database via the reload_database service.
+[opennav_docking-14] [INFO] [1790773349.714459007] [docking_server]: Docking Server has 1 dock types and 0 dock instances available.
+[lifecycle_manager-16] [INFO] [1790773349.715027665] [lifecycle_manager_nav2]: [34m[1mConfiguring following_server[0m[0m
+[opennav_following-15] [INFO] [1790773349.715251256] [following_server]: Configuring following_server
+[opennav_following-15] [INFO] [1790773349.716067491] [following_server]: Controller frequency set to 50.0000Hz
+[lifecycle_manager-16] [INFO] [1790773349.724629317] [lifecycle_manager_nav2]: [34m[1mActivating map_server[0m[0m
+[map_server-4] [INFO] [1790773349.724724458] [map_server]: Activating
+[map_server-4] [INFO] [1790773349.724972985] [map_server]: Creating bond (map_server) to lifecycle manager.
+[planner_server-7] [INFO] [1790773349.725197599] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 384 X 384 at 0.050000 m/pix
+[planner_server-7] [WARN] [1790773349.725222905] [global_costmap.global_costmap]: StaticLayer: Costmap origin coordinates are not perfectly aligned with the resolution. This may cause misalignment aliasing between rolling and non-rolling costmaps.
+[planner_server-7] Map origin: (-10, -10) | Resolution: 0
+[map_server-4] [INFO] [1790773349.728668018] [map_server]: Handling GetMap request
+[loopback_simulator-2] [INFO] [1790773349.729047428] [loopback_simulator]: Laser scan will be populated using map data
+[rviz2-3] [INFO] [1790773349.740987311] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches
+[rviz2-3] [ERROR] [1790773349.780764736] [rviz2]: rviz/glsl120/indexed_8bit_image.vert
+[rviz2-3] rviz/glsl120/indexed_8bit_image.frag
+[rviz2-3]  GLSL link result : 
+[rviz2-3] active samplers with a different type refer to the same texture image unit
+[lifecycle_manager-16] [INFO] [1790773349.978029941] [lifecycle_manager_nav2]: Server map_server connected with bond.
+[lifecycle_manager-16] [INFO] [1790773349.978127490] [lifecycle_manager_nav2]: [34m[1mActivating controller_server[0m[0m
+[controller_server-5] [INFO] [1790773349.978722038] [controller_server]: Activating
+[controller_server-5] [INFO] [1790773349.978792307] [local_costmap.local_costmap]: Activating
+[controller_server-5] [INFO] [1790773349.978802776] [local_costmap.local_costmap]: Checking transform
+[controller_server-5] [INFO] [1790773349.978988785] [local_costmap.local_costmap]: start
+[controller_server-5] [INFO] [1790773349.980440964] [local_costmap.local_costmap]: KeepoutFilter: Subscribing to "/keepout_costmap_filter_info" topic for filter info...
+[controller_server-5] [INFO] [1790773350.184233021] [MPPIController]: Activated MPPI Controller: FollowPath
+[controller_server-5] [INFO] [1790773350.189745023] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[lifecycle_manager-16] [INFO] [1790773350.447715192] [lifecycle_manager_nav2]: Server controller_server connected with bond.
+[lifecycle_manager-16] [INFO] [1790773350.447790914] [lifecycle_manager_nav2]: [34m[1mActivating smoother_server[0m[0m
+[smoother_server-6] [INFO] [1790773350.448551992] [smoother_server]: Activating
+[smoother_server-6] [INFO] [1790773350.448652008] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[lifecycle_manager-16] [INFO] [1790773350.710041221] [lifecycle_manager_nav2]: Server smoother_server connected with bond.
+[lifecycle_manager-16] [INFO] [1790773350.710120275] [lifecycle_manager_nav2]: [34m[1mActivating planner_server[0m[0m
+[planner_server-7] [INFO] [1790773350.710737173] [planner_server]: Activating
+[planner_server-7] [INFO] [1790773350.710848118] [global_costmap.global_costmap]: Activating
+[planner_server-7] [INFO] [1790773350.710874063] [global_costmap.global_costmap]: Checking transform
+[planner_server-7] [INFO] [1790773350.710976409] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773351.211107689] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773351.711034329] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773352.202324398] [rviz]: Message Filter dropping message: frame 'odom' at time 0.900 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773352.211022152] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773352.711030512] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773353.211027780] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773353.711021909] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773354.211031700] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773354.213856096] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-7] [INFO] [1790773354.711011213] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773354.794474668] [rviz]: Message Filter dropping message: frame 'odom' at time 3.500 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773355.210984600] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773355.711021351] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773356.201977891] [rviz]: Message Filter dropping message: frame 'odom' at time 0.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773356.211022026] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773356.711029052] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773357.211041711] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773357.386674792] [rviz]: Message Filter dropping message: frame 'odom' at time 6.100 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773357.711026634] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773358.211003576] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773358.711027348] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773359.210108449] [rviz]: Message Filter dropping message: frame 'odom' at time 3.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773359.211034198] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773359.711076889] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773360.010701669] [rviz]: Message Filter dropping message: frame 'odom' at time 8.700 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773360.211032692] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773360.711027080] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773361.210985898] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773361.711003764] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773362.186480446] [rviz]: Message Filter dropping message: frame 'odom' at time 6.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773362.211021386] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773362.602178276] [rviz]: Message Filter dropping message: frame 'odom' at time 11.300 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773362.711028217] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773363.211028816] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773363.710986980] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773364.211020865] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773364.711027474] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773365.193815243] [rviz]: Message Filter dropping message: frame 'odom' at time 13.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773365.193956010] [rviz]: Message Filter dropping message: frame 'odom' at time 9.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773365.211021989] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773365.711020574] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773366.211027009] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773366.710995349] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773367.211020934] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773367.710990196] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773367.786579712] [rviz]: Message Filter dropping message: frame 'odom' at time 16.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773368.201933052] [rviz]: Message Filter dropping message: frame 'odom' at time 12.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773368.211031263] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773368.710985184] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773369.211024126] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773369.711024412] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773370.211021779] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773370.410698048] [rviz]: Message Filter dropping message: frame 'odom' at time 19.100 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773370.711029770] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773371.210160596] [rviz]: Message Filter dropping message: frame 'odom' at time 15.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773371.211031924] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773371.711030990] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773372.211020383] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773372.711029928] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773373.001934460] [rviz]: Message Filter dropping message: frame 'odom' at time 21.700 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773373.211016119] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773373.711023633] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773374.186036559] [rviz]: Message Filter dropping message: frame 'odom' at time 18.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773374.211026496] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773374.711028361] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773375.211023781] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773375.593907778] [rviz]: Message Filter dropping message: frame 'odom' at time 24.300 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773375.711027206] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773376.211016021] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773376.711030254] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773377.194305293] [rviz]: Message Filter dropping message: frame 'odom' at time 21.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773377.210985359] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773377.711024366] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773378.186553273] [rviz]: Message Filter dropping message: frame 'odom' at time 26.900 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773378.211035091] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773378.711029116] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773379.211098247] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773379.711022785] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773380.202486418] [rviz]: Message Filter dropping message: frame 'odom' at time 24.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773380.211025358] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773380.711032634] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773380.810408395] [rviz]: Message Filter dropping message: frame 'odom' at time 29.500 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773381.211026591] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773381.710993342] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773382.211024476] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773382.711023534] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773383.210653645] [rviz]: Message Filter dropping message: frame 'odom' at time 27.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773383.211031132] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773383.402430153] [rviz]: Message Filter dropping message: frame 'odom' at time 32.100 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773383.710999517] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773384.211018924] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773384.711026610] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773385.211024431] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773385.710993512] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773385.994290118] [rviz]: Message Filter dropping message: frame 'odom' at time 34.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773386.186256091] [rviz]: Message Filter dropping message: frame 'odom' at time 30.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773386.211022327] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773386.711019767] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773387.210991506] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773387.711020107] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773388.210985881] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773388.586746663] [rviz]: Message Filter dropping message: frame 'odom' at time 37.300 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773388.711019330] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773389.195116295] [rviz]: Message Filter dropping message: frame 'odom' at time 33.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773389.211018903] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773389.711078419] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773390.211022228] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773390.711023542] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773391.210065768] [rviz]: Message Filter dropping message: frame 'odom' at time 39.900 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773391.211025724] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773391.711026338] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773392.202177396] [rviz]: Message Filter dropping message: frame 'odom' at time 36.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773392.211016876] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773392.711025866] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773393.211024146] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773393.711023985] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773393.802434992] [rviz]: Message Filter dropping message: frame 'odom' at time 42.500 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773394.210986885] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773394.710983778] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773395.209996001] [rviz]: Message Filter dropping message: frame 'odom' at time 39.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773395.210985718] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773395.710984383] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773396.210984404] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773396.394636137] [rviz]: Message Filter dropping message: frame 'odom' at time 45.100 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773396.710984003] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773397.211013175] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773397.711011201] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773398.186238751] [rviz]: Message Filter dropping message: frame 'odom' at time 42.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773398.211014993] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773398.711015817] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773398.986931481] [rviz]: Message Filter dropping message: frame 'odom' at time 47.700 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773399.211004385] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773399.711005992] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773400.211020923] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773400.711017745] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773401.194205485] [rviz]: Message Filter dropping message: frame 'odom' at time 45.960 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773401.211021921] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773401.609985426] [rviz]: Message Filter dropping message: frame 'odom' at time 50.300 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773401.711020844] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773402.211029061] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773402.711027584] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773403.211028059] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773403.711037065] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773404.202616790] [rviz]: Message Filter dropping message: frame 'odom' at time 52.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773404.202775455] [rviz]: Message Filter dropping message: frame 'odom' at time 48.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773404.211012842] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773404.711036475] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773405.211024199] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773405.710994674] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773406.211013117] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773406.711029728] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773406.795112971] [rviz]: Message Filter dropping message: frame 'odom' at time 55.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773407.210189825] [rviz]: Message Filter dropping message: frame 'odom' at time 51.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773407.211019908] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773407.711019755] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773408.211022155] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773408.711043933] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773409.211015364] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773409.386535140] [rviz]: Message Filter dropping message: frame 'odom' at time 58.100 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773409.711031815] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[rviz2-3] [INFO] [1790773410.185987026] [rviz]: Message Filter dropping message: frame 'odom' at time 54.950 for reason 'discarding message because the queue is full'
+[planner_server-7] [INFO] [1790773410.211024466] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773410.711018314] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [INFO] [1790773411.211016698] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-7] [ERROR] [1790773411.211109213] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_link to map did not become available before timeout
+[lifecycle_manager-16] [ERROR] [1790773411.212520459] [lifecycle_manager_nav2]: Failed to change state for node: planner_server
+[lifecycle_manager-16] [ERROR] [1790773411.212669325] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[rviz2-3] [INFO] [1790773412.010222486] [rviz]: Message Filter dropping message: frame 'odom' at time 60.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773413.193932236] [rviz]: Message Filter dropping message: frame 'odom' at time 57.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773414.602606746] [rviz]: Message Filter dropping message: frame 'odom' at time 63.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773416.202323165] [rviz]: Message Filter dropping message: frame 'odom' at time 60.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773417.194767220] [rviz]: Message Filter dropping message: frame 'odom' at time 65.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773419.209863056] [rviz]: Message Filter dropping message: frame 'odom' at time 63.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773419.786426146] [rviz]: Message Filter dropping message: frame 'odom' at time 68.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773422.185978164] [rviz]: Message Filter dropping message: frame 'odom' at time 66.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773422.410102489] [rviz]: Message Filter dropping message: frame 'odom' at time 71.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773425.002536752] [rviz]: Message Filter dropping message: frame 'odom' at time 73.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773425.194791108] [rviz]: Message Filter dropping message: frame 'odom' at time 69.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773427.593954158] [rviz]: Message Filter dropping message: frame 'odom' at time 76.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773428.202390479] [rviz]: Message Filter dropping message: frame 'odom' at time 72.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773430.186651995] [rviz]: Message Filter dropping message: frame 'odom' at time 78.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773431.210510245] [rviz]: Message Filter dropping message: frame 'odom' at time 75.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773432.810238939] [rviz]: Message Filter dropping message: frame 'odom' at time 81.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773434.186895880] [rviz]: Message Filter dropping message: frame 'odom' at time 78.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773435.402062623] [rviz]: Message Filter dropping message: frame 'odom' at time 84.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773437.194969376] [rviz]: Message Filter dropping message: frame 'odom' at time 81.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773437.994466558] [rviz]: Message Filter dropping message: frame 'odom' at time 86.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773440.202609403] [rviz]: Message Filter dropping message: frame 'odom' at time 84.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773440.585687199] [rviz]: Message Filter dropping message: frame 'odom' at time 89.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773443.210129712] [rviz]: Message Filter dropping message: frame 'odom' at time 91.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773443.210323061] [rviz]: Message Filter dropping message: frame 'odom' at time 87.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773445.802986429] [rviz]: Message Filter dropping message: frame 'odom' at time 94.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773446.186484486] [rviz]: Message Filter dropping message: frame 'odom' at time 90.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773448.394677277] [rviz]: Message Filter dropping message: frame 'odom' at time 97.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773449.194210876] [rviz]: Message Filter dropping message: frame 'odom' at time 93.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773450.986235012] [rviz]: Message Filter dropping message: frame 'odom' at time 99.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773452.202617098] [rviz]: Message Filter dropping message: frame 'odom' at time 96.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773453.610424553] [rviz]: Message Filter dropping message: frame 'odom' at time 102.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773455.210624124] [rviz]: Message Filter dropping message: frame 'odom' at time 99.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773456.202409306] [rviz]: Message Filter dropping message: frame 'odom' at time 104.901 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773458.187005653] [rviz]: Message Filter dropping message: frame 'odom' at time 102.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773458.794545230] [rviz]: Message Filter dropping message: frame 'odom' at time 107.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773461.194285784] [rviz]: Message Filter dropping message: frame 'odom' at time 105.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773461.386231615] [rviz]: Message Filter dropping message: frame 'odom' at time 110.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773464.010984517] [rviz]: Message Filter dropping message: frame 'odom' at time 112.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773464.202509412] [rviz]: Message Filter dropping message: frame 'odom' at time 108.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773466.602542866] [rviz]: Message Filter dropping message: frame 'odom' at time 115.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773467.210972582] [rviz]: Message Filter dropping message: frame 'odom' at time 111.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773469.194381959] [rviz]: Message Filter dropping message: frame 'odom' at time 117.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773470.186171515] [rviz]: Message Filter dropping message: frame 'odom' at time 114.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773471.786860383] [rviz]: Message Filter dropping message: frame 'odom' at time 120.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773473.195035601] [rviz]: Message Filter dropping message: frame 'odom' at time 117.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773474.410181060] [rviz]: Message Filter dropping message: frame 'odom' at time 123.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773476.202177083] [rviz]: Message Filter dropping message: frame 'odom' at time 120.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773477.002447342] [rviz]: Message Filter dropping message: frame 'odom' at time 125.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773479.210341229] [rviz]: Message Filter dropping message: frame 'odom' at time 123.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773479.594548336] [rviz]: Message Filter dropping message: frame 'odom' at time 128.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773482.186968807] [rviz]: Message Filter dropping message: frame 'odom' at time 130.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773482.187139992] [rviz]: Message Filter dropping message: frame 'odom' at time 126.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773484.810514009] [rviz]: Message Filter dropping message: frame 'odom' at time 133.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773485.194615617] [rviz]: Message Filter dropping message: frame 'odom' at time 129.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773487.402525002] [rviz]: Message Filter dropping message: frame 'odom' at time 136.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773488.202397671] [rviz]: Message Filter dropping message: frame 'odom' at time 132.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773489.994126844] [rviz]: Message Filter dropping message: frame 'odom' at time 138.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773491.210936778] [rviz]: Message Filter dropping message: frame 'odom' at time 135.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773492.586727105] [rviz]: Message Filter dropping message: frame 'odom' at time 141.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773494.186676654] [rviz]: Message Filter dropping message: frame 'odom' at time 138.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773495.210802642] [rviz]: Message Filter dropping message: frame 'odom' at time 143.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773497.194944352] [rviz]: Message Filter dropping message: frame 'odom' at time 141.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773497.802856139] [rviz]: Message Filter dropping message: frame 'odom' at time 146.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773500.201959099] [rviz]: Message Filter dropping message: frame 'odom' at time 144.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773500.394261926] [rviz]: Message Filter dropping message: frame 'odom' at time 149.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773503.018807182] [rviz]: Message Filter dropping message: frame 'odom' at time 151.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773503.210796028] [rviz]: Message Filter dropping message: frame 'odom' at time 147.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773505.610132629] [rviz]: Message Filter dropping message: frame 'odom' at time 154.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773506.186618795] [rviz]: Message Filter dropping message: frame 'odom' at time 150.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773508.202669346] [rviz]: Message Filter dropping message: frame 'odom' at time 156.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773509.194963450] [rviz]: Message Filter dropping message: frame 'odom' at time 153.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773510.794508229] [rviz]: Message Filter dropping message: frame 'odom' at time 159.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773512.202930719] [rviz]: Message Filter dropping message: frame 'odom' at time 156.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773513.386950868] [rviz]: Message Filter dropping message: frame 'odom' at time 162.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773515.210673286] [rviz]: Message Filter dropping message: frame 'odom' at time 159.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773516.010866474] [rviz]: Message Filter dropping message: frame 'odom' at time 164.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773518.186455444] [rviz]: Message Filter dropping message: frame 'odom' at time 162.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773518.602211131] [rviz]: Message Filter dropping message: frame 'odom' at time 167.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773521.194372045] [rviz]: Message Filter dropping message: frame 'odom' at time 169.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773521.194587642] [rviz]: Message Filter dropping message: frame 'odom' at time 165.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773523.786688250] [rviz]: Message Filter dropping message: frame 'odom' at time 172.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773524.202263144] [rviz]: Message Filter dropping message: frame 'odom' at time 168.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773526.410454091] [rviz]: Message Filter dropping message: frame 'odom' at time 175.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773527.211064144] [rviz]: Message Filter dropping message: frame 'odom' at time 171.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773529.002929006] [rviz]: Message Filter dropping message: frame 'odom' at time 177.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773530.186824331] [rviz]: Message Filter dropping message: frame 'odom' at time 174.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773531.594093499] [rviz]: Message Filter dropping message: frame 'odom' at time 180.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773533.194272811] [rviz]: Message Filter dropping message: frame 'odom' at time 177.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773534.186906244] [rviz]: Message Filter dropping message: frame 'odom' at time 182.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773536.202180621] [rviz]: Message Filter dropping message: frame 'odom' at time 180.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773536.810939877] [rviz]: Message Filter dropping message: frame 'odom' at time 185.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773539.210774339] [rviz]: Message Filter dropping message: frame 'odom' at time 183.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773539.402525520] [rviz]: Message Filter dropping message: frame 'odom' at time 188.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773541.995453024] [rviz]: Message Filter dropping message: frame 'odom' at time 190.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773542.186314392] [rviz]: Message Filter dropping message: frame 'odom' at time 186.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773544.586036227] [rviz]: Message Filter dropping message: frame 'odom' at time 193.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773545.194407920] [rviz]: Message Filter dropping message: frame 'odom' at time 189.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773547.210198120] [rviz]: Message Filter dropping message: frame 'odom' at time 195.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773548.202845845] [rviz]: Message Filter dropping message: frame 'odom' at time 192.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773549.802634444] [rviz]: Message Filter dropping message: frame 'odom' at time 198.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773551.211078983] [rviz]: Message Filter dropping message: frame 'odom' at time 195.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773552.394652607] [rviz]: Message Filter dropping message: frame 'odom' at time 201.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773554.186843640] [rviz]: Message Filter dropping message: frame 'odom' at time 198.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773555.019063330] [rviz]: Message Filter dropping message: frame 'odom' at time 203.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773557.194331999] [rviz]: Message Filter dropping message: frame 'odom' at time 201.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773557.611782182] [rviz]: Message Filter dropping message: frame 'odom' at time 206.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773560.203048030] [rviz]: Message Filter dropping message: frame 'odom' at time 208.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773560.203269043] [rviz]: Message Filter dropping message: frame 'odom' at time 204.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773562.794138328] [rviz]: Message Filter dropping message: frame 'odom' at time 211.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773563.211424031] [rviz]: Message Filter dropping message: frame 'odom' at time 207.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773565.387735216] [rviz]: Message Filter dropping message: frame 'odom' at time 214.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773566.187064993] [rviz]: Message Filter dropping message: frame 'odom' at time 210.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773568.010701465] [rviz]: Message Filter dropping message: frame 'odom' at time 216.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773569.195127850] [rviz]: Message Filter dropping message: frame 'odom' at time 213.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773570.602401809] [rviz]: Message Filter dropping message: frame 'odom' at time 219.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773572.202359928] [rviz]: Message Filter dropping message: frame 'odom' at time 216.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773573.194836540] [rviz]: Message Filter dropping message: frame 'odom' at time 221.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773575.211061652] [rviz]: Message Filter dropping message: frame 'odom' at time 219.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773575.787005455] [rviz]: Message Filter dropping message: frame 'odom' at time 224.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773578.187036080] [rviz]: Message Filter dropping message: frame 'odom' at time 222.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773578.410802874] [rviz]: Message Filter dropping message: frame 'odom' at time 227.100 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773581.002162453] [rviz]: Message Filter dropping message: frame 'odom' at time 229.700 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773581.194392532] [rviz]: Message Filter dropping message: frame 'odom' at time 225.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773583.594396424] [rviz]: Message Filter dropping message: frame 'odom' at time 232.300 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773584.203087298] [rviz]: Message Filter dropping message: frame 'odom' at time 228.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773586.186818566] [rviz]: Message Filter dropping message: frame 'odom' at time 234.900 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773587.211473101] [rviz]: Message Filter dropping message: frame 'odom' at time 231.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773588.810940449] [rviz]: Message Filter dropping message: frame 'odom' at time 237.500 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773590.186791970] [rviz]: Message Filter dropping message: frame 'odom' at time 234.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773591.402440225] [rviz]: Message Filter dropping message: frame 'odom' at time 240.100 for reason 'discarding message because the queue is full'
+[loopback_simulator-2] [INFO] [1790773592.873522845] [loopback_simulator]: Received initial pose!
+[rviz2-3] [INFO] [1790773593.194170561] [rviz]: Message Filter dropping message: frame 'odom' at time 237.950 for reason 'discarding message because the queue is full'
+[rviz2-3] [INFO] [1790773593.197205240] [rviz2]: Trying to create a map of size 60 x 60 using 1 swatches
+[rviz2-3] [INFO] [1790773597.771732257] [rviz]: Message Filter dropping message: frame 'odom' at time 238.550 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[rviz2-3] [INFO] [1790773600.769197010] [rviz]: Message Filter dropping message: frame 'odom' at time 241.550 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[rviz2-3] [INFO] [1790773601.110779807] [rviz]: Message Filter dropping message: frame 'odom' at time 241.900 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[lifecycle_manager-16] [INFO] [1790773652.571556440] [lifecycle_manager_nav2]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773652.571629820] [lifecycle_manager_nav2]: [34m[1mConfiguring map_server[0m[0m
+[map_server-4] [WARN] [1790773652.572184591] [rcl_lifecycle]: No transition matching 1 found for current state active
+[map_server-4] [WARN] [1790773652.572213760] [rcl_lifecycle]: No transition matching 1 found for current state active
+[map_server-4] [ERROR] [1790773652.572227046] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [ERROR] [1790773652.572921774] [lifecycle_manager_nav2]: Failed to change state for node: map_server
+[lifecycle_manager-16] [ERROR] [1790773652.572971040] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[lifecycle_manager-16] [INFO] [1790773660.916627958] [lifecycle_manager_nav2]: [34m[1mResetting managed nodes...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773660.916718083] [lifecycle_manager_nav2]: [34m[1mDeactivating following_server[0m[0m
+[opennav_following-15] [WARN] [1790773660.917355722] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[opennav_following-15] [WARN] [1790773660.917390459] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[opennav_following-15] [ERROR] [1790773660.917404025] [following_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.918031377] [lifecycle_manager_nav2]: [34m[1mDeactivating docking_server[0m[0m
+[opennav_docking-14] [WARN] [1790773660.918357262] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[opennav_docking-14] [WARN] [1790773660.918386543] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[opennav_docking-14] [ERROR] [1790773660.918401319] [docking_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.918995283] [lifecycle_manager_nav2]: [34m[1mDeactivating waypoint_follower[0m[0m
+[waypoint_follower-11] [WARN] [1790773660.919233954] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[waypoint_follower-11] [WARN] [1790773660.919273276] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[waypoint_follower-11] [ERROR] [1790773660.919294846] [waypoint_follower]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.919962432] [lifecycle_manager_nav2]: [34m[1mDeactivating bt_navigator[0m[0m
+[bt_navigator-10] [WARN] [1790773660.920218042] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[bt_navigator-10] [WARN] [1790773660.920252366] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[bt_navigator-10] [ERROR] [1790773660.920272673] [bt_navigator]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.920791404] [lifecycle_manager_nav2]: [34m[1mDeactivating collision_monitor[0m[0m
+[collision_monitor-13] [WARN] [1790773660.921101925] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[collision_monitor-13] [WARN] [1790773660.921132055] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[collision_monitor-13] [ERROR] [1790773660.921150718] [collision_monitor]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.921701307] [lifecycle_manager_nav2]: [34m[1mDeactivating velocity_smoother[0m[0m
+[velocity_smoother-12] [WARN] [1790773660.922011846] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[velocity_smoother-12] [WARN] [1790773660.922051440] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[velocity_smoother-12] [ERROR] [1790773660.922071888] [velocity_smoother]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.922558986] [lifecycle_manager_nav2]: [34m[1mDeactivating behavior_server[0m[0m
+[behavior_server-9] [WARN] [1790773660.922828370] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[behavior_server-9] [WARN] [1790773660.922856458] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[behavior_server-9] [ERROR] [1790773660.922868155] [behavior_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.923290859] [lifecycle_manager_nav2]: [34m[1mDeactivating route_server[0m[0m
+[route_server-8] [WARN] [1790773660.923554775] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[route_server-8] [WARN] [1790773660.923583112] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[route_server-8] [ERROR] [1790773660.923595377] [route_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.923968887] [lifecycle_manager_nav2]: [34m[1mDeactivating planner_server[0m[0m
+[planner_server-7] [WARN] [1790773660.924211679] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[planner_server-7] [WARN] [1790773660.924237951] [rcl_lifecycle]: No transition matching 4 found for current state inactive
+[planner_server-7] [ERROR] [1790773660.924249896] [planner_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[lifecycle_manager-16] [INFO] [1790773660.924768828] [lifecycle_manager_nav2]: [34m[1mDeactivating smoother_server[0m[0m
+[smoother_server-6] [INFO] [1790773660.925114096] [smoother_server]: Deactivating
+[smoother_server-6] [INFO] [1790773660.925194291] [smoother_server]: Destroying bond (smoother_server) to lifecycle manager.
+[lifecycle_manager-16] [INFO] [1790773661.038380031] [lifecycle_manager_nav2]: [34m[1mDeactivating controller_server[0m[0m
+[controller_server-5] [INFO] [1790773661.039008719] [controller_server]: Deactivating
+[controller_server-5] [INFO] [1790773661.039119942] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[controller_server-5] [INFO] [1790773661.039159085] [local_costmap.local_costmap]: Deactivating
+[controller_server-5] [INFO] [1790773661.179468330] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[lifecycle_manager-16] [INFO] [1790773661.291931119] [lifecycle_manager_nav2]: [34m[1mDeactivating map_server[0m[0m
+[map_server-4] [INFO] [1790773661.292199099] [map_server]: Deactivating
+[map_server-4] [INFO] [1790773661.292223293] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[lifecycle_manager-16] [INFO] [1790773661.407135142] [lifecycle_manager_nav2]: [34m[1mCleaning up following_server[0m[0m
+[opennav_following-15] [INFO] [1790773661.407784088] [following_server]: Cleaning up following_server
+[lifecycle_manager-16] [INFO] [1790773661.417895423] [lifecycle_manager_nav2]: [34m[1mCleaning up docking_server[0m[0m
+[opennav_docking-14] [INFO] [1790773661.418198662] [docking_server]: Cleaning up docking_server
+[lifecycle_manager-16] [INFO] [1790773661.441266933] [lifecycle_manager_nav2]: [34m[1mCleaning up waypoint_follower[0m[0m
+[waypoint_follower-11] [INFO] [1790773661.441599888] [waypoint_follower]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.457629300] [lifecycle_manager_nav2]: [34m[1mCleaning up bt_navigator[0m[0m
+[bt_navigator-10] [INFO] [1790773661.457964766] [bt_navigator]: Cleaning up
+[bt_navigator-10] [INFO] [1790773661.468375270] [bt_navigator_navigate_to_pose_rclcpp_node]: Destroying
+[bt_navigator-10] [INFO] [1790773661.496121987] [bt_navigator_navigate_through_poses_rclcpp_node]: Destroying
+[bt_navigator-10] [INFO] [1790773661.505179589] [bt_navigator]: Completed Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.505595033] [lifecycle_manager_nav2]: [34m[1mCleaning up collision_monitor[0m[0m
+[collision_monitor-13] [INFO] [1790773661.505818175] [collision_monitor]: Cleaning up
+[collision_monitor-13] [INFO] [1790773661.507847738] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[collision_monitor-13] [INFO] [1790773661.508196670] [collision_monitor]: [scan]: Destroying Scan
+[lifecycle_manager-16] [INFO] [1790773661.509824055] [lifecycle_manager_nav2]: [34m[1mCleaning up velocity_smoother[0m[0m
+[velocity_smoother-12] [INFO] [1790773661.509930838] [velocity_smoother]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.511425090] [lifecycle_manager_nav2]: [34m[1mCleaning up behavior_server[0m[0m
+[behavior_server-9] [INFO] [1790773661.511528272] [behavior_server]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.533433267] [lifecycle_manager_nav2]: [34m[1mCleaning up route_server[0m[0m
+[route_server-8] [INFO] [1790773661.533560317] [route_server]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.538441244] [lifecycle_manager_nav2]: [34m[1mCleaning up planner_server[0m[0m
+[planner_server-7] [INFO] [1790773661.538550484] [planner_server]: Cleaning up
+[planner_server-7] [INFO] [1790773661.542174111] [global_costmap.global_costmap]: Cleaning up
+[planner_server-7] [INFO] [1790773661.543609580] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[planner_server-7] [INFO] [1790773661.543623582] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[lifecycle_manager-16] [INFO] [1790773661.548894979] [lifecycle_manager_nav2]: [34m[1mCleaning up smoother_server[0m[0m
+[smoother_server-6] [INFO] [1790773661.548980531] [smoother_server]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.552656197] [lifecycle_manager_nav2]: [34m[1mCleaning up controller_server[0m[0m
+[controller_server-5] [INFO] [1790773661.552806719] [controller_server]: Cleaning up
+[controller_server-5] [INFO] [1790773661.556663793] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[controller_server-5] Warning: class_loader.ClassLoader: SEVERE WARNING!!! Attempting to unload library while objects created by this loader exist in the heap! You should delete your objects before attempting to unload the library or destroying the ClassLoader. The library will NOT be unloaded.
+[controller_server-5]          at line 127 in ./src/class_loader.cpp
+[controller_server-5] [INFO] [1790773661.557676762] [local_costmap.local_costmap]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.577545010] [lifecycle_manager_nav2]: [34m[1mCleaning up map_server[0m[0m
+[map_server-4] [INFO] [1790773661.577671049] [map_server]: Cleaning up
+[lifecycle_manager-16] [INFO] [1790773661.579859602] [lifecycle_manager_nav2]: [34m[1mManaged nodes have been reset[0m[0m
+[lifecycle_manager-16] [INFO] [1790773673.009181527] [lifecycle_manager_nav2]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-16] [INFO] [1790773673.009253469] [lifecycle_manager_nav2]: [34m[1mConfiguring map_server[0m[0m
+[map_server-4] [INFO] [1790773673.009811918] [map_server]: Configuring
+[map_server-4] [INFO] [1790773673.009935547] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.yaml
+[map_server-4] [INFO] [1790773673.010295903] [map_io]: resolution: 0.05
+[map_server-4] [INFO] [1790773673.010317727] [map_io]: origin[0]: -10
+[map_server-4] [INFO] [1790773673.010330394] [map_io]: origin[1]: -10
+[map_server-4] [INFO] [1790773673.010341667] [map_io]: origin[2]: 0
+[map_server-4] [INFO] [1790773673.010354424] [map_io]: free_thresh: 0.196
+[map_server-4] [INFO] [1790773673.010366717] [map_io]: occupied_thresh: 0.65
+[map_server-4] [INFO] [1790773673.010376891] [map_io]: mode: trinary
+[map_server-4] [INFO] [1790773673.010386838] [map_io]: negate: 0
+[map_server-4] [INFO] [1790773673.010416036] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm
+[map_server-4] [INFO] [1790773673.014399943] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm: 384 X 384 map @ 0.05 m/cell
+[lifecycle_manager-16] [INFO] [1790773673.021050363] [lifecycle_manager_nav2]: [34m[1mConfiguring controller_server[0m[0m
+[controller_server-5] [INFO] [1790773673.021350741] [controller_server]: Configuring controller interface
+[controller_server-5] [INFO] [1790773673.021413406] [local_costmap.local_costmap]: Configuring
+[controller_server-5] [INFO] [1790773673.031960766] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[controller_server-5] [INFO] [1790773673.032139838] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[controller_server-5] [INFO] [1790773673.038210746] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[controller_server-5] [INFO] [1790773673.038280376] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[controller_server-5] [INFO] [1790773673.038472481] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[controller_server-5] [INFO] [1790773673.038518233] [local_costmap.local_costmap]: Using costmap filter "keepout_filter"
+[controller_server-5] [INFO] [1790773673.041163399] [local_costmap.local_costmap]: Initialized costmap filter "keepout_filter"
+[controller_server-5] [INFO] [1790773673.055612522] [controller_server]: Controller frequency set to 20.0000Hz
+[controller_server-5] [INFO] [1790773673.055638831] [controller_server]: getting progress checker plugins..
+[controller_server-5] [INFO] [1790773673.055650235] [controller_server]: getting goal checker plugins..
+[controller_server-5] [INFO] [1790773673.055658468] [controller_server]: getting controller plugins..
+[controller_server-5] [INFO] [1790773673.055667665] [controller_server]: getting path handler plugins..
+[controller_server-5] [INFO] [1790773673.055713934] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[controller_server-5] [INFO] [1790773673.055724008] [controller_server]: Controller Server has progress_checker progress_checker  progress checkers available.
+[controller_server-5] [INFO] [1790773673.055742068] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[controller_server-5] [INFO] [1790773673.055748502] [controller_server]: Controller Server has general_goal_checker general_goal_checker  goal checkers available.
+[controller_server-5] [INFO] [1790773673.055765415] [controller_server]: Created path handler : PathHandler of type nav2_controller::FeasiblePathHandler
+[controller_server-5] [INFO] [1790773673.055772815] [controller_server]: Controller Server has PathHandler PathHandler  path handlers available.
+[controller_server-5] [INFO] [1790773673.055795554] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[controller_server-5] [INFO] [1790773673.057003224] [controller_server]: Loaded motion model plugin: mppi::DiffDriveMotionModel
+[controller_server-5] [INFO] [1790773673.057023004] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[controller_server-5] [INFO] [1790773673.058433755] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[controller_server-5] [INFO] [1790773673.058454643] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[controller_server-5] [INFO] [1790773673.058500812] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on circular cost.
+[controller_server-5] [INFO] [1790773673.058510770] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[controller_server-5] [INFO] [1790773673.058532602] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-5] [INFO] [1790773673.058537673] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[controller_server-5] [INFO] [1790773673.058561725] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[controller_server-5] [INFO] [1790773673.058568835] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[controller_server-5] [INFO] [1790773673.058598862] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[controller_server-5] [INFO] [1790773673.058604907] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[controller_server-5] [INFO] [1790773673.058632553] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[controller_server-5] [INFO] [1790773673.058659840] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[controller_server-5] [INFO] [1790773673.058665432] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[controller_server-5] [INFO] [1790773673.058687326] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-5] [INFO] [1790773673.058692483] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[controller_server-5] [INFO] [1790773673.059681786] [controller_server]: Loaded trajectory validator plugin: mppi::DefaultOptimalTrajectoryValidator
+[controller_server-5] [INFO] [1790773673.061927549] [controller_server]: Optimizer reset
+[controller_server-5] [INFO] [1790773673.063345698] [MPPIController]: Configured MPPI Controller: FollowPath
+[controller_server-5] [INFO] [1790773673.063356507] [controller_server]: Controller Server has FollowPath FollowPath  controllers available.
+[lifecycle_manager-16] [INFO] [1790773673.067168618] [lifecycle_manager_nav2]: [34m[1mConfiguring smoother_server[0m[0m
+[smoother_server-6] [INFO] [1790773673.067261256] [smoother_server]: Configuring smoother server
+[smoother_server-6] [INFO] [1790773673.068818483] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-6] [INFO] [1790773673.068850085] [smoother_server]: Created smoother : route_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-6] [INFO] [1790773673.068856633] [smoother_server]: Smoother Server has simple_smoother route_smoother simple_smoother route_smoother  smoothers available.
+[lifecycle_manager-16] [INFO] [1790773673.070494557] [lifecycle_manager_nav2]: [34m[1mConfiguring planner_server[0m[0m
+[planner_server-7] [INFO] [1790773673.070586258] [planner_server]: Configuring
+[planner_server-7] [INFO] [1790773673.070615262] [global_costmap.global_costmap]: Configuring
+[planner_server-7] [INFO] [1790773673.073708598] [global_costmap.global_costmap]: Using plugin "static_layer"
+[planner_server-7] [INFO] [1790773673.073748189] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[planner_server-7] [INFO] [1790773673.074004850] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[planner_server-7] [INFO] [1790773673.074010427] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[planner_server-7] [INFO] [1790773673.074034719] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[planner_server-7] [INFO] [1790773673.074481032] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[planner_server-7] [INFO] [1790773673.074487331] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-7] [INFO] [1790773673.074525451] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-7] [INFO] [1790773673.074527933] [global_costmap.global_costmap]: Using costmap filter "keepout_filter"
+[planner_server-7] [INFO] [1790773673.074869155] [global_costmap.global_costmap]: Initialized costmap filter "keepout_filter"
+[planner_server-7] [INFO] [1790773673.074875949] [global_costmap.global_costmap]: Using costmap filter "speed_filter"
+[planner_server-7] [INFO] [1790773673.075185239] [global_costmap.global_costmap]: Initialized costmap filter "speed_filter"
+[planner_server-7] [INFO] [1790773673.081553592] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[planner_server-7] [INFO] [1790773673.081576062] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[planner_server-7] [INFO] [1790773673.081598822] [planner_server]: Planner Server has GridBased GridBased  planners available.
+[lifecycle_manager-16] [INFO] [1790773673.087887296] [lifecycle_manager_nav2]: [34m[1mConfiguring route_server[0m[0m
+[route_server-8] [INFO] [1790773673.088059132] [route_server]: Configuring
+[route_server-8] [INFO] [1790773673.100719459] [route_server]: Created GraphFileLoader GeoJsonGraphFileLoader of type nav2_route::GeoJsonGraphFileLoader
+[route_server-8] [INFO] [1790773673.100758651] [route_server]: Configuring geojson graph file loader
+[route_server-8] [INFO] [1790773673.100768038] [route_server]: Loading graph file from /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/graphs/turtlebot3_graph.geojson, by parser nav2_route::GeoJsonGraphFileLoader
+[route_server-8] [INFO] [1790773673.102883154] [route_server]: Created edge cost function plugin DistanceScorer of type nav2_route::DistanceScorer
+[route_server-8] [INFO] [1790773673.102903220] [route_server]: Configuring distance scorer.
+[route_server-8] [INFO] [1790773673.102921953] [route_server]: Created edge cost function plugin CostmapScorer of type nav2_route::CostmapScorer
+[route_server-8] [INFO] [1790773673.102926253] [route_server]: Configuring costmap scorer.
+[route_server-8] [INFO] [1790773673.103840709] [route_server]: Created route operation AdjustSpeedLimit of type nav2_route::AdjustSpeedLimit
+[route_server-8] [INFO] [1790773673.103847533] [route_server]: Configuring Adjust speed limit operation.
+[route_server-8] [INFO] [1790773673.104416902] [route_server]: Created route operation ReroutingService of type nav2_route::ReroutingService
+[route_server-8] [INFO] [1790773673.104428766] [route_server]: Configuring Rerouting service operation.
+[route_server-8] [INFO] [1790773673.104947262] [route_server]: Created route operation CollisionMonitor of type nav2_route::CollisionMonitor
+[route_server-8] [INFO] [1790773673.104962473] [route_server]: Using costmap topic: local_costmap/costmap_raw instead of server costmap topic: global_costmap/costmap_raw for CollisionMonitor.
+[lifecycle_manager-16] [INFO] [1790773673.106443827] [lifecycle_manager_nav2]: [34m[1mConfiguring behavior_server[0m[0m
+[behavior_server-9] [INFO] [1790773673.106598468] [behavior_server]: Configuring
+[behavior_server-9] [INFO] [1790773673.107616719] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors::Spin
+[behavior_server-9] [INFO] [1790773673.107645124] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors::BackUp
+[behavior_server-9] [INFO] [1790773673.107657025] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors::DriveOnHeading
+[behavior_server-9] [INFO] [1790773673.107667418] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors::AssistedTeleop
+[behavior_server-9] [INFO] [1790773673.107676314] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+[behavior_server-9] [INFO] [1790773673.108645486] [behavior_server]: Configuring spin
+[behavior_server-9] [INFO] [1790773673.110208286] [behavior_server]: Configuring backup
+[behavior_server-9] [INFO] [1790773673.111588102] [behavior_server]: Configuring drive_on_heading
+[behavior_server-9] [INFO] [1790773673.113150441] [behavior_server]: Configuring assisted_teleop
+[behavior_server-9] [INFO] [1790773673.114883879] [behavior_server]: Configuring wait
+[lifecycle_manager-16] [INFO] [1790773673.116228993] [lifecycle_manager_nav2]: [34m[1mConfiguring velocity_smoother[0m[0m
+[velocity_smoother-12] [INFO] [1790773673.116361728] [velocity_smoother]: Configuring velocity smoother
+[lifecycle_manager-16] [INFO] [1790773673.117787758] [lifecycle_manager_nav2]: [34m[1mConfiguring collision_monitor[0m[0m
+[collision_monitor-13] [INFO] [1790773673.117873302] [collision_monitor]: Configuring
+[collision_monitor-13] [INFO] [1790773673.118725358] [collision_monitor]: [scan]: Creating Scan
+[collision_monitor-13] [INFO] [1790773673.120087586] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[collision_monitor-13] [ERROR] [1790773673.120116469] [collision_monitor]: Error while getting parameters: parameter 'FootprintApproach.points' is not initialized
+[collision_monitor-13] [INFO] [1790773673.120138825] [collision_monitor]: Cleaning up
+[collision_monitor-13] [INFO] [1790773673.120144977] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[collision_monitor-13] [INFO] [1790773673.120150406] [collision_monitor]: [scan]: Destroying Scan
+[lifecycle_manager-16] [ERROR] [1790773673.121322881] [lifecycle_manager_nav2]: Failed to change state for node: collision_monitor
+[lifecycle_manager-16] [ERROR] [1790773673.121354016] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.

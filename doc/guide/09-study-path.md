@@ -7,8 +7,8 @@
 
 | 지금 상태 | 시작할 곳 |
 | --- | --- |
-| 빌드 전 | [01](01-host-setup.md) |
-| 런치가 죽음 | [07](07-logs-and-troubleshooting.md)에서 표의 그 줄 |
+| 이미지가 아직 없음 | [01](01-host-setup.md) (Docker 이미지 빌드) |
+| 런치가 죽음, 또는 60초 뒤 bringup 실패 | [07](07-logs-and-troubleshooting.md)에서 표의 그 줄. 60초 초과는 컨테이너를 다시 띄움 |
 | 지도는 보이는데 로봇이 없음 | [04](04-initialize-and-drive.md). `initialpose` 전엔 `map→odom`이 없음 |
 | 주행은 됐고 내부가 궁금함 | 아래 2단계 |
 | 실행은 못 하고 소스만 | [런타임 아키텍처](../architecture/03-runtime-architecture.md) → [패키지 카탈로그](../architecture/02-package-catalog.md) |
@@ -17,11 +17,11 @@ ROS 2가 처음이면 다음만 구분합니다.
 
 | 개념 | 이 가이드에서 만나는 예 |
 | --- | --- |
-| 노드 | `/planner_server`와 패키지 `nav2_planner` |
+| 노드 | `/planner_server`와 패키지 `nav2_planner`. 이 가이드에서는 컨테이너 `nav2` 안의 프로세스 |
 | 토픽 | `/plan`, `/cmd_vel_nav` |
 | 액션 | `/navigate_to_pose`, `/follow_path` |
 | TF | `map` → `odom` → `base_footprint` → `base_link` |
-| QoS | `/map`은 transient local. 늦게 구독해도 받으려면 durability를 맞춤 |
+| QoS | `/map`은 transient local + reliable. 늦게 구독해도 받으려면 **durability와 reliability를 둘 다** 맞춤 ([03 §2](03-verify-map-and-nodes.md#2-지도--초기-자세-전에도-보임)) |
 | 파라미터 | `nav2_params.yaml`의 `plugin:` 과 런치가 덮는 `use_localization` |
 
 ## 1. 가이드를 끝내는 기준

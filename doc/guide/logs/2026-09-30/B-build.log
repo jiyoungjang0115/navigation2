@@ -1,0 +1,332 @@
+### [B0] 2026-09-30 20:22:07
+$ source /opt/ros/jazzy/setup.bash && cd /home/hwanjun/projects/navigation2 && colcon build --symlink-install --packages-up-to nav2_bringup nav2_loopback_sim nav2_simple_commander
+(가이드 01 §4의 두 번째 방법. nav2_system_tests 제외 45개. 빌드 타입 미지정 = 가이드 그대로)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+--- stderr: nav2_common
+Traceback (most recent call last):
+  File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+    from catkin_pkg.package import parse_package_string
+ModuleNotFoundError: No module named 'catkin_pkg'
+CMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+  execute_process(/home/hwanjun/.local/bin/python3.11
+  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+  /home/hwanjun/projects/navigation2/nav2_common/package.xml
+  /home/hwanjun/projects/navigation2/build/nav2_common/ament_cmake_core/package.cmake)
+  returned error code 1
+Call Stack (most recent call first):
+  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+  /opt/ros/jazzy/share/ament_cmake_python/cmake/ament_python_install_package.cmake:60 (ament_package_xml)
+  /opt/ros/jazzy/share/ament_cmake_python/cmake/ament_python_install_package.cmake:39 (_ament_cmake_python_install_package)
+  CMakeLists.txt:9 (ament_python_install_package)
+
+
+---
+Failed   <<< nav2_common [0.27s, exited with code 1]
+Aborted  <<< nav_2d_msgs [0.81s]
+
+Summary: 0 packages finished [0.99s]
+  1 package failed: nav2_common
+  1 package aborted: nav_2d_msgs
+  2 packages had stderr output: nav2_common nav_2d_msgs
+  43 packages not processed
+→ exit=1
+### [B0-end] 2026-09-30 20:22:09
+
+### [B1] 2026-09-30 20:22:31
+$ colcon build --symlink-install --packages-up-to nav2_bringup nav2_loopback_sim nav2_simple_commander --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3
+(B0 실패 원인: CMake FindPython3가 ~/.local/bin/python3.11(uv)을 선택. B-diagnose.log B1–B2. 이 빌드에만 시스템 python3.12를 지정)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+Finished <<< nav2_common [0.84s]
+Starting >>> nav2_msgs
+Starting >>> nav2_voxel_grid
+Finished <<< nav_2d_msgs [5.11s]
+Starting >>> dwb_msgs
+Finished <<< nav2_voxel_grid [7.42s]
+Finished <<< dwb_msgs [8.03s]
+[Processing: nav2_msgs]
+Finished <<< nav2_msgs [42.5s]
+Starting >>> nav2_ros_common
+Starting >>> nav2_simple_commander
+--- stderr: nav2_simple_commander
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+---
+Finished <<< nav2_simple_commander [1.00s]
+--- stderr: nav2_ros_common
+CMake Error at test/CMakeLists.txt:2 (find_package):
+  By not providing "Findtest_msgs.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "test_msgs", but CMake did not find one.
+
+  Could not find a package configuration file provided by "test_msgs" with
+  any of the following names:
+
+    test_msgsConfig.cmake
+    test_msgs-config.cmake
+
+  Add the installation prefix of "test_msgs" to CMAKE_PREFIX_PATH or set
+  "test_msgs_DIR" to a directory containing one of the above files.  If
+  "test_msgs" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+---
+Failed   <<< nav2_ros_common [1.10s, exited with code 1]
+
+Summary: 6 packages finished [44.6s]
+  1 package failed: nav2_ros_common
+  2 packages had stderr output: nav2_ros_common nav2_simple_commander
+  38 packages not processed
+→ exit=1
+### [B1-end] 2026-09-30 20:23:16
+
+### [B2] 2026-09-30 20:23:31
+$ colcon build --symlink-install --packages-up-to nav2_bringup nav2_loopback_sim nav2_simple_commander --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3 -DBUILD_TESTING=OFF
+(B1 실패 원인: nav2_ros_common 테스트 CMake가 test_msgs를 요구. 테스트는 실행하지 않으므로 BUILD_TESTING=OFF. B-diagnose.log B4)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+Finished <<< nav2_common [0.88s]
+Starting >>> nav2_msgs
+Starting >>> nav2_voxel_grid
+Finished <<< nav2_voxel_grid [1.90s]
+Finished <<< nav_2d_msgs [4.88s]
+Starting >>> dwb_msgs
+Finished <<< dwb_msgs [7.92s]
+Finished <<< nav2_msgs [37.8s]
+Starting >>> nav2_ros_common
+Starting >>> nav2_simple_commander
+--- stderr: nav2_simple_commander
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+---
+Finished <<< nav2_simple_commander [0.91s]
+Finished <<< nav2_ros_common [1.26s]
+Starting >>> nav2_util
+Starting >>> opennav_docking_core
+Finished <<< opennav_docking_core [1.23s]
+Finished <<< nav2_util [8.00s]
+Starting >>> nav2_lifecycle_manager
+Starting >>> nav2_map_server
+Starting >>> nav2_behavior_tree
+Starting >>> nav_2d_utils
+Starting >>> nav2_amcl
+Starting >>> nav2_loopback_sim
+Starting >>> nav2_velocity_smoother
+Finished <<< nav_2d_utils [29.2s]
+--- stderr: nav2_behavior_tree
+In file included from /home/hwanjun/projects/navigation2/nav2_behavior_tree/src/behavior_tree_engine.cpp:27:
+/home/hwanjun/projects/navigation2/nav2_behavior_tree/include/nav2_behavior_tree/utils/loop_rate.hpp: In member function ‘bool nav2_behavior_tree::LoopRate::sleep()’:
+/home/hwanjun/projects/navigation2/nav2_behavior_tree/include/nav2_behavior_tree/utils/loop_rate.hpp:64:27: error: ‘class BT::Tree’ has no member named ‘wakeUpSignal’; did you mean ‘emitWakeUpSignal’?
+   64 |     auto wake_up = tree_->wakeUpSignal();
+      |                           ^~~~~~~~~~~~
+      |                           emitWakeUpSignal
+gmake[2]: *** [CMakeFiles/nav2_behavior_tree.dir/build.make:76: CMakeFiles/nav2_behavior_tree.dir/src/behavior_tree_engine.cpp.o] 오류 1
+gmake[1]: *** [CMakeFiles/Makefile2:291: CMakeFiles/nav2_behavior_tree.dir/all] 오류 2
+gmake[1]: *** 끝나지 않은 작업을 기다리고 있습니다....
+gmake: *** [Makefile:146: all] 오류 2
+---
+Failed   <<< nav2_behavior_tree [33.3s, exited with code 2]
+Aborted  <<< nav2_lifecycle_manager [33.7s]
+Aborted  <<< nav2_velocity_smoother [38.0s]
+Aborted  <<< nav2_loopback_sim [39.5s]
+Aborted  <<< nav2_amcl [48.3s]
+Aborted  <<< nav2_map_server [1min 3s]
+
+Summary: 10 packages finished [1min 51s]
+  1 package failed: nav2_behavior_tree
+  5 packages aborted: nav2_amcl nav2_lifecycle_manager nav2_loopback_sim nav2_map_server nav2_velocity_smoother
+  2 packages had stderr output: nav2_behavior_tree nav2_simple_commander
+  29 packages not processed
+→ exit=2
+### [B2-end] 2026-09-30 20:25:23
+
+### [B3] 2026-09-30 20:26:24
+$ source /opt/ros/jazzy/setup.bash && source ~/projects/navigation2_underlay_ws/install/setup.bash && colcon build --symlink-install --packages-up-to nav2_bringup nav2_loopback_sim nav2_simple_commander --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3 -DBUILD_TESTING=OFF
+(B2 실패 원인: nav2_behavior_tree가 BT::Tree::wakeUpSignal() 사용. apt 4.9.0에 없음. 언더레이 B-underlay.log U0–U2로 tools/underlay.jazzy.repos 핀 커밋 빌드)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+Finished <<< nav2_common [1.09s]
+Starting >>> nav2_msgs
+Starting >>> nav2_voxel_grid
+Finished <<< nav2_voxel_grid [2.17s]
+Finished <<< nav_2d_msgs [5.91s]
+Starting >>> dwb_msgs
+Finished <<< dwb_msgs [8.88s]
+[Processing: nav2_msgs]
+Finished <<< nav2_msgs [45.3s]
+Starting >>> nav2_ros_common
+Starting >>> nav2_simple_commander
+--- stderr: nav2_simple_commander
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+---
+Finished <<< nav2_simple_commander [1.11s]
+Finished <<< nav2_ros_common [1.48s]
+Starting >>> nav2_util
+Starting >>> opennav_docking_core
+Finished <<< opennav_docking_core [1.37s]
+Finished <<< nav2_util [8.49s]
+Starting >>> nav2_lifecycle_manager
+Starting >>> nav2_map_server
+Starting >>> nav2_behavior_tree
+Starting >>> nav_2d_utils
+Starting >>> nav2_amcl
+Starting >>> nav2_loopback_sim
+Starting >>> nav2_velocity_smoother
+Finished <<< nav_2d_utils [8.15s]
+Finished <<< nav2_lifecycle_manager [24.7s]
+Finished <<< nav2_velocity_smoother [35.6s]
+Finished <<< nav2_loopback_sim [38.4s]
+Finished <<< nav2_map_server [38.5s]
+Starting >>> nav2_costmap_2d
+Finished <<< nav2_behavior_tree [41.6s]
+Finished <<< nav2_amcl [48.6s]
+Finished <<< nav2_costmap_2d [33.7s]
+Starting >>> nav2_core
+Starting >>> costmap_queue
+Starting >>> nav2_collision_monitor
+Finished <<< nav2_core [1.70s]
+Starting >>> nav2_controller
+Starting >>> dwb_core
+Starting >>> nav2_route
+Starting >>> nav2_behaviors
+Starting >>> nav2_bt_navigator
+Starting >>> nav2_constrained_smoother
+Starting >>> nav2_mppi_controller
+Starting >>> nav2_navfn_planner
+Starting >>> nav2_planner
+Starting >>> nav2_smac_planner
+Starting >>> nav2_smoother
+Starting >>> nav2_theta_star_planner
+Starting >>> nav2_waypoint_follower
+Starting >>> opennav_docking_bt
+Finished <<< costmap_queue [4.06s]
+### [B3-interrupted] 2026-09-30 20:37:41
+(세션 종료로 B3이 19/45 완료 상태에서 중단됨. 산출물을 지우지 않고 같은 명령으로 재개 → B4)
+
+### [B4] 2026-09-30 20:37:41
+$ (B3과 같은 명령, 증분)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+Finished <<< nav2_common [0.41s]
+Starting >>> nav2_msgs
+Starting >>> nav2_voxel_grid
+Finished <<< nav_2d_msgs [0.41s]
+Starting >>> dwb_msgs
+Finished <<< nav2_voxel_grid [0.10s]
+Finished <<< dwb_msgs [0.38s]
+Finished <<< nav2_msgs [0.60s]
+Starting >>> nav2_ros_common
+Starting >>> nav2_simple_commander
+Finished <<< nav2_ros_common [0.16s]
+Starting >>> nav2_util
+Starting >>> opennav_docking_core
+Finished <<< opennav_docking_core [0.07s]
+Finished <<< nav2_util [0.13s]
+Starting >>> nav2_lifecycle_manager
+Starting >>> nav2_map_server
+Starting >>> nav2_behavior_tree
+Starting >>> nav_2d_utils
+Starting >>> nav2_amcl
+Starting >>> nav2_loopback_sim
+Starting >>> nav2_velocity_smoother
+Finished <<< nav_2d_utils [0.53s]
+Finished <<< nav2_lifecycle_manager [0.60s]
+Finished <<< nav2_velocity_smoother [0.61s]
+Finished <<< nav2_loopback_sim [0.62s]
+Finished <<< nav2_map_server [0.65s]
+Starting >>> nav2_costmap_2d
+Finished <<< nav2_amcl [0.68s]
+Finished <<< nav2_behavior_tree [0.69s]
+Finished <<< nav2_costmap_2d [0.20s]
+Starting >>> nav2_core
+Starting >>> costmap_queue
+Starting >>> nav2_collision_monitor
+Finished <<< nav2_core [0.09s]
+Starting >>> nav2_controller
+Starting >>> dwb_core
+Starting >>> nav2_route
+Starting >>> nav2_behaviors
+Starting >>> nav2_bt_navigator
+Starting >>> nav2_constrained_smoother
+Starting >>> nav2_mppi_controller
+Starting >>> nav2_navfn_planner
+Starting >>> nav2_planner
+Starting >>> nav2_smac_planner
+Starting >>> nav2_smoother
+Starting >>> nav2_theta_star_planner
+Starting >>> nav2_waypoint_follower
+Starting >>> opennav_docking_bt
+--- stderr: nav2_simple_commander
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+---
+Finished <<< nav2_simple_commander [1.33s]
+Finished <<< costmap_queue [0.22s]
+### [B4-interrupted] 2026-09-30 21:41:10
+(호스트 재부팅 후 세션 종료로 다시 중단. B4는 19개에서 멈춤)
+
+### [B5] 2026-09-30 21:41:10
+$ (B3과 같은 명령. setsid nohup으로 세션과 분리해 실행)
+Starting >>> nav2_common
+Starting >>> nav_2d_msgs
+Finished <<< nav2_common [0.41s]
+Starting >>> nav2_msgs
+Starting >>> nav2_voxel_grid
+Finished <<< nav_2d_msgs [0.43s]
+Starting >>> dwb_msgs
+Finished <<< nav2_voxel_grid [0.09s]
+Finished <<< nav2_msgs [0.45s]
+Starting >>> nav2_ros_common
+Starting >>> nav2_simple_commander
+Finished <<< dwb_msgs [0.58s]
+Finished <<< nav2_ros_common [0.16s]
+Starting >>> nav2_util
+Starting >>> opennav_docking_core
+Finished <<< opennav_docking_core [0.07s]
+Finished <<< nav2_util [0.14s]
+Starting >>> nav2_lifecycle_manager
+Starting >>> nav2_map_server
+Starting >>> nav2_behavior_tree
+Starting >>> nav_2d_utils
+Starting >>> nav2_amcl
+Starting >>> nav2_loopback_sim
+Starting >>> nav2_velocity_smoother
+Finished <<< nav_2d_utils [0.52s]
+Finished <<< nav2_velocity_smoother [0.61s]
+Finished <<< nav2_loopback_sim [0.62s]
+Finished <<< nav2_lifecycle_manager [0.64s]
+Finished <<< nav2_map_server [0.67s]
+Starting >>> nav2_costmap_2d
+Finished <<< nav2_amcl [0.70s]
+Finished <<< nav2_behavior_tree [0.73s]
+Finished <<< nav2_costmap_2d [0.19s]
+Starting >>> nav2_core
+Starting >>> costmap_queue
+Starting >>> nav2_collision_monitor
+Finished <<< nav2_core [0.09s]
+Starting >>> nav2_controller
+Starting >>> dwb_core
+Starting >>> nav2_route
+Starting >>> nav2_behaviors
+Starting >>> nav2_bt_navigator
+Starting >>> nav2_constrained_smoother
+Starting >>> nav2_mppi_controller
+Starting >>> nav2_navfn_planner
+Starting >>> nav2_planner
+Starting >>> nav2_smac_planner
+Starting >>> nav2_smoother
+Starting >>> nav2_theta_star_planner
+Starting >>> nav2_waypoint_follower
+Starting >>> opennav_docking_bt
+Finished <<< costmap_queue [0.18s]
+--- stderr: nav2_simple_commander
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+---
+Finished <<< nav2_simple_commander [1.36s]
+### [B5-interrupted] 2026-09-30 21:44:10
+(setsid nohup으로 분리했는데도 세션 종료 시 함께 종료됨. 19/45에서 중단. 가이드를 Docker 기반으로 전환하기로 하여 소스 빌드 경로는 여기서 중단)
+

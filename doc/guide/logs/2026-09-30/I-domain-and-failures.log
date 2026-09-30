@@ -1,0 +1,63 @@
+### [I0] 2026-09-30 22:14:40
+$ docker exec nav2 nav2env bash -c "ros2 action list | sort | tr \"\n\" \" \"; echo; echo ---; for a in /navigate_to_pose /compute_path_to_pose /smooth_path /follow_path; do printf \"%-22s\" \$a; ros2 action info \$a 2>&1 | grep -E \"Action servers\" ; done; echo ---; ros2 topic echo /local_costmap/costmap --once --qos-reliability reliable --field header.frame_id 2>&1 | head -1; ros2 topic echo /global_costmap/costmap --once --qos-reliability reliable --field header.frame_id 2>&1 | head -1; ros2 topic echo /local_costmap/costmap --once --qos-reliability reliable --field metadata 2>&1 | grep -E \"resolution|size_x|size_y\" | tr \"\n\" \" \""
+/assisted_teleop /backup /compute_and_track_route /compute_path_through_poses /compute_path_to_pose /compute_route /dock_robot /drive_on_heading /follow_gps_waypoints /follow_object /follow_path /follow_waypoints /navigate_through_poses /navigate_to_pose /smooth_path /spin /undock_robot /wait 
+---
+/navigate_to_pose     Action servers: 1
+/compute_path_to_pose Action servers: 1
+/smooth_path          Action servers: 1
+/follow_path          Action servers: 1
+---
+odom
+map
+→ exit=0
+
+### [I1] 2026-09-30 22:15:01
+$ docker exec nav2 nav2env bash /tmp/goal.sh 1.0 1.0 60
+rc=0 목표=(1.0,1.0)
+    error_code: 0
+error_msg: ''
+Goal finished with status: SUCCEEDED
+복구 횟수: number_of_recoveries:0  피드백: 1379
+→ exit=0
+
+### [I2] 2026-09-30 22:15:17
+$ docker exec nav2 nav2env bash /tmp/goal.sh 15.0 15.0 60
+rc=0 목표=(15.0,15.0)
+    error_code: 204
+error_msg: 'GridBasedplugin failed to plan from (0.69, 0.91) [q: 0.00, 0.00, 0.11, 0.99] (yaw: 0.22) to (15.00, 15.00) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): "Goal Coordinates of(15.000000, 15.000000) was outside bounds"'
+Goal finished with status: ABORTED
+복구 횟수: number_of_recoveries:0  피드백: 1
+→ exit=0
+
+### [I3] 2026-09-30 22:15:46
+$ docker exec nav2 nav2env bash -c "echo 재초기화 전 odom: \$(ros2 topic echo /odom --once --field pose.pose.position 2>&1 | tr \"\n\" \" \"); ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped \"{header: {frame_id: map}, pose: {pose: {position: {x: 1.0, y: 1.0, z: 0.0}, orientation: {w: 1.0}}}}\" >/dev/null 2>&1; sleep 2; echo 재초기화 후 odom: \$(ros2 topic echo /odom --once --field pose.pose.position 2>&1 | tr \"\n\" \" \"); timeout -k 1 6 ros2 run tf2_ros tf2_echo map base_footprint 2>&1 | grep -E \"Translation\" | head -1"; docker exec nav2 nav2env bash /tmp/goal.sh -1.5 1.5 40
+재초기화 전 odom: x: 2.6931664170714575 y: 1.4050409097301655 z: 0.0 ---
+재초기화 후 odom: x: 2.6931664170714575 y: 1.4050409097301655 z: 0.0 ---
+- Translation: [1.000, 1.000, 0.000]
+rc=0 목표=(-1.5,1.5)
+    error_code: 208
+error_msg: 'GridBasedplugin failed to plan from (1.00, 1.00) [q: 0.00, 0.00, -0.00, 1.00] (yaw: -0.00) to (-1.50, 1.50) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): "Failed to create plan with tolerance of: 0.500000"'
+Goal finished with status: ABORTED
+복구 횟수: number_of_recoveries:8  피드백: 2865
+→ exit=0
+
+### [I4] 2026-09-30 22:16:50
+$ python3 /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/occ.py
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/occ.py", line 9, in <module>
+    i+=1; w,h=int(toks[1]),int(toks[2]); px=d[i:]
+              ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: b'#'
+→ exit=1
+
+### [I5] 2026-09-30 22:16:50
+$ docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}}}" 2>&1 | grep -c "publishing #1" | sed "s/^/복원 발행: /"
+복원 발행: 1
+→ exit=0
+
+### [I6] 2026-09-30 22:16:58
+$ python3 /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/occ.py
+점유 셀에서 비점유 셀까지 최대 거리: 0.10 m (2셀)
+점유 셀에서 자유 셀까지 최대 거리: 0.20 m at (-1.15, -2.60)
+→ exit=0
+

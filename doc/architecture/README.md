@@ -55,6 +55,19 @@
 
 ## 보강 이력
 
+### 2026-09-30 — 4차: 실행으로 검증 (Docker)
+
+[실행 가이드](../guide/00-overview.md)를 **Docker 기반으로 바꾸고 이 호스트에서 실제로 실행**했습니다 ([로그](../guide/logs/2026-09-30/README.md)). 소스 분석으로 쓴 서술 중 실행과 어긋난 것을 고쳤습니다.
+
+| 문서 | 이전 서술 | 실행 결과 |
+| --- | --- | --- |
+| [런처 03](../launcher/03-launch-architecture.md) | `use_composition` 기본 True로 기동 | **Jazzy에서 교착, 재현 2/2.** 매니저 생성자의 블로킹 대기 + 단일 스레드 컨테이너. `use_composition:=False` 필요 |
+| [08 실패와 복구](08-failure-and-recovery.md), [10](10-troubleshooting.md) | 목표가 장애물 위면 206, 시작이 막히면 205 | 기둥 위 목표는 **`SUCCEEDED`**(NavFn `tolerance` 0.5 m). 시작이 기둥 위면 **208**, 복구 8번. 지도 밖은 예측대로 204·복구 0 |
+| [런처 06](../launcher/06-change-and-verification.md) | `--qos-durability transient_local`만으로 `/map` echo | **무응답.** `--qos-reliability reliable`도 필요 |
+| [06 구성과 기동](06-configuration-and-bringup.md) | (이전 서술 없음) | 새로 확인: `startup()` 실패 뒤 `RESET`→`STARTUP` 재시도는 **`collision_monitor`가 재configure에 실패**해 막힘 (`FootprintApproach.points`). 복구는 프로세스 재시작뿐 |
+
+소스 분석이 **그대로 맞았던 것**도 많습니다: 초기 자세 전 `map` 프레임 부재와 `planner_server`에서 멈추는 지점, 60초 뒤 bringup 실패, 재초기화 시 `odom` 유지, 지도 밖 목표의 `204`·복구 없음, 18개 액션 서버. 자세한 목록은 로그 README.
+
 ### 2026-09-28 — 3차: 인접 문서 묶음 대조
 
 [데이터 구조](../data-structure/README.md), [실행 가이드](../guide/00-overview.md), [런처](../launcher/README.md), [도구](../tools/README.md)를 소스와 대조해 보강했습니다. 주요 정정은 다음과 같습니다.

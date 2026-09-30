@@ -1,0 +1,29 @@
+### [U0] 2026-09-30 20:25:54
+$ cd /home/hwanjun/projects/navigation2_underlay_ws/src && git clone -q https://github.com/BehaviorTree/BehaviorTree.CPP.git && cd BehaviorTree.CPP && git checkout -q 7119df95a17086f55e3690cf8d7b7663b59319d0 && git log --oneline -1 && git describe --tags --always && grep -m3 -E '<name>|<version>' package.xml; grep -n 'wakeUpSignal' include/behaviortree_cpp/bt_factory.h | head -3
+7119df95 Merge pull request #1127 from botsandus/add-sleep-override
+4.9.0-6-g7119df95
+  <name>behaviortree_cpp</name>
+  <version>4.9.0</version>
+146:  [[nodiscard]] std::shared_ptr<WakeUpSignal> wakeUpSignal() const;
+→ exit=0
+
+### [U1] 2026-09-30 20:25:57
+$ cd /home/hwanjun/projects/navigation2_underlay_ws/src/BehaviorTree.CPP && grep -E '<depend>|<build_depend>|<exec_depend>' package.xml; dpkg -l | grep -E 'libzmq3-dev|libsqlite3-dev' | awk '{print $2,$3}'
+  <build_depend>ros_environment</build_depend>
+  <depend>libsqlite3-dev</depend>
+  <depend>libzmq3-dev</depend>
+  <depend>tinyxml2</depend>
+  <depend>tinyxml2_vendor</depend>
+libsqlite3-dev:amd64 3.45.1-1ubuntu2.8
+libzmq3-dev:amd64 4.3.5-1build2
+→ exit=0
+
+
+### [U2] 2026-09-30 20:26:02
+$ cd /home/hwanjun/projects/navigation2_underlay_ws && colcon build --symlink-install --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3 -DBUILD_TESTING=OFF -DBTCPP_EXAMPLES=OFF
+Starting >>> behaviortree_cpp
+Finished <<< behaviortree_cpp [12.1s]
+
+Summary: 1 package finished [12.3s]
+→ exit=0
+### [U2-end] 2026-09-30 20:26:15
