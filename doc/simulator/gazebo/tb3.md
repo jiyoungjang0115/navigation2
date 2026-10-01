@@ -32,6 +32,26 @@ ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
 
 월드 xacro의 `headless` 인자는 SceneBroadcaster를 켜고 끄는 용도라고 런치 주석이 적습니다. 그 매크로의 정의는 `nav2_minimal_tb3_sim` 월드 안에 있습니다.
 
+Docker로 실제 실행한 명령과 세 가지 필수 조건(NVIDIA GPU, 60초 안의 초기 자세, `enable_stamped_cmd_vel: false`)은 [04-running의 Gazebo 절](../04-running.md#gazebo)에 있습니다.
+
+## 2026-09-30 실측
+
+[로그](../logs/2026-09-30/README.md) S0–S13. 헤드리스, `use_composition:=False`, `use_rviz:=False`.
+
+| 항목 | 값 |
+| --- | --- |
+| 프로세스 | 19 (`xacro`, `create`는 할 일을 마치고 정상 종료) |
+| ROS↔GZ 브리지 | `/clock`, `joint_states`, `odom`, `tf`, `imu`, `scan` (GZ→ROS), `cmd_vel` (ROS→GZ, **`Twist`**) |
+| 첫 로그 → 로봇 스폰 | 0.5 s |
+| `/clock`, `/odom`, `/scan`, `/imu` | 337, 27.8, **5.0**, 187 Hz |
+| 초기 자세 `(-2.0, -0.5)` → `Managed nodes are active` | 5.1 s |
+| 목표 `(1.5, 0.5)` | `SUCCEEDED`, 14.2 s, 계획 4회, 복구 0 (루프백과 계획 횟수 같음) |
+| 실시간 계수 | 1.00 |
+
+`/scan` 5 Hz는 TB3 LDS 센서 설정입니다. 루프백(10 Hz)이나 TB4(10 Hz)의 절반이라, 지역 코스트맵과 collision monitor가 보는 장애물이 그만큼 늦게 갱신됩니다.
+
+스폰 자세 `(-2.0, -0.5)`는 [가이드](../../guide/04-initialize-and-drive.md#1-초기-자세)의 루프백 초기 자세와 같고, TB3는 월드 좌표와 지도 좌표가 같아서 그대로 AMCL 초기 자세로 씁니다. TB4는 다릅니다([tb4](tb4.md#지도-좌표와-월드-좌표)).
+
 ## 관련 문서
 
 - [TB4](tb4.md)

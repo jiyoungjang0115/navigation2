@@ -1,0 +1,78 @@
+### [T0] 2026-09-30 22:56:00
+$ docker run -d --name nav2 --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav2_params_unstamped.yaml:/root/nav2_params_unstamped.yaml:ro nav2-guide:jazzy ros2 launch nav2_bringup tb4_simulation_launch.py use_composition:=False use_rviz:=False headless:=True params_file:=/root/nav2_params_unstamped.yaml >/dev/null; echo "기동 $(date +%T)"; sleep 20; docker ps --filter name=^nav2$ --format '{{.Status}}'; echo "process started: $(docker logs nav2 2>&1 | grep -c 'process started')  died: $(docker logs nav2 2>&1 | grep -c 'process has died')"; docker logs nav2 2>&1 | grep -E 'process has died|Entity creation|Creating ROS->GZ|Creating GZ->ROS' | cut -c1-150; docker exec nav2 nav2env ros2 node list 2>/dev/null | grep -E 'keepout|speed|filter|amcl' ; docker exec nav2 nav2env ros2 topic list -t | grep -E '^/(cmd_vel|scan|odom) '
+기동 22:56:01
+Up 20 seconds
+process started: 25  died: 0
+[parameter_bridge-2] [INFO] [1790776563.160694293] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> clock (rosgraph_msgs/msg/Clock
+[parameter_bridge-2] [INFO] [1790776563.165056078] [bridge_ros_gz]: Creating GZ->ROS Bridge: [joint_states (gz.msgs.Model) -> joint_states (sensor_msg
+[parameter_bridge-2] [INFO] [1790776563.171641072] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/odom (gz.msgs.Odometry) -> odom (nav_msgs/msg/Odometry)
+[parameter_bridge-2] [INFO] [1790776563.176539856] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/tf (gz.msgs.Pose_V) -> tf (tf2_msgs/msg/TFMessage)] (La
+[parameter_bridge-2] [INFO] [1790776563.180921610] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> imu (sensor_msgs/msg/Imu)] (Lazy 0
+[parameter_bridge-2] [INFO] [1790776563.182712893] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/scan (gz.msgs.LaserScan) -> scan (sensor_msgs/msg/Laser
+[parameter_bridge-2] [INFO] [1790776563.184276389] [bridge_ros_gz]: Creating ROS->GZ Bridge: [cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.T
+[parameter_bridge-2] [INFO] [1790776563.186444447] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/rgbd_camera/camera_info (gz.msgs.CameraInfo) -> /rgbd_c
+[create-5] [INFO] [1790776580.667865922] [ros_gz_sim]: Entity creation successful.
+/amcl
+/keepout_costmap_filter_info_server
+/keepout_filter_mask_server
+/speed_costmap_filter_info_server
+/speed_filter_mask_server
+/cmd_vel [geometry_msgs/msg/Twist]
+/odom [nav_msgs/msg/Odometry]
+/scan [sensor_msgs/msg/LaserScan]
+→ exit=0
+
+### [T1] 2026-09-30 22:57:59 — 지도 좌표 찾기 (호스트 파이썬, 스캔 매칭)
+(T0 컨테이너에서 /scan 한 장을 받아 depot.pgm에 격자 탐색. 라이다 yaw는 base_link+90°(tf2_echo base_link rplidar_link). 결과: 끝점 335/337이 벽 5 cm 이내, base_link ≈ (7.19, 7.85, yaw 0). 지도 = 월드 + 약 (15.2, 7.85). 목표 (12.0, 7.85) 자유 셀, 여유 4.35 m, 연결됨)
+→ exit=0
+
+### [T2] 2026-09-30 22:57:59
+$ docker run -d --name nav2 --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav2_params_unstamped.yaml:/root/nav2_params_unstamped.yaml:ro nav2-guide:jazzy ros2 launch nav2_bringup tb4_simulation_launch.py use_composition:=False use_rviz:=False headless:=True params_file:=/root/nav2_params_unstamped.yaml >/dev/null; echo "기동 $(date +%T)"; for i in $(seq 1 40); do docker logs nav2 2>&1 | grep -q 'Entity creation successful' && break; sleep 1; done; echo "스폰 완료 $(date +%T)"; sleep 2; docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: 7.19, y: 7.85, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.0685]}}" >/dev/null 2>&1; echo "초기 자세 $(date +%T)"; for i in $(seq 1 30); do docker logs nav2 2>&1 | grep -q 'Managed nodes are active' && break; sleep 1; done; docker logs nav2 2>&1 | grep -E 'initialPoseReceived|Managed nodes are active|Failed to (activate|bring up)|process has died' | cut -c1-130
+기동 22:57:59
+스폰 완료 22:58:27
+초기 자세 22:58:32
+[amcl-9] [INFO] [1790776712.194266662] [amcl]: initialPoseReceived
+[lifecycle_manager-25] [INFO] [1790776717.030962208] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+→ exit=0
+
+### [T3] 2026-09-30 22:58:41
+$ docker exec nav2 nav2env bash /tmp/gzchain.sh 12.0 7.85
+--- 출발 전 amcl_pose / odom
+WARNING: topic [/amcl_pose] does not appear to be published yet Could not determine the type for the passed topic 
+x: 6.911070345932457e-12 y: -7.124460720235995e-27 z: 0.0 --- 
+/cmd_vel_nav       average rate: 20.001
+/cmd_vel_smoothed  average rate: 20.010
+/cmd_vel           average rate: 20.720
+/odom              average rate: 27.798
+/scan              average rate: 9.980
+/particle_cloud    average rate: 1.666
+=== 결과
+number_of_recoveries: 0
+    error_code: 0
+Goal finished with status: SUCCEEDED
+피드백: 1074
+--- 도착 후 amcl_pose / map→base_footprint
+x: 11.718679079048476 y: 7.80716797853342 z: 0.0 --- 
+- Translation: [11.814, 7.811, 0.000]
+→ exit=0
+
+### [T4] 2026-09-30 22:59:15
+$ docker exec nav2 nav2env bash -c "timeout -k 1 8 gz topic -e -t /stats -n 1 2>&1 | grep real_time_factor"; docker logs nav2 2>&1 | grep -E "Entity creation successful|initialPoseReceived|Managed nodes are active|Begin navigating|Goal succeeded|Computing path to goal" | sed -E "s/\[([0-9]{10})\.([0-9]{3})[0-9]*\]/@\1.\2/" | awk "{for(i=1;i<=NF;i++) if(\$i ~ /^@[0-9]{10}\.[0-9]{3}\$/){e=substr(\$i,2,10); ms=substr(\$i,13,3); cmd=\"TZ=Asia/Seoul date -d @\"e\" +%T\"; cmd|getline t; close(cmd); \$i=t\".\"ms} print}" | cut -c1-140; echo "process started: $(docker logs nav2 2>&1 | grep -c "process started") died: $(docker logs nav2 2>&1 | grep -c "process has died")"
+real_time_factor: 0.99976238980535626
+[create-5] [INFO] 22:58:27.064 [ros_gz_sim]: Entity creation successful.
+[amcl-9] [INFO] 22:58:32.194 [amcl]: initialPoseReceived
+[lifecycle_manager-25] [INFO] 22:58:37.030 [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+[bt_navigator-19] [INFO] 22:58:46.982 [bt_navigator]: Begin navigating from current location (7.21, 7.87) to (12.00, 7.85)
+[planner_server-16] [INFO] 22:58:46.985 [planner_server]: Computing path to goal.
+[planner_server-16] [INFO] 22:58:48.013 [planner_server]: Computing path to goal.
+[planner_server-16] [INFO] 22:58:49.034 [planner_server]: Computing path to goal.
+[bt_navigator-19] [INFO] 22:58:57.722 [bt_navigator]: Goal succeeded
+process started: 25 died: 0
+→ exit=0
+
+### [T5] 2026-09-30 22:59:16
+$ S=$(date +%s.%N); docker stop nav2 >/dev/null; echo "docker stop(--init): $(echo "$(date +%s.%N) - $S" | bc | cut -c1-5)s"; docker rm nav2 >/dev/null; docker ps -a --filter ancestor=nav2-guide:jazzy --format "{{.Names}}" | wc -l | sed "s/^/남은 컨테이너: /"
+docker stop(--init): .2861s
+남은 컨테이너: 0
+→ exit=0
+

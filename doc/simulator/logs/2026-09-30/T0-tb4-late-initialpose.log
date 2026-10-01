@@ -1,0 +1,670 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-30-13-56-01-600667-3cbeb4e9a629-51
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [xacro-1]: process started with pid [81]
+[INFO] [parameter_bridge-2]: process started with pid [82]
+[INFO] [image_bridge-3]: process started with pid [83]
+[INFO] [image_bridge-4]: process started with pid [84]
+[INFO] [create-5]: process started with pid [85]
+[INFO] [gz-6]: process started with pid [86]
+[INFO] [robot_state_publisher-7]: process started with pid [87]
+[INFO] [map_server-8]: process started with pid [88]
+[INFO] [amcl-9]: process started with pid [89]
+[INFO] [map_server-10]: process started with pid [90]
+[INFO] [costmap_filter_info_server-11]: process started with pid [91]
+[INFO] [map_server-12]: process started with pid [92]
+[INFO] [costmap_filter_info_server-13]: process started with pid [93]
+[INFO] [controller_server-14]: process started with pid [94]
+[INFO] [smoother_server-15]: process started with pid [95]
+[INFO] [planner_server-16]: process started with pid [96]
+[INFO] [route_server-17]: process started with pid [97]
+[INFO] [behavior_server-18]: process started with pid [98]
+[INFO] [bt_navigator-19]: process started with pid [99]
+[INFO] [waypoint_follower-20]: process started with pid [100]
+[INFO] [velocity_smoother-21]: process started with pid [101]
+[INFO] [collision_monitor-22]: process started with pid [102]
+[INFO] [opennav_docking-23]: process started with pid [103]
+[INFO] [opennav_following-24]: process started with pid [104]
+[INFO] [lifecycle_manager-25]: process started with pid [105]
+[lifecycle_manager-25] [INFO] [1790776562.133032606] [lifecycle_manager_nav2]: Creating
+[waypoint_follower-20] [INFO] [1790776562.133110626] [waypoint_follower]: 
+[waypoint_follower-20] 	waypoint_follower lifecycle node launched. 
+[waypoint_follower-20] 	Waiting on external lifecycle transitions to activate
+[waypoint_follower-20] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[lifecycle_manager-25] [INFO] [1790776562.133283777] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[lifecycle_manager-25] [INFO] [1790776562.133683933] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[velocity_smoother-21] [INFO] [1790776562.135054898] [velocity_smoother]: 
+[velocity_smoother-21] 	velocity_smoother lifecycle node launched. 
+[velocity_smoother-21] 	Waiting on external lifecycle transitions to activate
+[velocity_smoother-21] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[waypoint_follower-20] [INFO] [1790776562.136290373] [waypoint_follower]: Creating
+[collision_monitor-22] [INFO] [1790776562.137603181] [collision_monitor]: 
+[collision_monitor-22] 	collision_monitor lifecycle node launched. 
+[collision_monitor-22] 	Waiting on external lifecycle transitions to activate
+[collision_monitor-22] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[create-5] [INFO] [1790776562.137966473] [ros_gz_sim]: Requesting list of world names.
+[opennav_docking-23] [INFO] [1790776562.138759443] [docking_server]: 
+[opennav_docking-23] 	docking_server lifecycle node launched. 
+[opennav_docking-23] 	Waiting on external lifecycle transitions to activate
+[opennav_docking-23] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[opennav_docking-23] [INFO] [1790776562.138807461] [docking_server]: Creating docking_server
+[bt_navigator-19] [INFO] [1790776562.140538753] [bt_navigator]: 
+[bt_navigator-19] 	bt_navigator lifecycle node launched. 
+[bt_navigator-19] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-19] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[costmap_filter_info_server-13] [INFO] [1790776562.142771569] [costmap_filter_info_server]: This is costmap filter info publisher
+[bt_navigator-19] [INFO] [1790776562.143104080] [bt_navigator]: Creating
+[robot_state_publisher-7] [WARN] [1790776562.143163444] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-7] [INFO] [1790776562.143251242] [robot_state_publisher]: Robot initialized
+[costmap_filter_info_server-11] [INFO] [1790776562.143337575] [costmap_filter_info_server]: This is costmap filter info publisher
+[opennav_following-24] [INFO] [1790776562.144206420] [following_server]: 
+[opennav_following-24] 	following_server lifecycle node launched. 
+[opennav_following-24] 	Waiting on external lifecycle transitions to activate
+[opennav_following-24] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[opennav_following-24] [INFO] [1790776562.144257055] [following_server]: Creating following_server
+[controller_server-14] [INFO] [1790776562.150737859] [controller_server]: 
+[controller_server-14] 	controller_server lifecycle node launched. 
+[controller_server-14] 	Waiting on external lifecycle transitions to activate
+[controller_server-14] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[smoother_server-15] [INFO] [1790776562.152717034] [smoother_server]: 
+[smoother_server-15] 	smoother_server lifecycle node launched. 
+[smoother_server-15] 	Waiting on external lifecycle transitions to activate
+[smoother_server-15] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[route_server-17] [INFO] [1790776562.153807183] [route_server]: 
+[route_server-17] 	route_server lifecycle node launched. 
+[route_server-17] 	Waiting on external lifecycle transitions to activate
+[route_server-17] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[smoother_server-15] [INFO] [1790776562.154961469] [smoother_server]: Creating smoother server
+[behavior_server-18] [INFO] [1790776562.155439455] [behavior_server]: 
+[behavior_server-18] 	behavior_server lifecycle node launched. 
+[behavior_server-18] 	Waiting on external lifecycle transitions to activate
+[behavior_server-18] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-8] [INFO] [1790776562.156981626] [map_server]: 
+[map_server-8] 	map_server lifecycle node launched. 
+[map_server-8] 	Waiting on external lifecycle transitions to activate
+[map_server-8] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-8] [INFO] [1790776562.157061615] [map_server]: Creating
+[controller_server-14] [INFO] [1790776562.159338469] [controller_server]: Creating controller server
+[amcl-9] [INFO] [1790776562.160406773] [amcl]: 
+[amcl-9] 	amcl lifecycle node launched. 
+[amcl-9] 	Waiting on external lifecycle transitions to activate
+[amcl-9] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-16] [INFO] [1790776562.160765663] [planner_server]: 
+[planner_server-16] 	planner_server lifecycle node launched. 
+[planner_server-16] 	Waiting on external lifecycle transitions to activate
+[planner_server-16] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[amcl-9] [INFO] [1790776562.161320323] [amcl]: Creating
+[planner_server-16] [INFO] [1790776562.164109174] [planner_server]: Creating
+[controller_server-14] [INFO] [1790776562.166972290] [local_costmap.local_costmap]: 
+[controller_server-14] 	local_costmap lifecycle node launched. 
+[controller_server-14] 	Waiting on external lifecycle transitions to activate
+[controller_server-14] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[controller_server-14] [INFO] [1790776562.167688911] [local_costmap.local_costmap]: Creating Costmap
+[map_server-12] [INFO] [1790776562.169021507] [speed_filter_mask_server]: 
+[map_server-12] 	speed_filter_mask_server lifecycle node launched. 
+[map_server-12] 	Waiting on external lifecycle transitions to activate
+[map_server-12] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-12] [INFO] [1790776562.169094020] [speed_filter_mask_server]: Creating
+[planner_server-16] [INFO] [1790776562.171972701] [global_costmap.global_costmap]: 
+[planner_server-16] 	global_costmap lifecycle node launched. 
+[planner_server-16] 	Waiting on external lifecycle transitions to activate
+[planner_server-16] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-16] [INFO] [1790776562.172456292] [global_costmap.global_costmap]: Creating Costmap
+[map_server-10] [INFO] [1790776562.172689602] [keepout_filter_mask_server]: 
+[map_server-10] 	keepout_filter_mask_server lifecycle node launched. 
+[map_server-10] 	Waiting on external lifecycle transitions to activate
+[map_server-10] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-10] [INFO] [1790776562.172745263] [keepout_filter_mask_server]: Creating
+[costmap_filter_info_server-13] [INFO] [1790776562.172943271] [speed_costmap_filter_info_server]: 
+[costmap_filter_info_server-13] 	speed_costmap_filter_info_server lifecycle node launched. 
+[costmap_filter_info_server-13] 	Waiting on external lifecycle transitions to activate
+[costmap_filter_info_server-13] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[costmap_filter_info_server-11] [INFO] [1790776562.173150092] [keepout_costmap_filter_info_server]: 
+[costmap_filter_info_server-11] 	keepout_costmap_filter_info_server lifecycle node launched. 
+[costmap_filter_info_server-11] 	Waiting on external lifecycle transitions to activate
+[costmap_filter_info_server-11] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [xacro-1]: process has finished cleanly [pid 81]
+[lifecycle_manager-25] [INFO] [1790776562.400093931] [lifecycle_manager_nav2]: [34m[1mCreating and initializing lifecycle service servers[0m[0m
+[lifecycle_manager-25] [INFO] [1790776562.407136654] [lifecycle_manager_nav2]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-25] [INFO] [1790776562.407195271] [lifecycle_manager_nav2]: [34m[1mConfiguring map_server[0m[0m
+[map_server-8] [INFO] [1790776562.407712938] [map_server]: Configuring
+[map_server-8] [INFO] [1790776562.408274361] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot.yaml
+[map_server-8] [INFO] [1790776562.408672274] [map_io]: resolution: 0.05
+[map_server-8] [INFO] [1790776562.408682037] [map_io]: origin[0]: 0
+[map_server-8] [INFO] [1790776562.408686231] [map_io]: origin[1]: 0
+[map_server-8] [INFO] [1790776562.408689638] [map_io]: origin[2]: 0
+[map_server-8] [INFO] [1790776562.408693759] [map_io]: free_thresh: 0.25
+[map_server-8] [INFO] [1790776562.408697655] [map_io]: occupied_thresh: 0.65
+[map_server-8] [INFO] [1790776562.408702984] [map_io]: mode: trinary
+[map_server-8] [INFO] [1790776562.408707926] [map_io]: negate: 0
+[map_server-8] [INFO] [1790776562.408944719] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot.pgm
+[map_server-8] [INFO] [1790776562.412823958] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot.pgm: 604 X 307 map @ 0.05 m/cell
+[lifecycle_manager-25] [INFO] [1790776562.421436340] [lifecycle_manager_nav2]: [34m[1mConfiguring amcl[0m[0m
+[amcl-9] [INFO] [1790776562.421786332] [amcl]: Configuring
+[amcl-9] [INFO] [1790776562.423598605] [amcl]: initTransforms
+[amcl-9] [INFO] [1790776562.432379816] [amcl]: initPubSub
+[amcl-9] [INFO] [1790776562.439755013] [amcl]: Subscribed to map topic.
+[lifecycle_manager-25] [INFO] [1790776562.441679924] [lifecycle_manager_nav2]: [34m[1mConfiguring keepout_filter_mask_server[0m[0m
+[map_server-10] [INFO] [1790776562.442011292] [keepout_filter_mask_server]: Configuring
+[map_server-10] [INFO] [1790776562.442589612] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_keepout.yaml
+[map_server-10] [INFO] [1790776562.443011823] [map_io]: resolution: 0.05
+[map_server-10] [INFO] [1790776562.443025648] [map_io]: origin[0]: 0
+[map_server-10] [INFO] [1790776562.443033446] [map_io]: origin[1]: 0
+[map_server-10] [INFO] [1790776562.443039737] [map_io]: origin[2]: 0
+[map_server-10] [INFO] [1790776562.443046711] [map_io]: free_thresh: 0.25
+[map_server-10] [INFO] [1790776562.443053621] [map_io]: occupied_thresh: 0.65
+[map_server-10] [INFO] [1790776562.443061891] [map_io]: mode: trinary
+[map_server-10] [INFO] [1790776562.443068836] [map_io]: negate: 0
+[map_server-10] [INFO] [1790776562.443293949] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_keepout.pgm
+[map_server-10] [INFO] [1790776562.445144499] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_keepout.pgm: 604 X 307 map @ 0.05 m/cell
+[lifecycle_manager-25] [INFO] [1790776562.453155755] [lifecycle_manager_nav2]: [34m[1mConfiguring keepout_costmap_filter_info_server[0m[0m
+[costmap_filter_info_server-11] [INFO] [1790776562.453398873] [keepout_costmap_filter_info_server]: Configuring
+[lifecycle_manager-25] [INFO] [1790776562.462046686] [lifecycle_manager_nav2]: [34m[1mConfiguring speed_filter_mask_server[0m[0m
+[map_server-12] [INFO] [1790776562.462208405] [speed_filter_mask_server]: Configuring
+[map_server-12] [INFO] [1790776562.462557985] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_speed.yaml
+[map_server-12] [INFO] [1790776562.462796993] [map_io]: resolution: 0.05
+[map_server-12] [INFO] [1790776562.462802469] [map_io]: origin[0]: 0
+[map_server-12] [INFO] [1790776562.462805124] [map_io]: origin[1]: 0
+[map_server-12] [INFO] [1790776562.462807548] [map_io]: origin[2]: 0
+[map_server-12] [INFO] [1790776562.462809861] [map_io]: free_thresh: 0
+[map_server-12] [INFO] [1790776562.462812326] [map_io]: occupied_thresh: 1
+[map_server-12] [INFO] [1790776562.462815896] [map_io]: mode: scale
+[map_server-12] [INFO] [1790776562.462818905] [map_io]: negate: 0
+[map_server-12] [INFO] [1790776562.462954037] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_speed.pgm
+[map_server-12] [INFO] [1790776562.466321987] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/depot_speed.pgm: 604 X 307 map @ 0.05 m/cell
+[lifecycle_manager-25] [INFO] [1790776562.474925154] [lifecycle_manager_nav2]: [34m[1mConfiguring speed_costmap_filter_info_server[0m[0m
+[costmap_filter_info_server-13] [INFO] [1790776562.475237295] [speed_costmap_filter_info_server]: Configuring
+[lifecycle_manager-25] [INFO] [1790776562.485666419] [lifecycle_manager_nav2]: [34m[1mConfiguring controller_server[0m[0m
+[controller_server-14] [INFO] [1790776562.485817629] [controller_server]: Configuring controller interface
+[controller_server-14] [INFO] [1790776562.485840210] [local_costmap.local_costmap]: Configuring
+[controller_server-14] [INFO] [1790776562.497196860] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[controller_server-14] [INFO] [1790776562.509183330] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[controller_server-14] [INFO] [1790776562.531308719] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[controller_server-14] [INFO] [1790776562.531335524] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[controller_server-14] [INFO] [1790776562.532321353] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[controller_server-14] [INFO] [1790776562.532343640] [local_costmap.local_costmap]: Using costmap filter "keepout_filter"
+[controller_server-14] [INFO] [1790776562.539694813] [local_costmap.local_costmap]: Initialized costmap filter "keepout_filter"
+[controller_server-14] [INFO] [1790776562.566531554] [controller_server]: Controller frequency set to 20.0000Hz
+[controller_server-14] [INFO] [1790776562.566557124] [controller_server]: getting progress checker plugins..
+[controller_server-14] [INFO] [1790776562.566691949] [controller_server]: getting goal checker plugins..
+[controller_server-14] [INFO] [1790776562.566766402] [controller_server]: getting controller plugins..
+[controller_server-14] [INFO] [1790776562.566904634] [controller_server]: getting path handler plugins..
+[controller_server-14] [INFO] [1790776562.567686299] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[controller_server-14] [INFO] [1790776562.567706957] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[controller_server-14] [INFO] [1790776562.568167206] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[controller_server-14] [INFO] [1790776562.568181508] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[controller_server-14] [INFO] [1790776562.569261042] [controller_server]: Created path handler : PathHandler of type nav2_controller::FeasiblePathHandler
+[controller_server-14] [INFO] [1790776562.569269133] [controller_server]: Controller Server has PathHandler  path handlers available.
+[controller_server-14] [INFO] [1790776562.570435120] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[controller_server-14] [INFO] [1790776562.572550539] [controller_server]: Loaded motion model plugin: mppi::DiffDriveMotionModel
+[controller_server-14] [INFO] [1790776562.572563729] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[controller_server-14] [INFO] [1790776562.575081053] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[controller_server-14] [INFO] [1790776562.575103227] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[controller_server-14] [INFO] [1790776562.575773741] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on circular cost.
+[controller_server-14] [INFO] [1790776562.575787073] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[controller_server-14] [INFO] [1790776562.576031371] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-14] [INFO] [1790776562.576041149] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[controller_server-14] [INFO] [1790776562.576310055] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[controller_server-14] [INFO] [1790776562.576319533] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[controller_server-14] [INFO] [1790776562.576789807] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[controller_server-14] [INFO] [1790776562.576799552] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[controller_server-14] [INFO] [1790776562.577125736] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[controller_server-14] [INFO] [1790776562.577519033] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[controller_server-14] [INFO] [1790776562.577528186] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[controller_server-14] [INFO] [1790776562.577827094] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[controller_server-14] [INFO] [1790776562.577836429] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[controller_server-14] [INFO] [1790776562.579351344] [controller_server]: Loaded trajectory validator plugin: mppi::DefaultOptimalTrajectoryValidator
+[controller_server-14] [INFO] [1790776562.581264852] [controller_server]: Optimizer reset
+[controller_server-14] [INFO] [1790776562.585738066] [MPPIController]: Configured MPPI Controller: FollowPath
+[controller_server-14] [INFO] [1790776562.585751187] [controller_server]: Controller Server has FollowPath  controllers available.
+[lifecycle_manager-25] [INFO] [1790776562.591999616] [lifecycle_manager_nav2]: [34m[1mConfiguring smoother_server[0m[0m
+[smoother_server-15] [INFO] [1790776562.592147762] [smoother_server]: Configuring smoother server
+[smoother_server-15] [INFO] [1790776562.601236306] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-15] [INFO] [1790776562.601901577] [smoother_server]: Created smoother : route_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-15] [INFO] [1790776562.602385037] [smoother_server]: Smoother Server has simple_smoother route_smoother  smoothers available.
+[lifecycle_manager-25] [INFO] [1790776562.607302738] [lifecycle_manager_nav2]: [34m[1mConfiguring planner_server[0m[0m
+[planner_server-16] [INFO] [1790776562.607485641] [planner_server]: Configuring
+[planner_server-16] [INFO] [1790776562.607527996] [global_costmap.global_costmap]: Configuring
+[planner_server-16] [INFO] [1790776562.615577788] [global_costmap.global_costmap]: Using plugin "static_layer"
+[planner_server-16] [INFO] [1790776562.620413700] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[planner_server-16] [INFO] [1790776562.622679381] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[planner_server-16] [INFO] [1790776562.622723379] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[planner_server-16] [INFO] [1790776562.623795290] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[planner_server-16] [INFO] [1790776562.630677353] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[planner_server-16] [INFO] [1790776562.630699073] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-16] [INFO] [1790776562.631359388] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-16] [INFO] [1790776562.631372080] [global_costmap.global_costmap]: Using costmap filter "keepout_filter"
+[planner_server-16] [INFO] [1790776562.637164758] [global_costmap.global_costmap]: Initialized costmap filter "keepout_filter"
+[planner_server-16] [INFO] [1790776562.637189280] [global_costmap.global_costmap]: Using costmap filter "speed_filter"
+[planner_server-16] [INFO] [1790776562.638223772] [global_costmap.global_costmap]: Initialized costmap filter "speed_filter"
+[planner_server-16] [INFO] [1790776562.665755156] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[planner_server-16] [INFO] [1790776562.665779020] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[planner_server-16] [INFO] [1790776562.666163589] [planner_server]: Planner Server has GridBased  planners available.
+[lifecycle_manager-25] [INFO] [1790776562.675467737] [lifecycle_manager_nav2]: [34m[1mConfiguring route_server[0m[0m
+[route_server-17] [INFO] [1790776562.675597508] [route_server]: Configuring
+[route_server-17] [INFO] [1790776562.692814670] [route_server]: Created GraphFileLoader GeoJsonGraphFileLoader of type nav2_route::GeoJsonGraphFileLoader
+[route_server-17] [INFO] [1790776562.692838908] [route_server]: Configuring geojson graph file loader
+[route_server-17] [INFO] [1790776562.692846356] [route_server]: Loading graph file from /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/graphs/depot_graph.geojson, by parser nav2_route::GeoJsonGraphFileLoader
+[route_server-17] [INFO] [1790776562.695818094] [route_server]: Created edge cost function plugin DistanceScorer of type nav2_route::DistanceScorer
+[route_server-17] [INFO] [1790776562.695834745] [route_server]: Configuring distance scorer.
+[route_server-17] [INFO] [1790776562.695996823] [route_server]: Created edge cost function plugin CostmapScorer of type nav2_route::CostmapScorer
+[route_server-17] [INFO] [1790776562.696002297] [route_server]: Configuring costmap scorer.
+[route_server-17] [INFO] [1790776562.698759520] [route_server]: Created route operation AdjustSpeedLimit of type nav2_route::AdjustSpeedLimit
+[route_server-17] [INFO] [1790776562.698770297] [route_server]: Configuring Adjust speed limit operation.
+[route_server-17] [INFO] [1790776562.699619775] [route_server]: Created route operation ReroutingService of type nav2_route::ReroutingService
+[route_server-17] [INFO] [1790776562.699635490] [route_server]: Configuring Rerouting service operation.
+[route_server-17] [INFO] [1790776562.700820437] [route_server]: Created route operation CollisionMonitor of type nav2_route::CollisionMonitor
+[route_server-17] [INFO] [1790776562.700911718] [route_server]: Using costmap topic: local_costmap/costmap_raw instead of server costmap topic: global_costmap/costmap_raw for CollisionMonitor.
+[lifecycle_manager-25] [INFO] [1790776562.703883401] [lifecycle_manager_nav2]: [34m[1mConfiguring behavior_server[0m[0m
+[behavior_server-18] [INFO] [1790776562.704037821] [behavior_server]: Configuring
+[behavior_server-18] [INFO] [1790776562.707466005] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors::Spin
+[behavior_server-18] [INFO] [1790776562.708410836] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors::BackUp
+[behavior_server-18] [INFO] [1790776562.709091796] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors::DriveOnHeading
+[behavior_server-18] [INFO] [1790776562.709748947] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors::AssistedTeleop
+[behavior_server-18] [INFO] [1790776562.711092170] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+[behavior_server-18] [INFO] [1790776562.716865728] [behavior_server]: Configuring spin
+[behavior_server-18] [INFO] [1790776562.721082308] [behavior_server]: Configuring backup
+[behavior_server-18] [INFO] [1790776562.723292626] [behavior_server]: Configuring drive_on_heading
+[behavior_server-18] [INFO] [1790776562.725337608] [behavior_server]: Configuring assisted_teleop
+[behavior_server-18] [INFO] [1790776562.729124487] [behavior_server]: Configuring wait
+[lifecycle_manager-25] [INFO] [1790776562.732135189] [lifecycle_manager_nav2]: [34m[1mConfiguring velocity_smoother[0m[0m
+[velocity_smoother-21] [INFO] [1790776562.732243705] [velocity_smoother]: Configuring velocity smoother
+[lifecycle_manager-25] [INFO] [1790776562.735816868] [lifecycle_manager_nav2]: [34m[1mConfiguring collision_monitor[0m[0m
+[collision_monitor-22] [INFO] [1790776562.735952050] [collision_monitor]: Configuring
+[collision_monitor-22] [INFO] [1790776562.739183314] [collision_monitor]: [scan]: Creating Scan
+[collision_monitor-22] [INFO] [1790776562.742380840] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[collision_monitor-22] [INFO] [1790776562.742443901] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[collision_monitor-22] [INFO] [1790776562.742905060] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on local_costmap/published_footprint topic
+[collision_monitor-22] [INFO] [1790776562.748902321] [collision_monitor]: Collision monitor is enabled at startup.
+[lifecycle_manager-25] [INFO] [1790776562.749109842] [lifecycle_manager_nav2]: [34m[1mConfiguring bt_navigator[0m[0m
+[bt_navigator-19] [INFO] [1790776562.749249474] [bt_navigator]: Configuring
+[bt_navigator-19] [INFO] [1790776562.754755033] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[bt_navigator-19] [INFO] [1790776562.760003387] [bt_navigator]: Error_code parameters were set to: assisted_teleop backup compute_path dock_robot drive_on_heading follow_object follow_path nav_thru_poses nav_to_pose route spin smoother undock_robot wait
+[bt_navigator-19] [INFO] [1790776562.766801088] [bt_navigator_navigate_to_pose_rclcpp_node]: 
+[bt_navigator-19] 	bt_navigator_navigate_to_pose_rclcpp_node lifecycle node launched. 
+[bt_navigator-19] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-19] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[bt_navigator-19] [INFO] [1790776562.813733826] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[bt_navigator-19] [INFO] [1790776562.815166345] [bt_navigator]: Error_code parameters were set to: assisted_teleop backup compute_path dock_robot drive_on_heading follow_object follow_path nav_thru_poses nav_to_pose route spin smoother undock_robot wait
+[bt_navigator-19] [INFO] [1790776562.821446145] [bt_navigator_navigate_through_poses_rclcpp_node]: 
+[bt_navigator-19] 	bt_navigator_navigate_through_poses_rclcpp_node lifecycle node launched. 
+[bt_navigator-19] 	Waiting on external lifecycle transitions to activate
+[bt_navigator-19] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[lifecycle_manager-25] [INFO] [1790776562.826712868] [lifecycle_manager_nav2]: [34m[1mConfiguring waypoint_follower[0m[0m
+[waypoint_follower-20] [INFO] [1790776562.826858032] [waypoint_follower]: Configuring
+[waypoint_follower-20] [INFO] [1790776562.838203302] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[lifecycle_manager-25] [INFO] [1790776562.838652648] [lifecycle_manager_nav2]: [34m[1mConfiguring docking_server[0m[0m
+[opennav_docking-23] [INFO] [1790776562.838823180] [docking_server]: Configuring docking_server
+[opennav_docking-23] [INFO] [1790776562.839826227] [docking_server]: Controller frequency set to 50.0000Hz
+[opennav_docking-23] [INFO] [1790776562.862327008] [docking_server]: Created charging dock plugin simple_charging_dock of type opennav_docking::SimpleChargingDock
+[opennav_docking-23] [WARN] [1790776562.865792088] [docking_server]: Dock database filepath nor dock parameters set. Docking actions can only be executed specifying the dock pose via the action request. Or update the dock database via the reload_database service.
+[opennav_docking-23] [INFO] [1790776562.865819261] [docking_server]: Docking Server has 1 dock types and 0 dock instances available.
+[lifecycle_manager-25] [INFO] [1790776562.866952226] [lifecycle_manager_nav2]: [34m[1mConfiguring following_server[0m[0m
+[opennav_following-24] [INFO] [1790776562.867078626] [following_server]: Configuring following_server
+[opennav_following-24] [INFO] [1790776562.869228657] [following_server]: Controller frequency set to 50.0000Hz
+[lifecycle_manager-25] [INFO] [1790776562.882161676] [lifecycle_manager_nav2]: [34m[1mActivating map_server[0m[0m
+[map_server-8] [INFO] [1790776562.882244187] [map_server]: Activating
+[map_server-8] [INFO] [1790776562.882604051] [map_server]: Creating bond (map_server) to lifecycle manager.
+[amcl-9] [INFO] [1790776562.882871610] [amcl]: Received a 604 X 307 map @ 0.050 m/pix
+[planner_server-16] [INFO] [1790776562.882879430] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 604 X 307 at 0.050000 m/pix
+[lifecycle_manager-25] [INFO] [1790776563.135536719] [lifecycle_manager_nav2]: Server map_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776563.135611430] [lifecycle_manager_nav2]: [34m[1mActivating amcl[0m[0m
+[amcl-9] [INFO] [1790776563.136125079] [amcl]: Activating
+[amcl-9] [INFO] [1790776563.136249972] [amcl]: Creating bond (amcl) to lifecycle manager.
+[parameter_bridge-2] [INFO] [1790776563.160694293] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.165056078] [bridge_ros_gz]: Creating GZ->ROS Bridge: [joint_states (gz.msgs.Model) -> joint_states (sensor_msgs/msg/JointState)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.171641072] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/odom (gz.msgs.Odometry) -> odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.176539856] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/tf (gz.msgs.Pose_V) -> tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.180921610] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.182712893] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/scan (gz.msgs.LaserScan) -> scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.184276389] [bridge_ros_gz]: Creating ROS->GZ Bridge: [cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790776563.186444447] [bridge_ros_gz]: Creating GZ->ROS Bridge: [/rgbd_camera/camera_info (gz.msgs.CameraInfo) -> /rgbd_camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[lifecycle_manager-25] [INFO] [1790776563.394111332] [lifecycle_manager_nav2]: Server amcl connected with bond.
+[lifecycle_manager-25] [INFO] [1790776563.394210411] [lifecycle_manager_nav2]: [34m[1mActivating keepout_filter_mask_server[0m[0m
+[map_server-10] [INFO] [1790776563.395006861] [keepout_filter_mask_server]: Activating
+[map_server-10] [INFO] [1790776563.395644464] [keepout_filter_mask_server]: Creating bond (keepout_filter_mask_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776563.653924285] [lifecycle_manager_nav2]: Server keepout_filter_mask_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776563.654028061] [lifecycle_manager_nav2]: [34m[1mActivating keepout_costmap_filter_info_server[0m[0m
+[costmap_filter_info_server-11] [INFO] [1790776563.654982485] [keepout_costmap_filter_info_server]: Activating
+[costmap_filter_info_server-11] [INFO] [1790776563.655152656] [keepout_costmap_filter_info_server]: Creating bond (keepout_costmap_filter_info_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776563.914915908] [lifecycle_manager_nav2]: Server keepout_costmap_filter_info_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776563.914999791] [lifecycle_manager_nav2]: [34m[1mActivating speed_filter_mask_server[0m[0m
+[map_server-12] [INFO] [1790776563.915816044] [speed_filter_mask_server]: Activating
+[map_server-12] [INFO] [1790776563.916598995] [speed_filter_mask_server]: Creating bond (speed_filter_mask_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776564.177328047] [lifecycle_manager_nav2]: Server speed_filter_mask_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776564.177368974] [lifecycle_manager_nav2]: [34m[1mActivating speed_costmap_filter_info_server[0m[0m
+[costmap_filter_info_server-13] [INFO] [1790776564.177599757] [speed_costmap_filter_info_server]: Activating
+[costmap_filter_info_server-13] [INFO] [1790776564.177684101] [speed_costmap_filter_info_server]: Creating bond (speed_costmap_filter_info_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776564.431249577] [lifecycle_manager_nav2]: Server speed_costmap_filter_info_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776564.431320652] [lifecycle_manager_nav2]: [34m[1mActivating controller_server[0m[0m
+[controller_server-14] [INFO] [1790776564.431903667] [controller_server]: Activating
+[controller_server-14] [INFO] [1790776564.431965134] [local_costmap.local_costmap]: Activating
+[controller_server-14] [INFO] [1790776564.431974791] [local_costmap.local_costmap]: Checking transform
+[controller_server-14] [INFO] [1790776564.432041467] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776564.932106819] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776565.432066147] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776565.932093525] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776566.432093996] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776566.932093877] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[create-5] [INFO] [1790776567.138254643] [ros_gz_sim]: Requesting list of world names.
+[controller_server-14] [INFO] [1790776567.432091148] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776567.932091605] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776568.432097668] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776568.932093379] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776569.432093909] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776569.932095423] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776570.432100470] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776570.932089740] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776571.432094814] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776571.932091963] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[create-5] [INFO] [1790776572.138633993] [ros_gz_sim]: Requesting list of world names.
+[controller_server-14] [INFO] [1790776572.432095365] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776572.932095478] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776573.432091352] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776573.932099178] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776574.432094658] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776574.932107152] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776575.432098126] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776575.932093371] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776576.432090728] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776576.932097748] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[create-5] [INFO] [1790776577.138785166] [ros_gz_sim]: Requesting list of world names.
+[controller_server-14] [INFO] [1790776577.432094069] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776577.932091066] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776578.432094108] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776578.932089524] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776579.432070556] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776579.932091701] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776580.432067400] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[create-5] [INFO] [1790776580.655338003] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[create-5] [INFO] [1790776580.667865922] [ros_gz_sim]: Entity creation successful.
+[gz-6] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot4"]/link[@name="rplidar_link"]/sensor[@name="rplidar"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[INFO] [create-5]: process has finished cleanly [pid 85]
+[gz-6] libEGL warning: pci id for fd 54: 10de:2684, driver (null)
+[gz-6] 
+[gz-6] pci id for fd 56: 10de:2684, driver (null)
+[gz-6] pci id for fd 57: 10de:2684, driver (null)
+[gz-6] libEGL warning: egl: failed to create dri2 screen
+[gz-6] libEGL warning: pci id for fd 54: 10de:2684, driver (null)
+[gz-6] 
+[gz-6] pci id for fd 56: 10de:2684, driver (null)
+[gz-6] pci id for fd 57: 10de:2684, driver (null)
+[gz-6] libEGL warning: egl: failed to create dri2 screen
+[gz-6] libEGL warning: pci id for fd 54: 10de:2684, driver (null)
+[gz-6] 
+[controller_server-14] [INFO] [1790776580.932065341] [local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [INFO] [1790776581.432107448] [local_costmap.local_costmap]: start
+[controller_server-14] [INFO] [1790776581.432727112] [local_costmap.local_costmap]: KeepoutFilter: Subscribing to "/keepout_costmap_filter_info" topic for filter info...
+[controller_server-14] [INFO] [1790776581.443802301] [local_costmap.local_costmap]: KeepoutFilter: Received filter info from /keepout_costmap_filter_info topic.
+[controller_server-14] [INFO] [1790776581.443828584] [local_costmap.local_costmap]: KeepoutFilter: Subscribing to "/keepout_filter_mask" topic for filter mask...
+[controller_server-14] [INFO] [1790776581.455579904] [local_costmap.local_costmap]: KeepoutFilter: Received filter mask from /keepout_filter_mask topic.
+[amcl-9] [INFO] [1790776584.689431441] [amcl]: createLaserObject
+[controller_server-14] [INFO] [1790776584.934136550] [MPPIController]: Activated MPPI Controller: FollowPath
+[controller_server-14] [INFO] [1790776584.938463135] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776585.198842746] [lifecycle_manager_nav2]: Server controller_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776585.198918562] [lifecycle_manager_nav2]: [34m[1mActivating smoother_server[0m[0m
+[smoother_server-15] [INFO] [1790776585.199469580] [smoother_server]: Activating
+[smoother_server-15] [INFO] [1790776585.199559875] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[lifecycle_manager-25] [INFO] [1790776585.459648064] [lifecycle_manager_nav2]: Server smoother_server connected with bond.
+[lifecycle_manager-25] [INFO] [1790776585.459725877] [lifecycle_manager_nav2]: [34m[1mActivating planner_server[0m[0m
+[planner_server-16] [INFO] [1790776585.460280117] [planner_server]: Activating
+[planner_server-16] [INFO] [1790776585.460354378] [global_costmap.global_costmap]: Activating
+[planner_server-16] [INFO] [1790776585.460367018] [global_costmap.global_costmap]: Checking transform
+[planner_server-16] [INFO] [1790776585.460421066] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776585.960486074] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776586.460465186] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776586.503476099] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776586.595321009] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776586.696665355] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776586.960514974] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776587.460470954] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776587.960474234] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776588.460468284] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776588.506082410] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776588.700908330] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776588.812651728] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776588.960468599] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776589.460468747] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776589.960472083] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776590.460473132] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776590.603335355] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776590.812938690] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776590.914677370] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776590.960481951] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776591.460481520] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776591.960478565] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776592.460483931] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776592.610121761] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776592.928037873] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776592.960479945] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776593.029887091] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776593.460505224] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776593.960488270] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776594.460479854] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776594.697841057] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776594.960455898] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776595.057448566] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776595.168624452] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776595.460472553] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776595.960472980] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776596.460466754] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776596.714134201] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776596.960464375] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776597.172842923] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776597.274737005] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776597.460477926] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776597.960469864] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776598.460469148] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776598.802394052] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776598.960480262] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776599.302866418] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776599.404692401] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776599.460482428] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776599.960480924] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776600.460486708] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776600.818439252] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776600.960481256] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776601.417951436] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776601.460479871] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776601.529355673] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776601.960480665] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776602.460476311] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776602.906231821] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776602.960478629] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776603.460471029] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776603.532522198] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776603.643599188] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776603.960468079] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776604.460464749] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776604.960448611] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776604.994921259] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776605.460452449] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776605.690046386] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776605.801075264] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776605.960462365] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776606.460486265] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776606.960467827] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776607.010174411] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776607.460465968] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776607.804761800] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776607.916124764] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776607.960483607] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776608.460479183] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776608.960470852] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776609.101672807] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776609.460476912] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776609.926171266] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776609.960470874] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776610.027837359] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776610.460475998] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776610.960456538] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776611.114040932] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776611.460484126] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776611.960472611] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776612.041369964] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776612.142689471] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776612.460574617] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776612.960483598] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776613.202266461] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776613.460478559] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776613.960485673] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776614.165393129] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776614.266628286] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776614.460477821] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776614.960481664] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776615.218335969] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776615.460470043] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776615.960474017] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776616.304326516] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776616.406149481] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776616.460470942] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776616.960466113] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776617.306275619] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776617.460473073] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776617.960468333] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776618.409939534] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776618.460478081] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776618.521213154] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776618.960485414] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776619.401688406] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776619.460471625] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776619.960470572] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776620.460464035] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776620.558475359] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776620.660217398] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776620.960476739] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776621.410251775] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776621.460485194] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776621.960480720] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776622.460476644] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776622.673297520] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776622.774654007] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776622.960487193] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776623.460479555] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776623.500018224] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776623.960467170] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776624.460485565] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776624.769950228] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776624.881632674] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776624.960476906] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776625.460480778] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776625.514105044] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776625.960476923] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776626.460467209] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776626.918189667] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776626.960458896] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776627.029196539] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776627.460448501] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776627.609999376] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776627.960468746] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776628.460459705] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776628.960455007] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776629.073472549] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776629.184314984] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776629.460469414] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776629.623039485] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776629.960483402] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776630.460478648] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776630.960471008] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776631.197756025] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776631.299531639] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776631.460463231] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776631.710621896] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776631.960484388] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776632.460451254] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776632.960469122] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776633.345708002] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776633.457137616] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776633.460465774] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776633.805777193] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776633.960467284] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776634.460449399] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776634.960471058] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776635.460469870] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776635.461302376] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776635.562573649] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776635.814713148] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776635.960467821] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776636.460463924] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776636.960476173] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776637.460478976] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776637.572662437] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776637.674415027] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776637.905408640] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776637.960465954] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776638.460465719] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776638.960471347] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776639.460453024] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776639.678510654] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776639.789923726] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776639.918700502] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776639.960463510] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776640.460466808] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776640.960473196] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776641.460463860] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776641.808270532] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776641.919699658] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776641.960469662] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776642.007531051] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[planner_server-16] [INFO] [1790776642.460462750] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776642.960472064] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776643.460464124] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[controller_server-14] [ERROR] [1790776643.923579062] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776643.960470413] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[amcl-9] [WARN] [1790776644.022747881] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776644.025383046] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[planner_server-16] [INFO] [1790776644.460466801] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776644.960453943] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776645.460468146] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [INFO] [1790776645.960478920] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[planner_server-16] [ERROR] [1790776645.960564970] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_link to map did not become available before timeout
+[lifecycle_manager-25] [ERROR] [1790776645.961383675] [lifecycle_manager_nav2]: Failed to change state for node: planner_server
+[lifecycle_manager-25] [ERROR] [1790776645.961519508] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[controller_server-14] [ERROR] [1790776646.029721726] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776646.110747670] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776646.141003984] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776648.132190730] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776648.208348326] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776648.243642597] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776650.214693734] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776650.238408048] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776650.350039961] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776652.302168567] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776652.422302579] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776652.533339883] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776654.318971091] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776654.556169736] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776654.657445969] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776656.406817792] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776656.661670965] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776656.763484936] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776658.422624305] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776658.809925973] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776658.911384362] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776660.510777120] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776660.924515646] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776661.026309205] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776662.606175524] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776663.073232954] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776663.174566136] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776664.614594166] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776665.187795035] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776665.289043447] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776666.703737901] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776667.302925528] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776667.404125646] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776668.718674173] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776669.432285486] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776669.543684029] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776670.806975178] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776671.556727958] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776671.667618607] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776672.822718331] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776673.902812378] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776674.014339507] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776674.910892742] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776676.032743761] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776676.144070422] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776677.007554404] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[controller_server-14] [ERROR] [1790776678.138176352] [local_costmap.local_costmap]: CostmapFilter: failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[controller_server-14] [ERROR] [1790776678.250006382] [local_costmap.local_costmap]: KeepoutFilter: Failed to get costmap frame (odom) transformation to mask frame (map) with error: "map" passed to lookupTransform argument target_frame does not exist. 
+[amcl-9] [WARN] [1790776679.014883070] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...

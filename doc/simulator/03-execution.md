@@ -50,6 +50,21 @@ TB4 `robot_state_publisher`는 `xacro` 명령으로 `turtlebot4.urdf.xacro`를 �
 
 `use_localization:=True`이므로 AMCL이 시뮬레이터 스캔으로 `map`→`odom`을 만듭니다. 루프백 데모와 소유자가 다릅니다.
 
+### ROS와 이어지는 토픽 (실측)
+
+`ros_gz_bridge`의 `parameter_bridge`가 시뮬레이터 패키지의 `configs/*_bridge.yaml`대로 잇습니다. TB3 로그(`Creating … Bridge`)에 찍힌 목록입니다.
+
+| 방향 | 토픽 | ROS 타입 | 실측 |
+| --- | --- | --- | --- |
+| GZ→ROS | `/clock` | `rosgraph_msgs/Clock` | 337 Hz |
+| GZ→ROS | `odom` | `nav_msgs/Odometry` | 27.8 Hz |
+| GZ→ROS | `tf` | `tf2_msgs/TFMessage` | 오돔 TF (프레임 이름은 측정 안 함) |
+| GZ→ROS | `scan` | `sensor_msgs/LaserScan` | 5.0 Hz (TB3), 9.98 Hz (TB4) |
+| GZ→ROS | `imu`, `joint_states` | | 187 Hz (imu) |
+| ROS→GZ | `cmd_vel` | **`geometry_msgs/Twist`** | Nav2 기본 `TwistStamped`와 불일치 ([04 실패 3](04-running.md#실패-3--cmd_vel-타입-불일치-에러-없이-안-움직임)) |
+
+TB4는 여기에 `/rgbd_camera/*` 등이 더해집니다. Gazebo `odom`은 스폰 지점을 `odom` 원점으로 시작하므로, 지도 위 위치는 AMCL의 `map→odom`이 붙여 줍니다.
+
 ## 시간
 
 루프백 런치와 Gazebo 런치 모두 bringup에 `use_sim_time:=True`를 넘깁니다. 루프백은 자신이 `/clock`을 내고, Gazebo는 `gz sim`이 시계를 냅니다. 한 프로세스에서 둘을 같이 켜는 런치는 없습니다.

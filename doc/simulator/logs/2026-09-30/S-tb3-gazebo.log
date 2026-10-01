@@ -1,0 +1,255 @@
+### [S0] 2026-09-30 22:49:38
+$ docker rm -f nav2 >/dev/null 2>&1; docker run -d --name nav2 --init --device /dev/dri nav2-guide:jazzy ros2 launch nav2_bringup tb3_simulation_launch.py use_composition:=False use_rviz:=False headless:=True >/dev/null; echo "기동 $(date +%T)"; sleep 25; docker ps --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; echo "process started: $(docker logs nav2 2>&1 | grep -c "process started")  died: $(docker logs nav2 2>&1 | grep -c "process has died")"; docker logs nav2 2>&1 | grep -E "process started|process has died" | sed -E "s/.*\[INFO\] \[([^]]+)\].*/\1/;s/.*\[ERROR\] \[([^]]+)\].*/DIED \1/" | tr "\n" " "; echo; docker logs nav2 2>&1 | grep -iE "gz|ogre|render|sensor|egl|error|spawn|entity|Requesting list|Timed out waiting|Please set the initial pose|amcl" | grep -v "Subscribing" | cut -c1-170 | sort | uniq -c | sort -rn | head -25
+기동 22:49:39
+nav2 Up 25 seconds
+process started: 19  died: 1
+xacro-1 parameter_bridge-2 create-3 gz-4 robot_state_publisher-5 map_server-6 amcl-7 controller_server-8 smoother_server-9 planner_server-10 route_server-11 behavior_server-12 bt_navigator-13 waypoint_follower-14 velocity_smoother-15 collision_monitor-16 opennav_docking-17 opennav_following-18 lifecycle_manager-19 DIED gz-4 
+      9 [gz-4] [1;31m[Err] [Ogre2RenderEngine.cc:1304] [0m[1;31m Unable to create the rendering window: [0m[1;31mOGRE EXCEPTION(3:RenderingAPIException): OpenGL 3.3 is not s
+      6 [gz-4] libEGL warning: pci id for fd 32: 10de:2684, driver (null)
+      6 [gz-4] 
+      4 [gz-4] pci id for fd 34: 10de:2684, driver (null)
+      4 [gz-4] pci id for fd 33: 10de:2684, driver (null)
+      4 [gz-4] libEGL warning: egl: failed to create dri2 screen
+      1 [parameter_bridge-2] [INFO] [1790776181.006861807] [ros_gz_bridge]: Creating ROS->GZ Bridge: [cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+      1 [parameter_bridge-2] [INFO] [1790776181.004921684] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/scan (gz.msgs.LaserScan) -> scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+      1 [parameter_bridge-2] [INFO] [1790776181.002857119] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> imu (sensor_msgs/msg/Imu)] (Lazy 0)
+      1 [parameter_bridge-2] [INFO] [1790776180.996964814] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/tf (gz.msgs.Pose_V) -> tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+      1 [parameter_bridge-2] [INFO] [1790776180.991956551] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/odom (gz.msgs.Odometry) -> odom (nav_msgs/msg/Odometry)] (Lazy 0)
+      1 [parameter_bridge-2] [INFO] [1790776180.987801183] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/joint_states (gz.msgs.Model) -> joint_states (sensor_msgs/msg/JointState)] 
+      1 [parameter_bridge-2] [INFO] [1790776180.984367320] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+      1 [lifecycle_manager-19] [INFO] [1790776181.053468495] [lifecycle_manager_nav2]: Server amcl connected with bond.
+      1 [lifecycle_manager-19] [INFO] [1790776180.795611446] [lifecycle_manager_nav2]: [34m[1mActivating amcl[0m[0m
+      1 [lifecycle_manager-19] [INFO] [1790776180.235515643] [lifecycle_manager_nav2]: [34m[1mConfiguring amcl[0m[0m
+      1 [gz-4] Stack trace (most recent call last) in thread 351:
+      1 [gz-4] Segmentation fault (Address not mapped to object [0x220])
+      1 [gz-4] #9    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eada4e43, in Ogre::ResourceGroupManager::parseResourceGroupScripts(Ogr
+      1 [gz-4] #8    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eade6acc, in Ogre::ScriptCompilerManager::parseScript(Ogre::SharedPtr<
+      1 [gz-4] #7    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eaddf564, in Ogre::ScriptCompiler::compile(std::__cxx11::basic_string<
+      1 [gz-4] #6    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eaddf29b, in Ogre::ScriptCompiler::compile(Ogre::SharedPtr<std::__cxx1
+      1 [gz-4] #5    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eadf1483, in Ogre::MaterialTranslator::translate(Ogre::ScriptCompiler*
+      1 [gz-4] #4    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eadf2362, in Ogre::TechniqueTranslator::translate(Ogre::ScriptCompiler
+      1 [gz-4] #3    Object "/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib/libOgreNextMain.so.2.3.3", at 0x7090eadf4c76, in Ogre::PassTranslator::translate(Ogre::ScriptCompiler*, Og
+→ exit=0
+
+### [S1] 2026-09-30 22:50:15
+$ nvidia-smi --query-gpu=name,driver_version --format=csv,noheader 2>&1; docker info 2>/dev/null | grep -iE "Runtimes|Default Runtime"; docker run --rm --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all nav2-guide:jazzy bash -c "nvidia-smi -L 2>&1 | head -2; ls /usr/lib/x86_64-linux-gnu/libEGL_nvidia.so* 2>&1 | head -2"
+NVIDIA GeForce RTX 4090, 580.173.02
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+GPU 0: NVIDIA GeForce RTX 4090 (UUID: GPU-b57ed8e5-e221-6c60-d5da-ec642abd5a3f)
+/usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
+/usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.580.173.02
+→ exit=0
+
+### [S2] 2026-09-30 22:50:23
+$ docker rm -f nav2 >/dev/null 2>&1; docker run -d --name nav2 --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all nav2-guide:jazzy ros2 launch nav2_bringup tb3_simulation_launch.py use_composition:=False use_rviz:=False headless:=True >/dev/null; echo "기동 $(date +%T)"; sleep 25; docker ps --filter name=^nav2$ --format "{{.Names}} {{.Status}}"; echo "process started: $(docker logs nav2 2>&1 | grep -c "process started")  died: $(docker logs nav2 2>&1 | grep -c "process has died")"; docker logs nav2 2>&1 | grep -E "process has died" | cut -c1-150; echo "--- gz 출력"; docker logs nav2 2>&1 | grep -E "^\[gz-4\]|\[create-3\]" | cut -c1-170 | head -20; echo "--- 대기/측위"; docker logs nav2 2>&1 | grep -E "Timed out waiting for transform|Please set the initial pose|initial pose|Managed nodes" | cut -c1-150 | sort | uniq -c | sort -rn | head -6
+기동 22:50:23
+nav2 Up 25 seconds
+process started: 19  died: 0
+--- gz 출력
+[INFO] [create-3]: process started with pid [83]
+[create-3] [INFO] [1790776224.771888805] [ros_gz_sim]: Requesting list of world names.
+[create-3] [INFO] [1790776225.194037645] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-3]: process has finished cleanly [pid 83]
+[gz-4] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_waffle"]/link[@name="imu_link"]/sensor[@name="tb3_imu"]/gz_frame_id:<data-string>:L49]: XML Element
+[gz-4] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_waffle"]/link[@name="base_scan"]/sensor[@name="hls_lfcd_lds"]/gz_frame_id:<data-string>:L134]: XML 
+[gz-4] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_waffle"]/link[@name="camera_link"]/sensor[@name="intel_realsense_r200_depth"]/gz_frame_id:<data-str
+[gz-4] libEGL warning: pci id for fd 52: 10de:2684, driver (null)
+[gz-4] 
+[gz-4] pci id for fd 54: 10de:2684, driver (null)
+[gz-4] pci id for fd 55: 10de:2684, driver (null)
+[gz-4] libEGL warning: egl: failed to create dri2 screen
+[gz-4] libEGL warning: pci id for fd 52: 10de:2684, driver (null)
+[gz-4] 
+[gz-4] pci id for fd 54: 10de:2684, driver (null)
+[gz-4] pci id for fd 55: 10de:2684, driver (null)
+[gz-4] libEGL warning: egl: failed to create dri2 screen
+[gz-4] libEGL warning: pci id for fd 52: 10de:2684, driver (null)
+[gz-4] 
+--- 대기/측위
+      1 [planner_server-10] [INFO] [1790776248.594335088] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+      1 [planner_server-10] [INFO] [1790776248.094329589] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+      1 [planner_server-10] [INFO] [1790776247.594347574] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+      1 [planner_server-10] [INFO] [1790776247.094334482] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+      1 [planner_server-10] [INFO] [1790776246.594328310] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+      1 [planner_server-10] [INFO] [1790776246.094326354] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become ava
+→ exit=0
+
+### [S3] 2026-09-30 22:50:59
+$ docker exec nav2 nav2env bash -c "for t in /clock /odom /scan /imu; do ( timeout -k 1 5 ros2 topic hz \$t -w 5 > /tmp/h\$(echo \$t|tr / _) 2>&1 ) & done; wait; for t in /clock /odom /scan /imu; do printf \"%-8s %s\n\" \$t \"\$(grep average /tmp/h\$(echo \$t|tr / _) | tail -1)\"; done; for n in amcl planner_server bt_navigator; do printf \"%-15s\" \$n; ros2 lifecycle get /\$n | head -1; done"
+/clock   average rate: 336.594
+/odom    average rate: 27.767
+/scan    average rate: 5.008
+/imu     average rate: 186.552
+amcl           active [3]
+planner_server inactive [2]
+bt_navigator   inactive [2]
+→ exit=0
+
+### [S4] 2026-09-30 22:51:30
+$ docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.0685]}}" 2>&1 | grep -c "publishing #1" | sed "s/^/발행: /"; date +%T; sleep 8; docker logs nav2 2>&1 | grep -E "initialPoseReceived|Setting pose|Received initial pose|Managed nodes are active|Failed to (activate|bring up)" | cut -c1-170
+발행: 1
+22:51:31
+[planner_server-10] [ERROR] [1790776289.094373250] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_link to map did not beco
+[lifecycle_manager-19] [ERROR] [1790776289.094819632] [lifecycle_manager_nav2]: Failed to bring up all requested nodes. Aborting bringup.
+[amcl-7] [INFO] [1790776291.498815064] [amcl]: initialPoseReceived
+[amcl-7] [INFO] [1790776291.498883417] [amcl]: Setting pose (64.086000): -2.000 -0.500 0.000
+→ exit=0
+
+### [S5] 2026-09-30 22:51:51
+$ docker rm -f nav2 >/dev/null 2>&1; docker run -d --name nav2 --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all nav2-guide:jazzy ros2 launch nav2_bringup tb3_simulation_launch.py use_composition:=False use_rviz:=False headless:=True >/dev/null; echo "기동 $(date +%T)"; sleep 15; docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.0685]}}" 2>&1 | grep -c "publishing #1" | sed "s/^/발행: /"; echo "발행 $(date +%T)"; for i in $(seq 1 30); do docker logs nav2 2>&1 | grep -q "Managed nodes are active" && break; sleep 1; done; docker logs nav2 2>&1 | grep -E "initialPoseReceived|Setting pose|Managed nodes are active|Failed to (activate|bring up)|process has died" | cut -c1-150
+기동 22:51:51
+발행: 1
+발행 22:52:08
+[amcl-7] [INFO] [1790776327.844895334] [amcl]: initialPoseReceived
+[amcl-7] [INFO] [1790776327.845006244] [amcl]: Setting pose (12.969000): -2.000 -0.500 0.000
+[lifecycle_manager-19] [INFO] [1790776332.345381299] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+→ exit=0
+
+### [S6] 2026-09-30 22:52:25
+$ docker exec nav2 nav2env bash /tmp/gzchain.sh 1.5 0.5
+--- 출발 전 amcl_pose / odom
+WARNING: topic [/amcl_pose] does not appear to be published yet Could not determine the type for the passed topic 
+x: 2.2371907111849457e-07 y: 3.3227224807883296e-16 z: 0.0 --- 
+/cmd_vel_nav       average rate: 19.768
+/cmd_vel_smoothed  average rate: 20.001
+/cmd_vel           
+/odom              average rate: 27.793
+/scan              average rate: 4.984
+/particle_cloud    
+=== 결과
+number_of_recoveries: 8
+    error_code: 105
+Goal finished with status: ABORTED
+피드백: 8635
+--- 도착 후 amcl_pose / map→base_footprint
+x: -2.0072934918464673 y: -0.5003613460355001 z: 0.0 --- 
+- Translation: [-2.007, -0.500, 0.000]
+→ exit=0
+
+### [S7] 2026-09-30 22:54:13
+$ docker exec nav2 nav2env ros2 topic info /cmd_vel -v 2>&1 | grep -E "Type:|Topic type:|Publisher count|Subscription count|Node name|Reliability" | sed "s/^ *//" | head -14
+Type: ['geometry_msgs/msg/Twist', 'geometry_msgs/msg/TwistStamped']
+Publisher count: 3
+Node name: collision_monitor
+Node namespace: /
+Topic type: geometry_msgs/msg/TwistStamped
+Reliability: RELIABLE
+Node name: docking_server
+Node namespace: /
+Topic type: geometry_msgs/msg/TwistStamped
+Reliability: RELIABLE
+Node name: following_server
+Node namespace: /
+Topic type: geometry_msgs/msg/TwistStamped
+Reliability: RELIABLE
+→ exit=0
+
+### [S8] 2026-09-30 22:54:14
+$ docker exec nav2 nav2env bash -c "ros2 topic list -t | grep -E \"^/(cmd_vel|particle_cloud|amcl_pose)\"; echo ---; ros2 topic info /particle_cloud -v | grep -E \"Publisher count|Subscription count|Reliability|Durability\" | head -4"; docker logs nav2 2>&1 | grep -E "ros_gz_bridge.*cmd_vel|type mismatch|incompatible" | cut -c1-200 | head -5
+/amcl_pose [geometry_msgs/msg/PoseWithCovarianceStamped]
+/cmd_vel [geometry_msgs/msg/Twist, geometry_msgs/msg/TwistStamped]
+/cmd_vel_nav [geometry_msgs/msg/TwistStamped]
+/cmd_vel_smoothed [geometry_msgs/msg/TwistStamped]
+/cmd_vel_teleop [geometry_msgs/msg/TwistStamped]
+/particle_cloud [nav2_msgs/msg/ParticleCloud]
+---
+Publisher count: 1
+  Reliability: BEST_EFFORT
+  Durability: VOLATILE
+Subscription count: 0
+[parameter_bridge-2] [INFO] [1790776313.532547206] [ros_gz_bridge]: Creating ROS->GZ Bridge: [cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+→ exit=0
+
+### [S9] 2026-09-30 22:54:24
+$ docker exec nav2 nav2env bash -c "P=\$(ros2 pkg prefix nav2_minimal_tb3_sim)/share/nav2_minimal_tb3_sim; ls \$P \$P/configs 2>/dev/null; grep -rn -B2 -A4 \"cmd_vel\" \$P/configs/*.yaml 2>/dev/null | head -20; dpkg -s ros-jazzy-nav2-minimal-tb3-sim | grep ^Version"; grep -rn "enable_stamped_cmd_vel" nav2_bringup/params/nav2_params.yaml | head -3; grep -rn "turtlebot3_waffle_bridge\|bridge.*yaml\|config_file" nav2_bringup/launch/tb3_simulation_launch.py | head
+/opt/ros/jazzy/share/nav2_minimal_tb3_sim:
+cmake
+configs
+environment
+launch
+local_setup.bash
+local_setup.dsv
+local_setup.sh
+local_setup.zsh
+models
+package.dsv
+package.xml
+urdf
+worlds
+
+/opt/ros/jazzy/share/nav2_minimal_tb3_sim/configs:
+turtlebot3_waffle_bridge.yaml
+38-  direction: GZ_TO_ROS
+39-
+40:# replace cmd_vel_bridge
+41:- topic_name: "cmd_vel"
+42-  ros_type_name: "geometry_msgs/msg/Twist"
+43-  gz_type_name: "gz.msgs.Twist"
+44-  direction: ROS_TO_GZ
+dpkg-query: package 'ros-jazzy-nav2-minimal-tb3-sim' is not installed and no information is available
+Use dpkg --info (= dpkg-deb --info) to examine archive files.
+51:    rviz_config_file = LaunchConfiguration('rviz_config_file')
+125:    declare_rviz_config_file_cmd = DeclareLaunchArgument(
+126:        'rviz_config_file',
+190:            'rviz_config': rviz_config_file,
+272:    ld.add_action(declare_rviz_config_file_cmd)
+→ exit=0
+
+### [S10] 2026-09-30 22:54:45
+$ head -4 /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav2_params_unstamped.yaml; diff <(tail -n +5 /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav2_params_unstamped.yaml) nav2_bringup/params/nav2_params.yaml && echo '나머지는 저장소 nav2_params.yaml과 동일'
+/**:
+  ros__parameters:
+    enable_stamped_cmd_vel: false
+
+나머지는 저장소 nav2_params.yaml과 동일
+→ exit=0
+
+### [S11] 2026-09-30 22:54:45
+$ docker rm -f nav2 >/dev/null 2>&1; docker run -d --name nav2 --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v /tmp/claude-1000/-home-hwanjun-projects-navigation2/dce2d4e3-861f-4777-890f-ad91872fe4f2/scratchpad/nav2_params_unstamped.yaml:/root/nav2_params_unstamped.yaml:ro nav2-guide:jazzy ros2 launch nav2_bringup tb3_simulation_launch.py use_composition:=False use_rviz:=False headless:=True params_file:=/root/nav2_params_unstamped.yaml >/dev/null; echo "기동 $(date +%T)"; sleep 15; docker exec nav2 nav2env ros2 topic pub --once -w 1 /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: map}, pose: {pose: {position: {x: -2.0, y: -0.5, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.0685]}}" >/dev/null 2>&1; for i in $(seq 1 30); do docker logs nav2 2>&1 | grep -q 'Managed nodes are active' && break; sleep 1; done; docker logs nav2 2>&1 | grep -E 'Managed nodes are active|Failed to (activate|bring up)' | cut -c1-120; docker exec nav2 nav2env ros2 topic list -t | grep -E '^/cmd_vel(_nav|_smoothed)? '
+기동 22:54:46
+[lifecycle_manager-19] [INFO] [1790776507.502487560] [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+/cmd_vel [geometry_msgs/msg/Twist]
+/cmd_vel_smoothed [geometry_msgs/msg/Twist]
+→ exit=0
+
+### [S12] 2026-09-30 22:55:14
+$ docker exec nav2 nav2env bash /tmp/gzchain.sh 1.5 0.5
+--- 출발 전 amcl_pose / odom
+x: -1.9652504955139019 y: -0.5296569781773028 z: 0.0 --- 
+x: 2.2371907111852438e-07 y: 3.322722480789208e-16 z: 0.0 --- 
+/cmd_vel_nav       average rate: 20.065
+/cmd_vel_smoothed  average rate: 20.017
+/cmd_vel           average rate: 18.160
+/odom              average rate: 27.750
+/scan              average rate: 5.012
+/particle_cloud    average rate: 1.770
+=== 결과
+number_of_recoveries: 0
+    error_code: 0
+Goal finished with status: SUCCEEDED
+피드백: 1392
+--- 도착 후 amcl_pose / map→base_footprint
+x: 1.2459052285358296 y: 0.48684391788090664 z: 0.0 --- 
+- Translation: [1.289, 0.487, 0.000]
+→ exit=0
+
+### [S13] 2026-09-30 22:55:50
+$ docker exec nav2 nav2env bash -c "timeout -k 1 8 gz topic -e -t /stats -n 1 2>&1 | grep -E \"real_time_factor|sim_time|real_time\" | head -6"; docker logs nav2 2>&1 | grep -E "process started with pid|Entity creation successful|Begin navigating|Goal succeeded|Managed nodes are active|initialPoseReceived|Reached the goal|Computing path to goal" | sed -E "s/\[([0-9]{10})\.([0-9]{3})[0-9]*\]/@\1.\2/" | awk "{for(i=1;i<=NF;i++) if(\$i ~ /^@[0-9]{10}\.[0-9]{3}\$/){e=substr(\$i,2,10); ms=substr(\$i,13,3); cmd=\"TZ=Asia/Seoul date -d @\"e\" +%T\"; cmd|getline t; close(cmd); \$i=t\".\"ms} print}" | grep -vE "process started" | cut -c1-140; docker logs nav2 2>&1 | grep -c "process started" | sed "s/^/process started: /"; docker logs nav2 2>&1 | grep -c "process has died" | sed "s/^/died: /"
+sim_time {
+real_time {
+real_time_factor: 0.99961714663283963
+[create-3] [INFO] 22:54:47.422 [ros_gz_sim]: Entity creation successful.
+[amcl-7] [INFO] 22:55:02.405 [amcl]: initialPoseReceived
+[lifecycle_manager-19] [INFO] 22:55:07.502 [lifecycle_manager_nav2]: [34m[1mManaged nodes are active[0m[0m
+[bt_navigator-13] [INFO] 22:55:17.983 [bt_navigator]: Begin navigating from current location (-1.97, -0.53) to (1.50, 0.50)
+[planner_server-10] [INFO] 22:55:17.985 [planner_server]: Computing path to goal.
+[planner_server-10] [INFO] 22:55:19.013 [planner_server]: Computing path to goal.
+[planner_server-10] [INFO] 22:55:20.034 [planner_server]: Computing path to goal.
+[planner_server-10] [INFO] 22:55:21.059 [planner_server]: Computing path to goal.
+[controller_server-8] [INFO] 22:55:32.170 [controller_server]: Reached the goal!
+[bt_navigator-13] [INFO] 22:55:32.189 [bt_navigator]: Goal succeeded
+process started: 19
+died: 0
+→ exit=0
+
