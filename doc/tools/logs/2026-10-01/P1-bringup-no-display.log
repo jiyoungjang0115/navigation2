@@ -1,0 +1,158 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-01-00-35-46-340429-981d62899de3-638
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [map_server-1]: process started with pid [646]
+[INFO] [planner_server-2]: process started with pid [647]
+[INFO] [static_transform_publisher-3]: process started with pid [648]
+[INFO] [static_transform_publisher-4]: process started with pid [649]
+[INFO] [lifecycle_manager-5]: process started with pid [650]
+[INFO] [rviz2-6]: process started with pid [651]
+[rviz2-6] qt.qpa.xcb: could not connect to display 
+[rviz2-6] qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+[rviz2-6] This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+[rviz2-6] 
+[rviz2-6] Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
+[rviz2-6] 
+[lifecycle_manager-5] [INFO] [1790814946.424259923] [lifecycle_manager]: Creating
+[static_transform_publisher-4] [INFO] [1790814946.424279182] [static_transform_publisher_Qpi5nGG1lxZT43kW]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'base_link' to 'odom'
+[lifecycle_manager-5] [INFO] [1790814946.424382908] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[lifecycle_manager-5] [INFO] [1790814946.424591844] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[map_server-1] [INFO] [1790814946.429025070] [map_server]: 
+[map_server-1] 	map_server lifecycle node launched. 
+[map_server-1] 	Waiting on external lifecycle transitions to activate
+[map_server-1] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-1] [INFO] [1790814946.429057825] [map_server]: Creating
+[static_transform_publisher-3] [INFO] [1790814946.432804042] [static_transform_publisher_DDtp7evgQQtbklEo]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'base_link' to 'map'
+[planner_server-2] [INFO] [1790814946.437528135] [planner_server]: 
+[planner_server-2] 	planner_server lifecycle node launched. 
+[planner_server-2] 	Waiting on external lifecycle transitions to activate
+[planner_server-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-2] [INFO] [1790814946.439335888] [planner_server]: Creating
+[planner_server-2] [INFO] [1790814946.441216892] [global_costmap.global_costmap]: 
+[planner_server-2] 	global_costmap lifecycle node launched. 
+[planner_server-2] 	Waiting on external lifecycle transitions to activate
+[planner_server-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-2] [INFO] [1790814946.441670712] [global_costmap.global_costmap]: Creating Costmap
+[lifecycle_manager-5] [INFO] [1790814946.529396629] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle service servers[0m[0m
+[lifecycle_manager-5] [INFO] [1790814946.535002345] [lifecycle_manager]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-5] [INFO] [1790814946.535053518] [lifecycle_manager]: [34m[1mConfiguring map_server[0m[0m
+[map_server-1] [INFO] [1790814946.535336973] [map_server]: Configuring
+[map_server-1] [INFO] [1790814946.535469165] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.yaml
+[map_server-1] [INFO] [1790814946.535728106] [map_io]: resolution: 0.05
+[map_server-1] [INFO] [1790814946.535733311] [map_io]: origin[0]: -10
+[map_server-1] [INFO] [1790814946.535735784] [map_io]: origin[1]: -10
+[map_server-1] [INFO] [1790814946.535738218] [map_io]: origin[2]: 0
+[map_server-1] [INFO] [1790814946.535740682] [map_io]: free_thresh: 0.196
+[map_server-1] [INFO] [1790814946.535743061] [map_io]: occupied_thresh: 0.65
+[map_server-1] [INFO] [1790814946.535746382] [map_io]: mode: trinary
+[map_server-1] [INFO] [1790814946.535749571] [map_io]: negate: 0
+[map_server-1] [INFO] [1790814946.535882615] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm
+[map_server-1] [INFO] [1790814946.537600683] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm: 384 X 384 map @ 0.05 m/cell
+[lifecycle_manager-5] [INFO] [1790814946.541723153] [lifecycle_manager]: [34m[1mConfiguring planner_server[0m[0m
+[planner_server-2] [INFO] [1790814946.541839809] [planner_server]: Configuring
+[planner_server-2] [INFO] [1790814946.541856582] [global_costmap.global_costmap]: Configuring
+[planner_server-2] [INFO] [1790814946.544328279] [global_costmap.global_costmap]: Using plugin "static_layer"
+[planner_server-2] [INFO] [1790814946.547053630] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[planner_server-2] [INFO] [1790814946.547797424] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[planner_server-2] [INFO] [1790814946.547804896] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[planner_server-2] [INFO] [1790814946.547902757] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[planner_server-2] [INFO] [1790814946.549055089] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[planner_server-2] [INFO] [1790814946.549062688] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-2] [INFO] [1790814946.549164894] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-2] [INFO] [1790814946.549167247] [global_costmap.global_costmap]: Using costmap filter "keepout_filter"
+[planner_server-2] [INFO] [1790814946.551453485] [global_costmap.global_costmap]: Initialized costmap filter "keepout_filter"
+[planner_server-2] [INFO] [1790814946.551461456] [global_costmap.global_costmap]: Using costmap filter "speed_filter"
+[planner_server-2] [INFO] [1790814946.551668409] [global_costmap.global_costmap]: Initialized costmap filter "speed_filter"
+[planner_server-2] [INFO] [1790814946.565256187] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[planner_server-2] [INFO] [1790814946.565282912] [planner_server]: Configuring SmacHybrid of type SmacPlannerHybrid
+[planner_server-2] [INFO] [1790814946.565657715] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[planner_server-2] [INFO] [1790814947.340211775] [planner_server]: Configured plugin SmacHybrid of type SmacPlannerHybrid with maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal. Tolerance 0.25.Using motion model: Dubin.
+[planner_server-2] [INFO] [1790814947.340800431] [planner_server]: Created global planner plugin Smac2d of type nav2_smac_planner::SmacPlanner2D
+[planner_server-2] [INFO] [1790814947.340810131] [planner_server]: Configuring Smac2d of type SmacPlanner2D
+[planner_server-2] [INFO] [1790814947.341738979] [planner_server]: Configured plugin Smac2d of type SmacPlanner2D with tolerance 0.12, maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal.
+[planner_server-2] [INFO] [1790814947.342367772] [planner_server]: Created global planner plugin SmacLattice of type nav2_smac_planner::SmacPlannerLattice
+[planner_server-2] [INFO] [1790814947.342378542] [planner_server]: Configuring SmacLattice of type SmacPlannerLattice
+[planner_server-2] [INFO] [1790814947.343223447] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[planner_server-2] [INFO] [1790814947.521735652] [planner_server]: Configured plugin SmacLattice of type SmacPlannerLattice with maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal. Tolerance 0.25. Using motion model: State Lattice. State lattice file: /opt/overlay_ws/install/nav2_smac_planner/share/nav2_smac_planner/sample_primitives/5cm_resolution/0.5m_turning_radius/ackermann/output.json.
+[planner_server-2] [INFO] [1790814947.522414392] [planner_server]: Created global planner plugin Navfn of type nav2_navfn_planner::NavfnPlanner
+[planner_server-2] [INFO] [1790814947.522424177] [planner_server]: Configuring plugin Navfn of type NavfnPlanner
+[planner_server-2] [INFO] [1790814947.522900720] [planner_server]: Created global planner plugin ThetaStar of type nav2_theta_star_planner::ThetaStarPlanner
+[planner_server-2] [INFO] [1790814947.523003823] [planner_server]: Planner Server has SmacHybrid Smac2d SmacLattice Navfn ThetaStar  planners available.
+[lifecycle_manager-5] [INFO] [1790814947.525565594] [lifecycle_manager]: [34m[1mActivating map_server[0m[0m
+[map_server-1] [INFO] [1790814947.525730087] [map_server]: Activating
+[map_server-1] [INFO] [1790814947.526013153] [map_server]: Creating bond (map_server) to lifecycle manager.
+[planner_server-2] [INFO] [1790814947.526226043] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 384 X 384 at 0.050000 m/pix
+[planner_server-2] [WARN] [1790814947.526248475] [global_costmap.global_costmap]: StaticLayer: Costmap origin coordinates are not perfectly aligned with the resolution. This may cause misalignment aliasing between rolling and non-rolling costmaps.
+[planner_server-2] Map origin: (-10, -10) | Resolution: 0
+[lifecycle_manager-5] [INFO] [1790814947.778508032] [lifecycle_manager]: Server map_server connected with bond.
+[lifecycle_manager-5] [INFO] [1790814947.778545324] [lifecycle_manager]: [34m[1mActivating planner_server[0m[0m
+[planner_server-2] [INFO] [1790814947.778750359] [planner_server]: Activating
+[planner_server-2] [INFO] [1790814947.778775970] [global_costmap.global_costmap]: Activating
+[planner_server-2] [INFO] [1790814947.778779585] [global_costmap.global_costmap]: Checking transform
+[planner_server-2] [INFO] [1790814947.778849371] [global_costmap.global_costmap]: start
+[planner_server-2] [INFO] [1790814947.779179548] [global_costmap.global_costmap]: KeepoutFilter: Subscribing to "/keepout_costmap_filter_info" topic for filter info...
+[planner_server-2] [INFO] [1790814947.779655032] [global_costmap.global_costmap]: SpeedFilter: Subscribing to "/speed_costmap_filter_info" topic for filter info...
+[ERROR] [rviz2-6]: process has died [pid 651, exit code -6, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -r __ns:=/ --params-file /tmp/launch_params_bwolk1iz -r /tf:=tf -r /tf_static:=tf_static'].
+[INFO] [lifecycle_manager-5]: sending signal 'SIGINT' to process[lifecycle_manager-5]
+[INFO] [static_transform_publisher-4]: sending signal 'SIGINT' to process[static_transform_publisher-4]
+[INFO] [static_transform_publisher-3]: sending signal 'SIGINT' to process[static_transform_publisher-3]
+[INFO] [planner_server-2]: sending signal 'SIGINT' to process[planner_server-2]
+[INFO] [map_server-1]: sending signal 'SIGINT' to process[map_server-1]
+[lifecycle_manager-5] [INFO] [1790814948.381526809] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-5] [INFO] [1790814948.381648787] [lifecycle_manager]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager)
+[static_transform_publisher-4] [INFO] [1790814948.381922336] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[static_transform_publisher-3] [INFO] [1790814948.382199706] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[planner_server-2] [INFO] [1790814948.382533554] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[planner_server-2] [INFO] [1790814948.382583702] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[planner_server-2] [INFO] [1790814948.382601696] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[planner_server-2] [ERROR] [1790814948.382647168] [global_costmap.global_costmap]: Failed to finish transition 3. Current state is now: active (Could not publish transition: publisher's context is invalid, at ./src/rcl/publisher.c:423, at ./src/rcl_lifecycle.c:368)
+[planner_server-2] [ERROR] [1790814948.382654598] [planner_server]: Failed to finish transition 3. Current state is now: inactive (Could not publish transition: publisher's context is invalid, at ./src/rcl/publisher.c:423, at ./src/rcl_lifecycle.c:368)
+[map_server-1] [INFO] [1790814948.382775926] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[map_server-1] [INFO] [1790814948.382821356] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[map_server-1] [INFO] [1790814948.382853059] [map_server]: Deactivating
+[map_server-1] [INFO] [1790814948.382864341] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[planner_server-2] [INFO] [1790814948.383415611] [planner_server]: Destroying plugin Navfn of type NavfnPlanner
+[planner_server-2] [INFO] [1790814948.383434573] [planner_server]: Destroying plugin SmacLattice of type SmacPlannerLattice
+[planner_server-2] [INFO] [1790814948.383878623] [planner_server]: Destroying plugin Smac2d of type SmacPlanner2D
+[planner_server-2] [INFO] [1790814948.384538803] [planner_server]: Destroying plugin SmacHybrid of type SmacPlannerHybrid
+[planner_server-2] Warning: class_loader.ClassLoader: SEVERE WARNING!!! Attempting to unload library while objects created by this loader exist in the heap! You should delete your objects before attempting to unload the library or destroying the ClassLoader. The library will NOT be unloaded.
+[planner_server-2]          at line 127 in ./src/class_loader.cpp
+[planner_server-2] Warning: class_loader.ClassLoader: SEVERE WARNING!!! Attempting to unload library while objects created by this loader exist in the heap! You should delete your objects before attempting to unload the library or destroying the ClassLoader. The library will NOT be unloaded.
+[planner_server-2]          at line 127 in ./src/class_loader.cpp
+[planner_server-2] terminate called without an active exception
+[planner_server-2] Stack trace (most recent call last):
+[map_server-1] [INFO] [1790814948.393029490] [map_server]: Cleaning up
+[map_server-1] [INFO] [1790814948.393053431] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[map_server-1] [INFO] [1790814948.394259356] [map_server]: Destroying
+[planner_server-2] #14   Object "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2", at 0xffffffffffffffff, in 
+[planner_server-2] #13   Object "/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server", at 0x5c3dc812a4d4, in _start
+[planner_server-2] #12   Object "/usr/lib/x86_64-linux-gnu/libc.so.6", at 0x7cbf74f8228a, in __libc_start_main
+[planner_server-2] #11   Object "/usr/lib/x86_64-linux-gnu/libc.so.6", at 0x7cbf74f821c9, in 
+[planner_server-2] #10   Object "/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server", at 0x5c3dc812a457, in main
+[planner_server-2] #9    Object "/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server", at 0x5c3dc812a70d, in std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release_last_use_cold()
+[planner_server-2] #8    Object "/opt/overlay_ws/install/nav2_planner/lib/libplanner_server_core.so", at 0x7cbf75790bf5, in nav2_planner::PlannerServer::~PlannerServer()
+[planner_server-2] #7    Object "/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server", at 0x5c3dc812a70d, in std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release_last_use_cold()
+[planner_server-2] #6    Object "/opt/overlay_ws/install/nav2_costmap_2d/lib/libnav2_costmap_2d_core.so", at 0x7cbf74d8d233, in nav2_costmap_2d::Costmap2DROS::~Costmap2DROS()
+[planner_server-2] #5    Object "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33", at 0x7cbf7523da54, in std::terminate()
+[planner_server-2] #4    Object "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33", at 0x7cbf752530d9, in 
+[planner_server-2] #3    Object "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33", at 0x7cbf7523dff4, in 
+[planner_server-2] #2    Object "/usr/lib/x86_64-linux-gnu/libc.so.6", at 0x7cbf74f808fe, in abort
+[planner_server-2] #1    Object "/usr/lib/x86_64-linux-gnu/libc.so.6", at 0x7cbf74f9d27d, in raise
+[planner_server-2] #0    Object "/usr/lib/x86_64-linux-gnu/libc.so.6", at 0x7cbf74ff6c0c, in pthread_kill
+[planner_server-2] Aborted (Signal sent by tkill() 647 0)
+[ERROR] [planner_server-2]: process has died [pid 647, exit code -6, cmd '/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server --ros-args -r __node:=planner_server --params-file /tmp/tmpypz1m5po'].
+[INFO] [static_transform_publisher-3]: process has finished cleanly [pid 648]
+[INFO] [static_transform_publisher-4]: process has finished cleanly [pid 649]
+[INFO] [map_server-1]: process has finished cleanly [pid 646]
+[lifecycle_manager-5] [ERROR] [1790814953.382980569] [lifecycle_manager]: Failed to change state for node: planner_server. Exception: planner_server/get_state service client: async_send_request failed.
+[lifecycle_manager-5] [ERROR] [1790814953.383117571] [lifecycle_manager]: Failed to bring up all requested nodes. Aborting bringup.
+[ERROR] [lifecycle_manager-5]: process[lifecycle_manager-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [lifecycle_manager-5]: sending signal 'SIGTERM' to process[lifecycle_manager-5]
+[lifecycle_manager-5] [INFO] [1790814953.404348216] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[lifecycle_manager-5] [INFO] [1790814953.404769596] [lifecycle_manager]: Destroying lifecycle_manager
+[INFO] [lifecycle_manager-5]: process has finished cleanly [pid 650]

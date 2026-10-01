@@ -37,6 +37,21 @@ python3 tools/bt_nodes_validation/validate_bt_xml_nodes.py \
   --config tools/bt_nodes_validation/config.yml
 ```
 
+의존은 `requirements.txt`의 `pyyaml` 하나입니다. 가이드 Docker 이미지에는 `pip`이 없지만 `pyyaml`이 이미 있어서 venv 없이 그대로 돕니다.
+
+### 실측: 실패가 정말 rc 1인가 (2026-10-01)
+
+[로그](../logs/2026-10-01/README.md) V0–V2입니다. 저장소를 읽기 전용으로 마운트하고, 복사본의 `nav2_tree_nodes.xml`을 하나씩 망가뜨렸습니다.
+
+| 변조 | 출력 | rc |
+| --- | --- | ---: |
+| 없음 | `Validation successful. No mismatches found …` | 0 |
+| `Spin`의 `spin_dist` 기본값 1.57 → 3.14 | `[ERROR] Spin node: default value mismatch for spin_dist port:` | 1 |
+| `Spin`의 `is_recovery` 포트 설명 삭제 | `[ERROR] Spin node: missing description for is_recovery port.` | 1 |
+| `<Action ID="Wait">` 블록 삭제 | `[ERROR] Nodes present in code but missing in XML: - Wait` | 1 |
+
+세 경우 모두 끝에 `Validation failed.`가 붙고 `sys.exit(1)`로 끝나므로 CI 단계가 실패합니다. 반대 방향(XML에만 있는 노드)과 타입 불일치는 돌려 보지 않았습니다.
+
 도구 자체의 pytest는 `tools/bt_nodes_validation/test/`에 있습니다. `test.sh`와 `pytest.ini`가 그 디렉터리에 있습니다.
 
 ## CI

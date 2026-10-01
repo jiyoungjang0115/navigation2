@@ -1,0 +1,44 @@
+### [V0] 2026-10-01 09:31:56
+$ docker run --rm -v "$PWD":/ws:ro -w /ws nav2-guide:jazzy bash -c "pip install -q --break-system-packages -r tools/bt_nodes_validation/requirements.txt 2>&1 | tail -2; python3 tools/bt_nodes_validation/validate_bt_xml_nodes.py --config tools/bt_nodes_validation/config.yml; echo validator_rc=\$?" 2>&1 | tail -60
+bash: line 1: pip: command not found
+Comparing BT nodes data extracted from code and XML files...
+Checking for missing descriptions in XML...
+Validation successful. No mismatches found between code and XML BT nodes data.
+validator_rc=0
+→ exit=0
+
+### [V1] 2026-10-01 09:32:07
+$ docker run --rm -v "$PWD":/src:ro nav2-guide:jazzy bash -c "mkdir /ws && cd /src && cp -r --parents nav2_behavior_tree nav2_docking/opennav_docking_bt tools/bt_nodes_validation /ws/ && cd /ws; sed -i \"s|<input_port name=\\\"spin_dist\\\" default=\\\"1.57\\\"|<input_port name=\\\"spin_dist\\\" default=\\\"3.14\\\"|\" nav2_behavior_tree/nav2_tree_nodes.xml; grep -c \"spin_dist\\\" default=\\\"3.14\" nav2_behavior_tree/nav2_tree_nodes.xml | sed \"s/^/변조된 줄: /\"; sed -i \"/<Action ID=\\\"Wait\\\">/,/<\\/Action>/d\" nav2_behavior_tree/nav2_tree_nodes.xml; grep -c \"Action ID=\\\"Wait\\\"\" nav2_behavior_tree/nav2_tree_nodes.xml | sed \"s/^/Wait 남은 수: /\"; python3 tools/bt_nodes_validation/validate_bt_xml_nodes.py --config tools/bt_nodes_validation/config.yml 2>&1 | tail -15; echo validator_rc=\$?"
+변조된 줄: 0
+Wait 남은 수: 0
+Comparing BT nodes data extracted from code and XML files...
+[ERROR] Nodes present in code but missing in XML:
+	 - Wait
+Checking for missing descriptions in XML...
+Validation failed.
+Please review BT nodes in code and their corresponding XML definitions in nav2_behavior_tree/nav2_tree_nodes.xml.
+validator_rc=0
+→ exit=0
+
+### [V2] 2026-10-01 09:32:20
+$ docker run --rm -v "$PWD":/src:ro -v $SCRATCH/v2.sh:/v2.sh:ro nav2-guide:jazzy bash /v2.sh
+## (a) 원본
+Validation successful. No mismatches found between code and XML BT nodes data.
+validator_rc=0
+## (b) Spin spin_dist 기본값 1.57 → 3.14
+변조 적용: 1
+[ERROR] Spin node: default value mismatch for spin_dist port:
+Validation failed.
+validator_rc=1
+## (c) Spin is_recovery 포트 설명 삭제
+변조 적용: 1
+[ERROR] Spin node: missing description for is_recovery port.
+Validation failed.
+validator_rc=1
+## (d) Wait 노드 정의 삭제
+[ERROR] Nodes present in code but missing in XML:
+	 - Wait
+Validation failed.
+validator_rc=1
+→ exit=0
+

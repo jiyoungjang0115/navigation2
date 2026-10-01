@@ -1,0 +1,29 @@
+### [C0] 2026-10-01 09:35:51
+$ docker run --rm -v "$PWD":/src:ro -v $SCRATCH/fakebin:/fake:ro -v $SCRATCH/ctr.sh:/c.sh:ro nav2-guide:jazzy bash /c.sh
+## (a) 항상 실패, 기본 -r
+Retrying Ctest up to  3  times.
+fake ctest call 1 args: -V
+fake ctest call 2 args: -V
+fake ctest call 3 args: -V
+Test failed  3  times.
+rc=1
+## (b) 2번째에 성공, -r 5 -t test_x
+Retrying Ctest up to  5  times.
+fake ctest call 1 args: -V -R test_x
+fake ctest call 2 args: -V -R test_x
+Test succeeded on try  2
+rc=0
+## (c) -r 인자 누락
+Option -r requires an argument.
+rc=1
+## (d) 잘못된 옵션
+Invalid option: -x
+ctest_retry.bash [options]
+Reruns ctest until the test passes or it has run 3 times (by default).
+  -r <number> Retry the test up to <number> times [Default: 3]
+  -d <path> Execute ctest from the given path [Default: Current working directory]
+  -t <testname> Execute only <testname> [Default: execute all tests available in <path> ]
+  -h displays this usage summary
+rc=0
+→ exit=0
+

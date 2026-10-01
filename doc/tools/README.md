@@ -15,5 +15,6 @@
 | [validation/](validation/00-overview.md) | BT XML, 시스템 테스트, 커버리지, sanitizer |
 | [observation/](observation/00-overview.md) | Python commander, RViz, loopback |
 | [dev/scripts.md](dev/scripts.md) | BT 그림, README 배지, ctest 재시도 |
+| [logs/2026-10-01/](logs/2026-10-01/README.md) | 위 도구를 가이드 Docker 이미지에서 실제로 돌린 기록 (BT 검사, bt2img, 두 벤치, 배지 표, ctest 재시도) |
 
 패키지 내부 구조는 [아키텍처 기동·관측·검증](../architecture/tools/00-overview.md)에 있습니다. CI 이미지와 `underlay.repos`는 [DevOps](../devops/README.md)에 있습니다.

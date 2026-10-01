@@ -1,0 +1,92 @@
+### [P0] 2026-10-01 09:35:08
+$ docker run --rm --init -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bench_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/pbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+→ exit=1
+
+# P0: pbench.sh 첫 줄 set -u 가 setup.bash 의 미정의 변수에서 셸을 종료시켜(오류는 2>/dev/null 로 숨겨짐) 출력 없이 exit=1. set -u 를 빼고 P1로 재실행.
+
+### [P1] 2026-10-01 09:35:25
+$ docker run --rm --init -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bench_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/pbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 (20s)
+bringup: 0 active after 60s
+[planner_server-2] [INFO] [1790814946.565256187] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[planner_server-2] [INFO] [1790814947.340800431] [planner_server]: Created global planner plugin Smac2d of type nav2_smac_planner::SmacPlanner2D
+[planner_server-2] [INFO] [1790814947.342367772] [planner_server]: Created global planner plugin SmacLattice of type nav2_smac_planner::SmacPlannerLattice
+[planner_server-2] [INFO] [1790814947.522414392] [planner_server]: Created global planner plugin Navfn of type nav2_navfn_planner::NavfnPlanner
+[planner_server-2] [INFO] [1790814947.522900720] [planner_server]: Created global planner plugin ThetaStar of type nav2_theta_star_planner::ThetaStarPlanner
+[ERROR] [rviz2-6]: process has died [pid 651, exit code -6, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -r __n
+[planner_server-2] [ERROR] [1790814948.382647168] [global_costmap.global_costmap]: Failed to finish transition 3. Current state is now: active (Could not publish transition: publisher's context is inv
+[planner_server-2] [ERROR] [1790814948.382654598] [planner_server]: Failed to finish transition 3. Current state is now: inactive (Could not publish transition: publisher's context is invalid, at ./sr
+[ERROR] [planner_server-2]: process has died [pid 647, exit code -6, cmd '/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server --ros-args -r __node:=planner_server --params-file /tmp/t
+[lifecycle_manager-5] [ERROR] [1790814953.382980569] [lifecycle_manager]: Failed to change state for node: planner_server. Exception: planner_server/get_state service client: async_send_request failed
+[lifecycle_manager-5] [ERROR] [1790814953.383117571] [lifecycle_manager]: Failed to bring up all requested nodes. Aborting bringup.
+[ERROR] [lifecycle_manager-5]: process[lifecycle_manager-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+→ exit=143
+
+# P1 은 docker stop 으로 중단. rviz2 가 디스플레이 없이 abort(-6) → rviz_launch.py 의 OnProcessExit→Shutdown 이 launch 전체를 내림 → metrics.py 는 change map service 를 무한 대기. 로그는 P1-*-no-display.log 로 이름 바꿈.
+
+### [P2] 2026-10-01 09:38:10
+$ docker run --rm --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bench_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/pbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 (21s)
+bringup: 0 active after 60s
+[planner_server-2] [INFO] [1790815113.441256321] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[planner_server-2] [INFO] [1790815114.212021414] [planner_server]: Created global planner plugin Smac2d of type nav2_smac_planner::SmacPlanner2D
+[planner_server-2] [INFO] [1790815114.213641577] [planner_server]: Created global planner plugin SmacLattice of type nav2_smac_planner::SmacPlannerLattice
+[planner_server-2] [INFO] [1790815114.393259936] [planner_server]: Created global planner plugin Navfn of type nav2_navfn_planner::NavfnPlanner
+[planner_server-2] [INFO] [1790815114.393729267] [planner_server]: Created global planner plugin ThetaStar of type nav2_theta_star_planner::ThetaStarPlanner
+[ERROR] [rviz2-6]: process has died [pid 695, exit code -6, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -r __n
+[planner_server-2] [ERROR] [1790815115.029077619] [global_costmap.global_costmap]: Failed to finish transition 3. Current state is now: active (Could not publish transition: publisher's context is inv
+[planner_server-2] [ERROR] [1790815115.029087950] [planner_server]: Failed to finish transition 3. Current state is now: inactive (Could not publish transition: publisher's context is invalid, at ./sr
+[ERROR] [planner_server-2]: process has died [pid 691, exit code -6, cmd '/opt/overlay_ws/install/nav2_planner/lib/nav2_planner/planner_server --ros-args -r __node:=planner_server --params-file /tmp/t
+[lifecycle_manager-5] [ERROR] [1790815120.029415903] [lifecycle_manager]: Failed to change state for node: planner_server. Exception: planner_server/get_state service client: async_send_request failed
+[lifecycle_manager-5] [ERROR] [1790815120.029546549] [lifecycle_manager]: Failed to bring up all requested nodes. Aborting bringup.
+[ERROR] [lifecycle_manager-5]: process[lifecycle_manager-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+→ exit=143
+
+# P2 도 docker stop 으로 중단. QT_QPA_PLATFORM=offscreen 은 Qt 는 통과하지만 Ogre 가 GLX 로 X 디스플레이를 열어야 해서 RenderingAPIException → abort(-6), 같은 Shutdown. metrics 로그는 P1 과 같은 내용이라 지움. P3 은 Xvfb 로 가상 X 서버를 띄움.
+
+### [P3] 2026-10-01 09:40:10
+$ docker run --rm --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bench_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/pbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 (23s)
+bringup: 0 active after 60s
+[ERROR] [rviz2-6]: process has died [pid 698, exit code -6, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -r __n
+[ERROR] [lifecycle_manager-5]: process[lifecycle_manager-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [lifecycle_manager-5]: process[lifecycle_manager-5] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+[ERROR] [lifecycle_manager-5]: process has died [pid 697, exit code -9, cmd '/opt/overlay_ws/install/nav2_lifecycle_manager/lib/nav2_lifecycle_manager/lifecycle_manager --ros-args -r __node:=lifecycle
+→ exit=143
+
+# P3 무효: 스크립트 sed 가 apt 줄에 xvfb 를 넣지 못해 Xvfb 가 없었음(같은 rviz 실패). 로그 지우고 P4 로 재실행.
+
+### [P4] 2026-10-01 09:41:51
+$ docker run --rm --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bench_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/pbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 (23s)
+/usr/bin/Xvfb
+bringup: 1 active after 5s
+[planner_server-2] [INFO] [1790815337.213984251] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[planner_server-2] [INFO] [1790815338.000710044] [planner_server]: Created global planner plugin Smac2d of type nav2_smac_planner::SmacPlanner2D
+[planner_server-2] [INFO] [1790815338.002631956] [planner_server]: Created global planner plugin SmacLattice of type nav2_smac_planner::SmacPlannerLattice
+[planner_server-2] [INFO] [1790815338.187716123] [planner_server]: Created global planner plugin Navfn of type nav2_navfn_planner::NavfnPlanner
+[planner_server-2] [INFO] [1790815338.188187690] [planner_server]: Created global planner plugin ThetaStar of type nav2_theta_star_planner::ThetaStarPlanner
+[rviz2-6] [ERROR] [1790815338.239724745] [rviz2]: rviz/glsl120/indexed_8bit_image.vert
+metrics rc=0 (60s)
+cycles=112
+planner_failed_lines=12
+     10 SmacHybrid planner failed to produce the path
+      2 SmacLattice planner failed to produce the path
+[INFO] [1790815394.721107840] [basic_navigator]: Getting path...
+Write Results...
+Write Complete
+-rw-r--r-- 1 root root   4000856 Oct  1 00:43 costmap.pickle
+-rw-r--r-- 1 root root        72 Oct  1 00:43 planners.pickle
+-rw-r--r-- 1 root root 102656604 Oct  1 00:43 results.pickle
+Read data
+-----------  -----------------------  --------------------  ------------------  --------
+Planner      Average path length (m)  Average Time (s)      Average cost        Max cost
+Navfn        47.077096633551356       0.041155493110000003  0.1920056060147391  31.28
+ThetaStar    46.859670984870235       0.11441177820999998   0.4436203338882388  64.32
+SmacHybrid   48.28249945760155        0.08583934156999998   1.3175405830880331  64.07
+Smac2d       48.20507744395381        0.05446198201999999   4.713706629437947   68.54
+SmacLattice  48.62505723551701        0.04665488186999999   1.767088398346007   75.08
+-----------  -----------------------  --------------------  ------------------  --------
+process rc=0 (5s)
+→ exit=0
+

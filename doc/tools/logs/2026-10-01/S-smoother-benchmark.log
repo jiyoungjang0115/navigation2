@@ -1,0 +1,35 @@
+### [S0] 2026-10-01 09:44:16
+$ docker run --rm --init --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/smooth_params.yaml:/opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/params/nav2_params.yaml:ro -v $SCRATCH/sbench.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 (32s)
+metrics 종료까지 33s
+[planner_server-4] [INFO] [1790815491.619442941] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[smoother_server-5] [INFO] [1790815492.417382032] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[smoother_server-5] [INFO] [1790815492.420618974] [smoother_server]: Created smoother : constrained_smoother of type nav2_constrained_smoother/ConstrainedSmoother
+[smoother_server-5] [INFO] [1790815492.421149475] [smoother_server]: Created smoother : sg_smoother of type nav2_smoother::SavitzkyGolaySmoother
+[lifecycle_manager-6] [INFO] [1790815494.195194357] [lifecycle_manager]: [34m[1mManaged nodes are active[0m[0m
+[INFO] [python3-8]: process has finished cleanly [pid 799]
+cycles printed: 119
+     19 [python3-8] SmacHybrid planner failed to produce the path
+     12 [planner_server-4] [WARN]  [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan f
+      7 [planner_server-4] [WARN]  [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:208, error_msg:'SmacHybridplugin failed to plan f
+      6 [rviz2-7] [INFO]  [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+      1 [smoother_server-5] E20261001 00:45:17.666798  1388 trust_region_minimizer.cc:72] Terminating: Initial residual and Jacobian evaluation failed.
+      1 [planner_server-4] [WARN]  [planner_server]: SmacHybridplugin failed to plan from (9.90, 9.05) [q: -0.00, 0.00, 0.71, -0.71] (yaw: -1.57) to (1.35, 13.55) [q: -
+      1 [planner_server-4] [WARN]  [planner_server]: SmacHybridplugin failed to plan from (9.50, 4.15) [q: -0.00, 0.00, 0.39, -0.92] (yaw: -0.81) to (11.55, 7.40) [q: 0
+      1 [planner_server-4] [WARN]  [planner_server]: SmacHybridplugin failed to plan from (9.30, 14.20) [q: 0.00, 0.00, 0.39, 0.92] (yaw: 0.81) to (1.15, 0.60) [q: 0.00
+-rw-r--r-- 1 root root   90856 Oct  1 00:45 costmap.pickle
+-rw-r--r-- 1 root root      84 Oct  1 00:45 methods.pickle
+-rw-r--r-- 1 root root 8532896 Oct  1 00:45 results.pickle
+Read data
+process_data.py:129: RuntimeWarning: invalid value encountered in divide
+  d2_norm = d2 / np.linalg.norm(d2)
+--------------------  ----------------------  ------------------  ------------------  --------  ----------------------  -----------------------
+Planner               Time (s)                Path length (m)     Average cost        Max cost  Path smoothness (x100)  Average turning rad (m)
+SmacHybrid            0.12731306384           10.669404856455815  20.918593878270837  138.19    68.65227841790808       0.8768606963238601
+simple_smoother       0.00029789414000000003  10.374536137828498  23.701780468931975  131.43    51.70094829745727       2.9480526395509044
+constrained_smoother  0.00809535681           10.69199339916961   12.557817496883501  112.67    66.23200744891642       3.6113545707928143
+sg_smoother           6.198009999999999e-05   10.641228649164047  20.95377147396286   136.82    69.17625871027603       2.3871120313654886
+--------------------  ----------------------  ------------------  ------------------  --------  ----------------------  -----------------------
+process rc=0 (1s)
+→ exit=0
+

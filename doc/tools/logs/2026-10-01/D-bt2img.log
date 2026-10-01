@@ -1,0 +1,73 @@
+### [B0] 2026-10-01 09:32:32
+$ docker run --rm -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bt2img.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+apt rc=0 dot=dot - graphviz version 2.43.0 (0)
+python graphviz 0.20.2
+## (a) 기본 트리
+usage: bt2img.py [-h] --behavior_tree BEHAVIOR_TREE --image_out IMAGE_OUT
+                 [--display] [--save_dot SAVE_DOT] [--legend LEGEND]
+bt2img.py: error: argument --legend: expected one argument
+rc=2
+## (b) update_bt_diagrams.bash 첫 줄이 가리키는 파일
+ls: cannot access 'nav2_bt_navigator/behavior_trees/navigate_w_replanning.xml': No such file or directory
+    source = open(source, "rb")
+             ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'nav2_bt_navigator/behavior_trees/navigate_w_replanning.xml'
+rc=1
+## (c) 회색(미분류) 노드 찾기: 모든 기본 XML
+     15 rc=0
+total 16
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct  1 00:32 .
+drwxr-xr-x 1 root   root   4096 Oct  1 00:32 ..
+-rw-rw-r-- 1 ubuntu ubuntu  979 Oct  1 00:32 D-bt2img.log
+-rw-rw-r-- 1 ubuntu ubuntu 2576 Oct  1 00:32 V-bt-nodes-validation.log
+→ exit=0
+
+### [B1] 2026-10-01 09:33:05
+$ docker run --rm -v "$PWD":/src:ro -v "$PWD/doc/tools/logs/2026-10-01":/out -v $SCRATCH/bt2img2.sh:/b.sh:ro nav2-guide:jazzy bash /b.sh
+## (a) 기본 트리 + 범례 + dot
+Saving dot to <_io.TextIOWrapper name='/tmp/nav.dot' mode='w' encoding='UTF-8'>
+rc=0
+-rw-r--r-- 1 root root   8699 Oct  1 00:33 /out/bt-legend.png
+-rw-r--r-- 1 root root 400021 Oct  1 00:33 /out/bt-navigate_to_pose.png
+## (b) 15개 기본 XML에서 미분류(회색) 노드 이름
+## dot 한 줄 예시
+→ exit=1
+
+### [B2] 2026-10-01 09:34:29
+$ python3 $SCRATCH/grey.py
+XML 15개, 노드 320개, 분류된 태그 20종, 회색 104개 / 33종
+   13 ControllerSelector
+   13 PlannerSelector
+    8 ValidatePath
+    8 GlobalUpdatedGoal
+    8 WouldAPlannerRecoveryHelp
+    8 WouldAControllerRecoveryHelp
+    4 TruncatePathLocal
+    4 IsGoalNearby
+    4 DriveOnHeading
+    2 ComputeRoute
+    2 GetPoseFromPath
+    2 ArePosesNear
+    2 ConcatenatePaths
+    2 WouldARouteRecoveryHelp
+    2 ProgressCheckerSelector
+    2 GoalCheckerSelector
+    2 PathHandlerSelector
+    2 RemovePassedGoals
+    2 ComputePathThroughPoses
+    1 GoalUpdater
+    1 TruncatePath
+    1 KeepRunningUntilFailure
+    1 PathExpiringTimer
+    1 GetCurrentPose
+    1 SmoothPath
+    1 IsWithinPathTrackingBounds
+    1 PathLongerOnApproach
+    1 RetryUntilSuccessful
+    1 CancelControl
+    1 GoalUpdatedController
+    1 ExtractRouteNodesAsGoals
+    1 AppendGoalPoseToGoals
+    1 GetNextFewGoals
+→ exit=0
+

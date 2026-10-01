@@ -1,0 +1,33 @@
+### [R0] 2026-10-01 09:35:59
+$ docker run --rm -v "$PWD":/src:ro nav2-guide:jazzy bash -c 'python3 -c "import requests; print(requests.__version__)"; s=$(date +%s); python3 /src/tools/update_readme_table.py > /tmp/t.md; echo "rc=$? ($(($(date +%s)-s))s)"; wc -l < /tmp/t.md; head -4 /tmp/t.md | cut -c1-300; echo ...; grep -E "^\| (opennav_following|nav2_ros_common|nav2_route|nav2_mppi_controller) " /tmp/t.md | sed -E "s/\(https[^)]*\)//g"; echo N/A 개수: $(grep -o "N/A" /tmp/t.md | wc -l)'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "/src/tools/update_readme_table.py", line 20, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+rc=1 (0s)
+0
+...
+N/A 개수: 0
+→ exit=0
+
+### [R1] 2026-10-01 09:36:12
+$ docker run --rm -v "$PWD":/src:ro -v $SCRATCH/readme.sh:/r.sh:ro nav2-guide:jazzy bash /r.sh
+apt rc=0
+rc=0 (78s)
+줄 수: 42
+| Package | humble Source | humble Debian | jazzy Source | jazzy Debian | lyrical Source | lyrical Debian |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+--- 일부 행 (링크 제거)
+| nav2_amcl | badge | badge | badge | badge | badge | badge |
+| nav2_ros_common | N/A | N/A | N/A | N/A | badge | badge |
+| nav2_route | badge | badge | badge | badge | badge | badge |
+N/A 개수: 8 / 셀 240
+--- N/A 가 있는 패키지
+ nav2_following : N/A N/A ok ok ok ok
+ nav2_loopback_sim : N/A N/A ok ok ok ok
+ nav2_ros_common : N/A N/A N/A N/A ok ok
+→ exit=0
+

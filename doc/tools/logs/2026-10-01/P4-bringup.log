@@ -1,0 +1,1001 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-01-00-42-16-909086-e4e3d99b6961-782
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [map_server-1]: process started with pid [790]
+[INFO] [planner_server-2]: process started with pid [791]
+[INFO] [static_transform_publisher-3]: process started with pid [792]
+[INFO] [static_transform_publisher-4]: process started with pid [793]
+[INFO] [lifecycle_manager-5]: process started with pid [794]
+[INFO] [rviz2-6]: process started with pid [795]
+[static_transform_publisher-4] [INFO] [1790815336.988724283] [static_transform_publisher_9BhDehzvrwg3U2Xc]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'base_link' to 'odom'
+[lifecycle_manager-5] [INFO] [1790815336.990271843] [lifecycle_manager]: Creating
+[lifecycle_manager-5] [INFO] [1790815336.990395733] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle publishers[0m[0m
+[lifecycle_manager-5] [INFO] [1790815336.990589995] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[static_transform_publisher-3] [INFO] [1790815336.990813677] [static_transform_publisher_0uHXbi6ujmtg7f7A]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'base_link' to 'map'
+[rviz2-6] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[planner_server-2] [INFO] [1790815337.006665314] [planner_server]: 
+[planner_server-2] 	planner_server lifecycle node launched. 
+[planner_server-2] 	Waiting on external lifecycle transitions to activate
+[planner_server-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-2] [INFO] [1790815337.008488781] [planner_server]: Creating
+[planner_server-2] [INFO] [1790815337.010973939] [global_costmap.global_costmap]: 
+[planner_server-2] 	global_costmap lifecycle node launched. 
+[planner_server-2] 	Waiting on external lifecycle transitions to activate
+[planner_server-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[planner_server-2] [INFO] [1790815337.011399486] [global_costmap.global_costmap]: Creating Costmap
+[map_server-1] [INFO] [1790815337.012693768] [map_server]: 
+[map_server-1] 	map_server lifecycle node launched. 
+[map_server-1] 	Waiting on external lifecycle transitions to activate
+[map_server-1] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-1] [INFO] [1790815337.012728944] [map_server]: Creating
+[lifecycle_manager-5] [INFO] [1790815337.013065453] [lifecycle_manager]: [34m[1mCreating and initializing lifecycle service servers[0m[0m
+[lifecycle_manager-5] [INFO] [1790815337.015160488] [lifecycle_manager]: [34m[1mStarting managed nodes bringup...[0m[0m
+[lifecycle_manager-5] [INFO] [1790815337.015184001] [lifecycle_manager]: [34m[1mConfiguring map_server[0m[0m
+[rviz2-6] [INFO] [1790815337.089047486] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-6] [INFO] [1790815337.089085110] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-6] [INFO] [1790815337.121195056] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-6] [INFO] [1790815337.172843313] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.173153703] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.173328736] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.179829819] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.186523311] [rviz]: Subscribing to: /local_costmap/voxel_marked_cloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.186668984] [rviz]: Subscribing to: /mobile_base/sensors/bumper_pointcloud
+[rviz2-6] 
+[rviz2-6] [INFO] [1790815337.187641844] [rviz]: Subscribing to: /global_costmap/voxel_marked_cloud
+[rviz2-6] 
+[map_server-1] [INFO] [1790815337.189608825] [map_server]: Configuring
+[map_server-1] [INFO] [1790815337.189684164] [map_io]: Loading yaml file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.yaml
+[map_server-1] [INFO] [1790815337.189824323] [map_io]: resolution: 0.05
+[map_server-1] [INFO] [1790815337.189827348] [map_io]: origin[0]: -10
+[map_server-1] [INFO] [1790815337.189828672] [map_io]: origin[1]: -10
+[map_server-1] [INFO] [1790815337.189829839] [map_io]: origin[2]: 0
+[map_server-1] [INFO] [1790815337.189831097] [map_io]: free_thresh: 0.196
+[map_server-1] [INFO] [1790815337.189832353] [map_io]: occupied_thresh: 0.65
+[map_server-1] [INFO] [1790815337.189834093] [map_io]: mode: trinary
+[map_server-1] [INFO] [1790815337.189835602] [map_io]: negate: 0
+[map_server-1] [INFO] [1790815337.189914481] [map_io]: Loading image_file: /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm
+[map_server-1] [INFO] [1790815337.191013122] [map_io]: Read map /opt/overlay_ws/install/nav2_bringup/share/nav2_bringup/maps/tb3_sandbox.pgm: 384 X 384 map @ 0.05 m/cell
+[lifecycle_manager-5] [INFO] [1790815337.194070905] [lifecycle_manager]: [34m[1mConfiguring planner_server[0m[0m
+[planner_server-2] [INFO] [1790815337.194167367] [planner_server]: Configuring
+[planner_server-2] [INFO] [1790815337.194183790] [global_costmap.global_costmap]: Configuring
+[planner_server-2] [INFO] [1790815337.196792581] [global_costmap.global_costmap]: Using plugin "static_layer"
+[planner_server-2] [INFO] [1790815337.199354031] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[planner_server-2] [INFO] [1790815337.200146061] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[planner_server-2] [INFO] [1790815337.200154209] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[planner_server-2] [INFO] [1790815337.200260182] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[planner_server-2] [INFO] [1790815337.201409484] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[planner_server-2] [INFO] [1790815337.201417546] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-2] [INFO] [1790815337.201543048] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-2] [INFO] [1790815337.201545662] [global_costmap.global_costmap]: Using costmap filter "keepout_filter"
+[planner_server-2] [INFO] [1790815337.203709949] [global_costmap.global_costmap]: Initialized costmap filter "keepout_filter"
+[planner_server-2] [INFO] [1790815337.203717689] [global_costmap.global_costmap]: Using costmap filter "speed_filter"
+[planner_server-2] [INFO] [1790815337.203956698] [global_costmap.global_costmap]: Initialized costmap filter "speed_filter"
+[rviz2-6] [INFO] [1790815337.204295613] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815337.213984251] [planner_server]: Created global planner plugin SmacHybrid of type nav2_smac_planner::SmacPlannerHybrid
+[planner_server-2] [INFO] [1790815337.214003061] [planner_server]: Configuring SmacHybrid of type SmacPlannerHybrid
+[planner_server-2] [INFO] [1790815337.214385312] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[planner_server-2] [INFO] [1790815337.999911740] [planner_server]: Configured plugin SmacHybrid of type SmacPlannerHybrid with maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal. Tolerance 0.25.Using motion model: Dubin.
+[planner_server-2] [INFO] [1790815338.000710044] [planner_server]: Created global planner plugin Smac2d of type nav2_smac_planner::SmacPlanner2D
+[planner_server-2] [INFO] [1790815338.000722618] [planner_server]: Configuring Smac2d of type SmacPlanner2D
+[planner_server-2] [INFO] [1790815338.001916655] [planner_server]: Configured plugin Smac2d of type SmacPlanner2D with tolerance 0.12, maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal.
+[planner_server-2] [INFO] [1790815338.002631956] [planner_server]: Created global planner plugin SmacLattice of type nav2_smac_planner::SmacPlannerLattice
+[planner_server-2] [INFO] [1790815338.002645876] [planner_server]: Configuring SmacLattice of type SmacPlannerLattice
+[planner_server-2] [INFO] [1790815338.004123188] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[planner_server-2] [INFO] [1790815338.187139495] [planner_server]: Configured plugin SmacLattice of type SmacPlannerLattice with maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal. Tolerance 0.25. Using motion model: State Lattice. State lattice file: /opt/overlay_ws/install/nav2_smac_planner/share/nav2_smac_planner/sample_primitives/5cm_resolution/0.5m_turning_radius/ackermann/output.json.
+[planner_server-2] [INFO] [1790815338.187716123] [planner_server]: Created global planner plugin Navfn of type nav2_navfn_planner::NavfnPlanner
+[planner_server-2] [INFO] [1790815338.187727830] [planner_server]: Configuring plugin Navfn of type NavfnPlanner
+[planner_server-2] [INFO] [1790815338.188187690] [planner_server]: Created global planner plugin ThetaStar of type nav2_theta_star_planner::ThetaStarPlanner
+[planner_server-2] [INFO] [1790815338.188313425] [planner_server]: Planner Server has SmacHybrid Smac2d SmacLattice Navfn ThetaStar  planners available.
+[lifecycle_manager-5] [INFO] [1790815338.191327445] [lifecycle_manager]: [34m[1mActivating map_server[0m[0m
+[map_server-1] [INFO] [1790815338.191483649] [map_server]: Activating
+[map_server-1] [INFO] [1790815338.191784192] [map_server]: Creating bond (map_server) to lifecycle manager.
+[planner_server-2] [INFO] [1790815338.191962405] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 384 X 384 at 0.050000 m/pix
+[planner_server-2] [WARN] [1790815338.191978186] [global_costmap.global_costmap]: StaticLayer: Costmap origin coordinates are not perfectly aligned with the resolution. This may cause misalignment aliasing between rolling and non-rolling costmaps.
+[planner_server-2] Map origin: (-10, -10) | Resolution: 0
+[rviz2-6] [INFO] [1790815338.206578670] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815338.207894571] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches
+[rviz2-6] [ERROR] [1790815338.239724745] [rviz2]: rviz/glsl120/indexed_8bit_image.vert
+[rviz2-6] rviz/glsl120/indexed_8bit_image.frag
+[rviz2-6]  GLSL link result : 
+[rviz2-6] active samplers with a different type refer to the same texture image unit
+[lifecycle_manager-5] [INFO] [1790815338.444333933] [lifecycle_manager]: Server map_server connected with bond.
+[lifecycle_manager-5] [INFO] [1790815338.444432974] [lifecycle_manager]: [34m[1mActivating planner_server[0m[0m
+[planner_server-2] [INFO] [1790815338.444985259] [planner_server]: Activating
+[planner_server-2] [INFO] [1790815338.445072457] [global_costmap.global_costmap]: Activating
+[planner_server-2] [INFO] [1790815338.445087773] [global_costmap.global_costmap]: Checking transform
+[planner_server-2] [INFO] [1790815338.445317225] [global_costmap.global_costmap]: start
+[planner_server-2] [INFO] [1790815338.446800205] [global_costmap.global_costmap]: KeepoutFilter: Subscribing to "/keepout_costmap_filter_info" topic for filter info...
+[planner_server-2] [INFO] [1790815338.449576811] [global_costmap.global_costmap]: SpeedFilter: Subscribing to "/speed_costmap_filter_info" topic for filter info...
+[rviz2-6] [INFO] [1790815339.215949948] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815339.493990317] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches
+[planner_server-2] [INFO] [1790815339.502285881] [planner_server]: Activating plugin ThetaStar of type nav2_theta_star_planner
+[planner_server-2] [INFO] [1790815339.502348221] [planner_server]: Activating plugin Navfn of type NavfnPlanner
+[planner_server-2] [INFO] [1790815339.502366131] [planner_server]: Activating plugin SmacLattice of type SmacPlannerLattice
+[planner_server-2] [INFO] [1790815339.502383478] [planner_server]: Activating plugin Smac2d of type SmacPlanner2D
+[planner_server-2] [INFO] [1790815339.502432042] [planner_server]: Activating plugin SmacHybrid of type SmacPlannerHybrid
+[planner_server-2] [INFO] [1790815339.503894360] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[lifecycle_manager-5] [INFO] [1790815339.760128207] [lifecycle_manager]: Server planner_server connected with bond.
+[lifecycle_manager-5] [INFO] [1790815339.760226459] [lifecycle_manager]: [34m[1mManaged nodes are active[0m[0m
+[lifecycle_manager-5] [INFO] [1790815339.760280960] [lifecycle_manager]: [34m[1mCreating bond timer...[0m[0m
+[rviz2-6] [INFO] [1790815340.228747460] [nav2_rviz_selector_node]: smoother_server service not available
+[rviz2-6] [INFO] [1790815341.239107493] [nav2_rviz_selector_node]: controller_server service not available
+[map_server-1] [INFO] [1790815341.796737272] [map_server]: Handling LoadMap request
+[map_server-1] [INFO] [1790815341.796830534] [map_io]: Loading yaml file: /work/100by100_20.yaml
+[map_server-1] [INFO] [1790815341.797154192] [map_io]: resolution: 0.05
+[map_server-1] [INFO] [1790815341.797164702] [map_io]: origin[0]: 0
+[map_server-1] [INFO] [1790815341.797171227] [map_io]: origin[1]: 0
+[map_server-1] [INFO] [1790815341.797176446] [map_io]: origin[2]: 0
+[map_server-1] [INFO] [1790815341.797182702] [map_io]: free_thresh: 0.196
+[map_server-1] [INFO] [1790815341.797188944] [map_io]: occupied_thresh: 0.65
+[map_server-1] [INFO] [1790815341.797194796] [map_io]: mode: trinary
+[map_server-1] [INFO] [1790815341.797200662] [map_io]: negate: 1
+[map_server-1] [INFO] [1790815341.797220547] [map_io]: Loading image_file: /work/100by100_20.pgm
+[map_server-1] [INFO] [1790815341.838937761] [map_io]: Read map /work/100by100_20.pgm: 2000 X 2000 map @ 0.05 m/cell
+[rviz2-6] [INFO] [1790815341.891976679] [rviz2]: Trying to create a map of size 2000 x 2000 using 1 swatches
+[rviz2-6] [INFO] [1790815342.249239851] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815342.256075497] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815342.256143770] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815342.445804083] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 2000 X 2000 at 0.050000 m/pix
+[rviz2-6] [INFO] [1790815342.569741549] [rviz2]: Trying to create a map of size 2000 x 2000 using 1 swatches
+[rviz2-6] [INFO] [1790815343.260552005] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815343.927469508] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815344.022285531] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5467 Hz
+[planner_server-2] [INFO] [1790815344.055547484] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815344.273201057] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815344.340159296] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.5135 Hz
+[planner_server-2] [INFO] [1790815344.354149677] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815344.354201525] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[planner_server-2] [WARN] [1790815345.171829631] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.2230 Hz
+[planner_server-2] [INFO] [1790815345.179263831] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815345.275700917] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815345.341328589] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.1703 Hz
+[planner_server-2] [INFO] [1790815345.355010682] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.403076459] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815345.456033991] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.8825 Hz
+[planner_server-2] [INFO] [1790815345.474602326] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815345.590133920] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.6554 Hz
+[planner_server-2] [INFO] [1790815345.600256183] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.624036055] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815345.674666404] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.7497 Hz
+[planner_server-2] [INFO] [1790815345.684056553] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.708112295] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.752776243] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.807652238] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.821600339] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.861648494] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815345.885926770] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815345.962656380] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.0327 Hz
+[planner_server-2] [INFO] [1790815345.994677680] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815346.172048965] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.6379 Hz
+[planner_server-2] [INFO] [1790815346.183902204] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815346.278254897] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815346.483763287] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.3349 Hz
+[planner_server-2] [INFO] [1790815346.490520054] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815346.566776584] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.1135 Hz
+[planner_server-2] [INFO] [1790815346.576358419] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815346.640681479] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.5465 Hz
+[planner_server-2] [INFO] [1790815346.652085112] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815346.716792540] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815346.793305579] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.0691 Hz
+[planner_server-2] [INFO] [1790815346.803864720] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815346.836328078] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815346.908029159] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.9467 Hz
+[planner_server-2] [INFO] [1790815346.918385216] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815346.950393579] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815347.021139027] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815347.260153212] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.1838 Hz
+[rviz2-6] [INFO] [1790815347.280856033] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815347.282586205] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815347.282613705] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815347.287637668] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815347.337782020] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815347.429610199] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.8900 Hz
+[planner_server-2] [INFO] [1790815347.442125668] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815347.485980192] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815347.546164732] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.6157 Hz
+[planner_server-2] [INFO] [1790815347.573659330] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815347.860354260] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.4880 Hz
+[planner_server-2] [INFO] [1790815347.874801439] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815348.283709738] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815348.485039574] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.6387 Hz
+[planner_server-2] [INFO] [1790815348.492962789] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815348.622688681] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.7084 Hz
+[planner_server-2] [INFO] [1790815348.634102136] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815348.807637742] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.7625 Hz
+[planner_server-2] [INFO] [1790815348.821484363] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815348.869385308] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815348.915235132] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815348.942569040] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815348.983252420] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815349.031552754] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815349.079108712] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815349.119143052] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815349.286253334] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815349.790624717] [planner_server]: SmacHybridplugin failed to plan from (45.35, 61.80) [q: 0.00, 0.00, 0.94, 0.34] (yaw: 2.44) to (16.25, 75.35) [q: -0.00, 0.00, 0.37, -0.93] (yaw: -0.76): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815349.790693569] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (45.35, 61.80) [q: 0.00, 0.00, 0.94, 0.34] (yaw: 2.44) to (16.25, 75.35) [q: -0.00, 0.00, 0.37, -0.93] (yaw: -0.76): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815349.792999949] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815349.845040512] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815349.913045508] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.7036 Hz
+[planner_server-2] [INFO] [1790815349.922884998] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815350.282557190] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.7803 Hz
+[planner_server-2] [INFO] [1790815350.288124302] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815350.288882844] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [INFO] [1790815350.331239609] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815350.475607243] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.9267 Hz
+[planner_server-2] [INFO] [1790815350.485093780] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815350.517949283] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815350.581846251] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.6502 Hz
+[planner_server-2] [INFO] [1790815350.588312009] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815351.029009637] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.2691 Hz
+[planner_server-2] [INFO] [1790815351.033321447] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.061748872] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815351.291403731] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815351.295885674] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.2710 Hz
+[planner_server-2] [INFO] [1790815351.302656906] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.326835962] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.355499371] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.371180767] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.389577328] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815351.773785373] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.6028 Hz
+[planner_server-2] [INFO] [1790815351.779410292] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.831814061] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815351.893494452] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.2125 Hz
+[planner_server-2] [INFO] [1790815351.901155679] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.945454380] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.967869358] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815351.985098739] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815352.052446577] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.8485 Hz
+[planner_server-2] [INFO] [1790815352.092172866] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815352.294005213] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815352.296189517] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815352.296209142] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [WARN] [1790815352.423121345] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.0216 Hz
+[planner_server-2] [INFO] [1790815352.438531819] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.489594725] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815352.658995309] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.9031 Hz
+[planner_server-2] [INFO] [1790815352.673536203] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.734773499] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.782253683] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.832603125] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.847994583] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.878614272] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.899157450] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.928624182] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.953945358] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.968317975] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815352.990926899] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.007383759] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.100701635] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815353.208119001] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3095 Hz
+[planner_server-2] [INFO] [1790815353.219702491] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.245510361] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.291307901] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815353.298203842] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815353.320635461] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815353.383514943] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.9037 Hz
+[planner_server-2] [INFO] [1790815353.402832061] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815353.477133082] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.4587 Hz
+[planner_server-2] [INFO] [1790815353.487914328] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.518352688] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815353.571036257] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.9812 Hz
+[planner_server-2] [INFO] [1790815353.581732067] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.609990256] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.625293452] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.632110445] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.637651044] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.643656387] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.651640433] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815353.724881858] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815353.902627551] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.6260 Hz
+[planner_server-2] [INFO] [1790815353.914541752] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815354.302655549] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815354.547864910] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.5790 Hz
+[planner_server-2] [INFO] [1790815354.554939939] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815354.629970614] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.3279 Hz
+[planner_server-2] [INFO] [1790815354.642458507] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815355.035806979] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.5423 Hz
+[planner_server-2] [INFO] [1790815355.047851446] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.078406459] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.104580004] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.124450190] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.141287572] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.159830957] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815355.222478007] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.9618 Hz
+[planner_server-2] [INFO] [1790815355.291864527] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815355.307030841] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815355.644067615] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.8393 Hz
+[planner_server-2] [INFO] [1790815355.660548522] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.703189586] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815355.877650873] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.7319 Hz
+[planner_server-2] [INFO] [1790815355.893196277] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815355.948667998] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815356.017643551] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815356.172874442] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.4420 Hz
+[planner_server-2] [INFO] [1790815356.183429305] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815356.310871620] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815356.926631608] [planner_server]: SmacHybridplugin failed to plan from (78.85, 69.00) [q: 0.00, 0.00, 0.04, 1.00] (yaw: 0.08) to (32.65, 86.60) [q: -0.00, 0.00, 0.46, -0.89] (yaw: -0.96): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815356.926679313] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (78.85, 69.00) [q: 0.00, 0.00, 0.04, 1.00] (yaw: 0.08) to (32.65, 86.60) [q: -0.00, 0.00, 0.46, -0.89] (yaw: -0.96): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815356.929642480] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815356.982652099] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815357.090663774] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.2582 Hz
+[planner_server-2] [INFO] [1790815357.100615089] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815357.142318341] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815357.200518468] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815357.268476630] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815357.313844817] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815357.315497271] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815357.315519169] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [WARN] [1790815357.333003121] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.4965 Hz
+[planner_server-2] [INFO] [1790815357.358283781] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815357.557297933] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.0248 Hz
+[planner_server-2] [INFO] [1790815357.570897080] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815358.232222605] [planner_server]: SmacHybridplugin failed to plan from (63.70, 6.10) [q: 0.00, 0.00, 0.98, 0.20] (yaw: 2.73) to (7.35, 47.30) [q: -0.00, 0.00, 0.26, -0.97] (yaw: -0.52): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815358.232272489] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (63.70, 6.10) [q: 0.00, 0.00, 0.98, 0.20] (yaw: 2.73) to (7.35, 47.30) [q: -0.00, 0.00, 0.26, -0.97] (yaw: -0.52): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815358.234814346] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815358.295947935] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.3578 Hz
+[rviz2-6] [INFO] [1790815358.316980845] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815358.325425056] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815358.640428113] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.1745 Hz
+[planner_server-2] [INFO] [1790815358.655509934] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815358.912985002] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.8839 Hz
+[planner_server-2] [INFO] [1790815358.967973399] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815359.097180138] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.7395 Hz
+[planner_server-2] [INFO] [1790815359.112437326] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815359.183843366] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.0045 Hz
+[planner_server-2] [INFO] [1790815359.199857266] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815359.278648068] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.6914 Hz
+[planner_server-2] [INFO] [1790815359.308325724] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815359.319722220] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815359.614042017] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.2710 Hz
+[planner_server-2] [INFO] [1790815359.629849973] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815359.694217345] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815359.870575235] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.6702 Hz
+[planner_server-2] [INFO] [1790815359.885400828] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815359.946310939] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815360.007963106] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815360.101898845] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6451 Hz
+[planner_server-2] [INFO] [1790815360.112631719] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815360.322198617] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815360.645179142] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.8778 Hz
+[planner_server-2] [INFO] [1790815360.653519855] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815360.701525752] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815360.994610765] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.4120 Hz
+[planner_server-2] [INFO] [1790815361.005913140] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815361.057714315] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.3046 Hz
+[planner_server-2] [INFO] [1790815361.078852433] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815361.202362265] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.0965 Hz
+[planner_server-2] [INFO] [1790815361.214568522] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815361.248709465] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815361.324629257] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815361.327216895] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.7376 Hz
+[planner_server-2] [INFO] [1790815361.338824012] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815361.380503379] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815361.442879732] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815361.569403237] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.9036 Hz
+[planner_server-2] [INFO] [1790815361.577504337] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815362.327614050] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815362.329477246] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815362.329495657] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [WARN] [1790815362.399934977] [planner_server]: SmacHybridplugin failed to plan from (39.00, 78.60) [q: 0.00, 0.00, 0.30, 0.95] (yaw: 0.61) to (55.75, 44.60) [q: -0.00, 0.00, 0.70, -0.71] (yaw: -1.56): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815362.399983883] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (39.00, 78.60) [q: 0.00, 0.00, 0.30, 0.95] (yaw: 0.61) to (55.75, 44.60) [q: -0.00, 0.00, 0.70, -0.71] (yaw: -1.56): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815362.401922648] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.442215302] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815362.499706623] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.3929 Hz
+[planner_server-2] [INFO] [1790815362.506147288] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.524103495] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.555375375] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.570177659] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.604635215] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.633528727] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.643740392] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.657902875] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.730146119] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.758901958] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.786341736] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.798591853] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.814876611] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.825627767] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815362.861904171] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815362.913251772] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.4750 Hz
+[planner_server-2] [INFO] [1790815362.920690105] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.002216859] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.2661 Hz
+[planner_server-2] [INFO] [1790815363.007273782] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.037691713] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.061529503] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.135733089] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.4760 Hz
+[planner_server-2] [INFO] [1790815363.160091651] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.284609336] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.0310 Hz
+[planner_server-2] [INFO] [1790815363.297907591] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815363.330782918] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815363.334595597] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.433413147] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.1193 Hz
+[planner_server-2] [INFO] [1790815363.444789390] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.487545011] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.514891357] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.534580447] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.692822458] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.3194 Hz
+[planner_server-2] [INFO] [1790815363.696296342] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.710938670] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.734121463] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.753227536] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.762388052] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.766442003] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.771648464] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.776629544] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.838770230] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815363.944484199] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.4592 Hz
+[planner_server-2] [INFO] [1790815363.953860929] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815363.976676757] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815364.030012270] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.7481 Hz
+[planner_server-2] [INFO] [1790815364.039028444] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815364.070278305] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815364.139610528] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.4227 Hz
+[planner_server-2] [INFO] [1790815364.170191100] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815364.333483823] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815364.474134797] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.2901 Hz
+[planner_server-2] [INFO] [1790815364.489905801] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815364.542780208] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815364.726517934] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.4425 Hz
+[planner_server-2] [INFO] [1790815364.740976521] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815364.796725607] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815364.859448772] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815364.920269286] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.4416 Hz
+[planner_server-2] [INFO] [1790815364.929893438] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815364.999191005] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.4304 Hz
+[planner_server-2] [INFO] [1790815365.005968673] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.045242829] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815365.120637527] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.2635 Hz
+[planner_server-2] [INFO] [1790815365.133471016] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.156125329] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.177446928] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.188147102] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.205916045] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.221346258] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815365.336020767] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [INFO] [1790815365.356703900] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815365.505733530] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.7100 Hz
+[planner_server-2] [INFO] [1790815365.518314256] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.548579609] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815365.607494784] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.9736 Hz
+[planner_server-2] [INFO] [1790815365.618060982] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.651287872] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.718999472] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815365.783663003] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.4643 Hz
+[planner_server-2] [INFO] [1790815365.793019762] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.816629648] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815365.869825265] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.7973 Hz
+[planner_server-2] [INFO] [1790815365.877760919] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.902894184] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.934805601] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815365.956947000] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815366.243536914] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.4893 Hz
+[planner_server-2] [INFO] [1790815366.247851677] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.258501985] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815366.338401804] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.5157 Hz
+[rviz2-6] [INFO] [1790815366.338652891] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815366.344811733] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.375734069] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.401833248] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815366.472300135] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.1909 Hz
+[planner_server-2] [INFO] [1790815366.476267051] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.496504104] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815366.789026250] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.4185 Hz
+[planner_server-2] [INFO] [1790815366.795892317] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.808046004] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.814235854] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.819238116] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.823397891] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815366.831530490] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815366.899231007] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.7710 Hz
+[planner_server-2] [INFO] [1790815366.921062686] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.057363966] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.3367 Hz
+[planner_server-2] [INFO] [1790815367.068752820] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.234480613] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.0339 Hz
+[planner_server-2] [INFO] [1790815367.242444417] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.294007386] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.3935 Hz
+[planner_server-2] [INFO] [1790815367.306255159] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815367.341435547] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815367.342954549] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815367.342962641] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815367.348146648] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.402405105] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.449966988] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.468310973] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.494171004] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.511905676] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.591886863] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.5031 Hz
+[planner_server-2] [INFO] [1790815367.615818364] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.739703731] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.0719 Hz
+[planner_server-2] [INFO] [1790815367.753286881] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.774709755] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.827854860] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.8153 Hz
+[planner_server-2] [INFO] [1790815367.840605585] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815367.874293250] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815367.924773844] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.8085 Hz
+[planner_server-2] [INFO] [1790815367.952219745] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815368.105892482] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.5072 Hz
+[planner_server-2] [INFO] [1790815368.120103972] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.149162440] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815368.204843210] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.9584 Hz
+[planner_server-2] [INFO] [1790815368.219882464] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.257115301] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.291396909] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815368.344064264] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815368.346317095] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.2061 Hz
+[planner_server-2] [INFO] [1790815368.353324846] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.368472002] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.411255104] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.432155486] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.475101234] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815368.532622346] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.3847 Hz
+[planner_server-2] [INFO] [1790815368.540270045] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815368.632031146] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.8978 Hz
+[planner_server-2] [INFO] [1790815368.637014053] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.659008685] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.715021163] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815368.778322724] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815368.898867936] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.2956 Hz
+[planner_server-2] [INFO] [1790815368.990377450] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.014736005] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815369.072723101] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.2451 Hz
+[planner_server-2] [INFO] [1790815369.082623101] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.131173806] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.179774736] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815369.241242378] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.2686 Hz
+[planner_server-2] [INFO] [1790815369.249998443] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.270684397] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.304776187] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.329045075] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815369.346783027] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815369.385529347] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.7041 Hz
+[planner_server-2] [INFO] [1790815369.406613746] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815369.513333758] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3703 Hz
+[planner_server-2] [INFO] [1790815369.524741512] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.565854731] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815369.653456003] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.4154 Hz
+[planner_server-2] [INFO] [1790815369.664052714] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.716734496] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815369.783034627] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815369.910201676] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.8636 Hz
+[planner_server-2] [INFO] [1790815369.922913996] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815370.002166312] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.6179 Hz
+[planner_server-2] [INFO] [1790815370.009847430] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815370.111683127] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8197 Hz
+[planner_server-2] [INFO] [1790815370.123359846] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815370.218442578] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5166 Hz
+[planner_server-2] [INFO] [1790815370.230902119] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815370.246663308] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815370.256859248] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815370.349893148] [nav2_rviz_selector_node]: smoother_server service not available
+[rviz2-6] [INFO] [1790815371.353284037] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815371.462282169] [planner_server]: SmacHybridplugin failed to plan from (90.35, 49.30) [q: -0.00, 0.00, 1.00, -0.03] (yaw: -3.07) to (87.05, 41.45) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815371.462325795] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (90.35, 49.30) [q: -0.00, 0.00, 1.00, -0.03] (yaw: -3.07) to (87.05, 41.45) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815371.465449494] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815371.529619998] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815371.704295918] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.7248 Hz
+[planner_server-2] [INFO] [1790815371.718853124] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815371.929297002] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.7517 Hz
+[planner_server-2] [INFO] [1790815371.938747383] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.015413217] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.0422 Hz
+[planner_server-2] [INFO] [1790815372.025665899] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.109617969] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9105 Hz
+[planner_server-2] [INFO] [1790815372.121456656] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.173820816] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.0959 Hz
+[planner_server-2] [INFO] [1790815372.197711732] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.346348275] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.7277 Hz
+[rviz2-6] [INFO] [1790815372.355935952] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815372.357319617] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815372.357327611] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815372.359563715] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.387558305] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.452749093] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.3387 Hz
+[planner_server-2] [INFO] [1790815372.466188546] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.498342144] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.564781779] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.0505 Hz
+[planner_server-2] [INFO] [1790815372.598105321] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815372.785042123] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.3494 Hz
+[planner_server-2] [INFO] [1790815372.800336267] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.833254696] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.894950570] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.939939417] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.953752168] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.964393111] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.976950122] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.987131852] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815372.994555564] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.055282428] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.4666 Hz
+[planner_server-2] [INFO] [1790815373.079412428] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.181297836] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8148 Hz
+[planner_server-2] [INFO] [1790815373.191867548] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.210600649] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.270882772] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.317760009] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815373.358962630] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815373.393599232] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.1859 Hz
+[planner_server-2] [INFO] [1790815373.412903637] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.528216694] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.6717 Hz
+[planner_server-2] [INFO] [1790815373.539143471] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.574534289] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.635203650] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.4827 Hz
+[planner_server-2] [INFO] [1790815373.645317952] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.683253523] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.734632594] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.890976824] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.3961 Hz
+[planner_server-2] [INFO] [1790815373.899393475] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815373.919974079] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815373.977367405] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.4236 Hz
+[planner_server-2] [INFO] [1790815373.986365260] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.020317359] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815374.070529825] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.9155 Hz
+[planner_server-2] [INFO] [1790815374.193379813] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815374.361950666] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815374.488057571] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.3935 Hz
+[planner_server-2] [INFO] [1790815374.500800371] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815374.559703976] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.9761 Hz
+[planner_server-2] [INFO] [1790815374.567161814] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815374.680634146] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.8127 Hz
+[planner_server-2] [INFO] [1790815374.691658848] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.731661245] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.791218104] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815374.866986016] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.1981 Hz
+[planner_server-2] [INFO] [1790815374.876905031] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.898381009] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.948214347] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815374.984728995] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815375.039193240] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.3597 Hz
+[planner_server-2] [INFO] [1790815375.053549180] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815375.109181221] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.9741 Hz
+[planner_server-2] [INFO] [1790815375.117655107] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815375.150969761] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815375.184450078] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815375.220455311] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815375.274091583] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.6440 Hz
+[planner_server-2] [INFO] [1790815375.293508809] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815375.364628751] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815375.466644648] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.7758 Hz
+[planner_server-2] [INFO] [1790815375.476973036] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815375.503771002] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815375.572878062] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.4704 Hz
+[planner_server-2] [INFO] [1790815375.583150588] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815375.624144371] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815375.695360850] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.0415 Hz
+[planner_server-2] [INFO] [1790815375.732871674] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815376.282639148] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.8189 Hz
+[planner_server-2] [INFO] [1790815376.301985038] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.353280805] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815376.367428477] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815376.492863411] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.1641 Hz
+[planner_server-2] [INFO] [1790815376.508742558] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.565333057] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815376.618599391] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.7735 Hz
+[planner_server-2] [INFO] [1790815376.642581104] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815376.797027840] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.4747 Hz
+[planner_server-2] [INFO] [1790815376.809709415] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.840833659] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815376.911672678] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.1165 Hz
+[planner_server-2] [INFO] [1790815376.922284307] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.962425494] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.976887910] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.987162047] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815376.995395122] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.000568160] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.009005834] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.041716579] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.083284194] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.095192058] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.128623496] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.160028664] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.220054807] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815377.363133796] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.9892 Hz
+[rviz2-6] [INFO] [1790815377.370161778] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815377.372415528] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815377.372430119] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815377.375531603] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.418547423] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.471778732] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.513037552] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815377.571441568] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.1222 Hz
+[planner_server-2] [INFO] [1790815377.597593038] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815377.779248524] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.5048 Hz
+[planner_server-2] [INFO] [1790815377.793496485] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815377.851459135] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815377.967244995] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.6366 Hz
+[planner_server-2] [INFO] [1790815377.982059236] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815378.041708134] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815378.112945011] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.0378 Hz
+[planner_server-2] [INFO] [1790815378.147591289] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815378.374476287] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815378.460150230] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.1994 Hz
+[planner_server-2] [INFO] [1790815378.475043085] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815378.521974597] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815378.685292781] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.1230 Hz
+[planner_server-2] [INFO] [1790815378.698002559] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815378.755837391] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815378.826402634] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.1713 Hz
+[planner_server-2] [INFO] [1790815378.855208036] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815379.108472815] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.9484 Hz
+[planner_server-2] [INFO] [1790815379.123333321] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.176953725] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815379.313549370] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.3209 Hz
+[planner_server-2] [INFO] [1790815379.327562613] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.379009006] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815379.379143788] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [INFO] [1790815379.403658725] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.424075630] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.432765973] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.447812721] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.457182210] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.497696318] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815379.553280925] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.9905 Hz
+[planner_server-2] [INFO] [1790815379.560945081] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.585273297] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.744361032] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815379.824714854] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.4449 Hz
+[planner_server-2] [INFO] [1790815379.833081887] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.852013712] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.862459259] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.871370117] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.885484828] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.896439800] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815379.950194008] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815380.025497106] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.2790 Hz
+[planner_server-2] [INFO] [1790815380.035115749] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815380.184613290] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.6891 Hz
+[planner_server-2] [INFO] [1790815380.190249820] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815380.248357285] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815380.382511907] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815381.258243086] [planner_server]: SmacLatticeplugin failed to plan from (85.15, 19.05) [q: -0.00, 0.00, 0.99, -0.14] (yaw: -2.86) to (72.55, 62.20) [q: -0.00, 0.00, 0.94, -0.35] (yaw: -2.42): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815381.258272373] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacLatticeplugin failed to plan from (85.15, 19.05) [q: -0.00, 0.00, 0.99, -0.14] (yaw: -2.86) to (72.55, 62.20) [q: -0.00, 0.00, 0.94, -0.35] (yaw: -2.42): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815381.260329863] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815381.312003681] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815381.359754695] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815381.385266253] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815381.937391832] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.7312 Hz
+[planner_server-2] [INFO] [1790815381.942333833] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815381.977234451] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815382.111242553] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.4621 Hz
+[planner_server-2] [INFO] [1790815382.122103032] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.152261450] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.181921124] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.201525941] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.233525396] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.254267877] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815382.317718153] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.7605 Hz
+[planner_server-2] [INFO] [1790815382.347681335] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815382.387887963] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815382.390027137] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815382.390040437] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [WARN] [1790815382.764296378] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.4003 Hz
+[planner_server-2] [INFO] [1790815382.780410372] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815382.811613108] [planner_server]: SmacHybridplugin failed to plan from (7.35, 15.30) [q: -0.00, 0.00, 0.81, -0.59] (yaw: -1.87) to (59.35, 78.75) [q: -0.00, 0.00, 0.45, -0.90] (yaw: -0.92): "Start occupied"
+[planner_server-2] [WARN] [1790815382.811652906] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:205, error_msg:'SmacHybridplugin failed to plan from (7.35, 15.30) [q: -0.00, 0.00, 0.81, -0.59] (yaw: -1.87) to (59.35, 78.75) [q: -0.00, 0.00, 0.45, -0.90] (yaw: -0.92): "Start occupied"'.
+[planner_server-2] [INFO] [1790815382.813558374] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.852411577] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.884666190] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.898105242] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.917732853] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815382.935941786] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.001237913] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815383.102855924] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8405 Hz
+[planner_server-2] [INFO] [1790815383.113943638] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815383.391151389] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815383.556672292] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.2587 Hz
+[planner_server-2] [INFO] [1790815383.563149523] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.621127515] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.679296638] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.723044998] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815383.799695170] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.0462 Hz
+[planner_server-2] [INFO] [1790815383.808101111] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.824832222] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.852018891] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.873253600] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.922651584] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815383.972115050] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815384.070351915] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.1795 Hz
+[planner_server-2] [INFO] [1790815384.075681704] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.099390582] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.126315355] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.171215623] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.226666383] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.245324439] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.277398114] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.313442879] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.352927375] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.375931476] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815384.393920257] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815384.563096635] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.3429 Hz
+[planner_server-2] [INFO] [1790815384.567551585] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.582039485] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815384.629978818] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815384.700346832] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.2104 Hz
+[planner_server-2] [INFO] [1790815384.733037522] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815385.159384483] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.3455 Hz
+[planner_server-2] [INFO] [1790815385.176583123] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815385.398187255] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [WARN] [1790815385.460875031] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.5175 Hz
+[planner_server-2] [INFO] [1790815385.470153422] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815385.621477530] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.6084 Hz
+[planner_server-2] [INFO] [1790815385.635574789] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815385.757379782] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.2096 Hz
+[planner_server-2] [INFO] [1790815385.774220823] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815385.825541416] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.4858 Hz
+[planner_server-2] [INFO] [1790815385.848717440] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815386.081941469] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.2877 Hz
+[planner_server-2] [INFO] [1790815386.093489017] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815386.125232580] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815386.217923833] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7885 Hz
+[planner_server-2] [INFO] [1790815386.229990472] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815386.262239907] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815386.316910550] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.2914 Hz
+[planner_server-2] [INFO] [1790815386.342796903] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815386.401097289] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815386.621690466] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.5856 Hz
+[planner_server-2] [INFO] [1790815386.635072424] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.314156130] [planner_server]: SmacHybridplugin failed to plan from (92.70, 21.65) [q: 0.00, 0.00, 0.06, 1.00] (yaw: 0.13) to (45.30, 71.10) [q: -0.00, 0.00, 0.15, -0.99] (yaw: -0.30): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815387.314201925] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (92.70, 21.65) [q: 0.00, 0.00, 0.06, 1.00] (yaw: 0.13) to (45.30, 71.10) [q: -0.00, 0.00, 0.15, -0.99] (yaw: -0.30): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815387.316521703] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.382484595] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.1602 Hz
+[rviz2-6] [INFO] [1790815387.403639027] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815387.405088332] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815387.405097649] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [INFO] [1790815387.408682698] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.613038466] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.8934 Hz
+[planner_server-2] [INFO] [1790815387.626096641] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.677448023] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.4740 Hz
+[planner_server-2] [INFO] [1790815387.685499935] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.801329145] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.6334 Hz
+[planner_server-2] [INFO] [1790815387.813964741] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815387.864052146] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815387.918636615] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.3193 Hz
+[planner_server-2] [INFO] [1790815387.944998054] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815388.120880256] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.6856 Hz
+[planner_server-2] [INFO] [1790815388.134398909] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815388.172039260] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815388.247103586] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.3220 Hz
+[planner_server-2] [INFO] [1790815388.258714270] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815388.298312721] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815388.364102066] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.1998 Hz
+[planner_server-2] [INFO] [1790815388.393439678] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815388.406200081] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815388.625237781] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.3140 Hz
+[planner_server-2] [INFO] [1790815388.653253311] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815388.705266931] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815388.881501174] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.6743 Hz
+[planner_server-2] [INFO] [1790815388.896265585] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815388.954728011] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815388.997918866] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.039269486] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.068280748] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.088869940] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.115396023] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.164257834] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815389.243659569] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.5940 Hz
+[planner_server-2] [INFO] [1790815389.251694585] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.284203006] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.338994387] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.363908587] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815389.409657555] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815389.409805615] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815389.462821588] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.8067 Hz
+[planner_server-2] [INFO] [1790815389.470799920] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815390.279272681] [planner_server]: SmacHybridplugin failed to plan from (50.85, 18.55) [q: 0.00, 0.00, 0.98, 0.22] (yaw: 2.70) to (84.20, 10.60) [q: 0.00, 0.00, 1.00, 0.00] (yaw: 3.14): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815390.279320203] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (50.85, 18.55) [q: 0.00, 0.00, 0.98, 0.22] (yaw: 2.70) to (84.20, 10.60) [q: 0.00, 0.00, 1.00, 0.00] (yaw: 3.14): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815390.281055438] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815390.412442050] [nav2_rviz_selector_node]: smoother_server service not available
+[planner_server-2] [INFO] [1790815390.464502926] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.510507568] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815390.677052503] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.0043 Hz
+[planner_server-2] [INFO] [1790815390.682201997] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.719313886] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815390.796739585] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.9154 Hz
+[planner_server-2] [INFO] [1790815390.806571058] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.823955403] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.836185748] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.845723021] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.855593886] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.863254831] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.894363166] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815390.921963625] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.195341142] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.6579 Hz
+[planner_server-2] [INFO] [1790815391.199362548] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815391.216407536] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.219986034] [planner_server]: SmacLatticeplugin failed to plan from (54.10, 16.10) [q: -0.00, 0.00, 0.71, -0.70] (yaw: -1.58) to (79.55, 14.85) [q: 0.00, 0.00, 0.86, 0.51] (yaw: 2.07): "no valid path found"
+[planner_server-2] [WARN] [1790815391.220006617] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:208, error_msg:'SmacLatticeplugin failed to plan from (54.10, 16.10) [q: -0.00, 0.00, 0.71, -0.70] (yaw: -1.58) to (79.55, 14.85) [q: 0.00, 0.00, 0.86, 0.51] (yaw: 2.07): "no valid path found"'.
+[planner_server-2] [INFO] [1790815391.221615838] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.282256392] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 16.4899 Hz
+[planner_server-2] [INFO] [1790815391.306281516] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815391.415048089] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815391.505653907] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.0157 Hz
+[planner_server-2] [INFO] [1790815391.518571784] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815391.573367842] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.646421970] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.6884 Hz
+[planner_server-2] [INFO] [1790815391.658366128] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.714661997] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.7634 Hz
+[planner_server-2] [INFO] [1790815391.727512946] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815391.796538010] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.923231170] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.8931 Hz
+[planner_server-2] [INFO] [1790815391.935970986] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815391.952027918] [planner_server]: SmacHybridplugin failed to plan from (11.05, 74.85) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.01) to (73.90, 68.25) [q: 0.00, 0.00, 0.42, 0.91] (yaw: 0.86): "Start occupied"
+[planner_server-2] [WARN] [1790815391.952048153] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:205, error_msg:'SmacHybridplugin failed to plan from (11.05, 74.85) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.01) to (73.90, 68.25) [q: 0.00, 0.00, 0.42, 0.91] (yaw: 0.86): "Start occupied"'.
+[planner_server-2] [INFO] [1790815391.953617915] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.001083399] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815392.131471882] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 7.6692 Hz
+[planner_server-2] [INFO] [1790815392.141431384] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.175628158] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.224651465] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.256346488] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.313327750] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815392.418234440] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815392.420073802] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815392.420089721] [nav2_rviz_selector_node]: Trying to load plugins...
+[planner_server-2] [WARN] [1790815392.436862433] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.0949 Hz
+[planner_server-2] [INFO] [1790815392.446964708] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.499064876] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.556547089] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.597826911] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815392.657877301] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815392.746979519] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.2231 Hz
+[planner_server-2] [INFO] [1790815392.755084694] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815393.421909691] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815393.506646292] [planner_server]: SmacHybridplugin failed to plan from (62.85, 50.25) [q: 0.00, 0.00, 0.96, 0.26] (yaw: 2.61) to (85.40, 80.15) [q: 0.00, 0.00, 0.92, 0.40] (yaw: 2.31): "exceeded maximum iterations"
+[planner_server-2] [WARN] [1790815393.506695602] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle. error_code:207, error_msg:'SmacHybridplugin failed to plan from (62.85, 50.25) [q: 0.00, 0.00, 0.96, 0.26] (yaw: 2.61) to (85.40, 80.15) [q: 0.00, 0.00, 0.92, 0.40] (yaw: 2.31): "exceeded maximum iterations"'.
+[planner_server-2] [INFO] [1790815393.508496455] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.539610703] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.573520904] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.589211038] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.606459472] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.629061280] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.678103705] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.705629772] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.716073897] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.730124529] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.747771423] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.761318438] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.768559115] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.775530789] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.781279120] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.788902837] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.832950133] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815393.889715445] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.6163 Hz
+[planner_server-2] [INFO] [1790815393.897303720] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.910050058] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.955232909] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815393.990524557] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815394.053609009] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815394.204422046] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.6307 Hz
+[planner_server-2] [INFO] [1790815394.215843340] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815394.254331679] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815394.344621138] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.0755 Hz
+[planner_server-2] [INFO] [1790815394.354977080] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815394.400553164] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815394.424691595] [nav2_rviz_selector_node]: controller_server service not available
+[planner_server-2] [WARN] [1790815394.457508238] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.5566 Hz
+[planner_server-2] [INFO] [1790815394.478497533] [planner_server]: Computing path to goal.
+[planner_server-2] [WARN] [1790815394.624854010] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.8326 Hz
+[planner_server-2] [INFO] [1790815394.635707219] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815394.660952414] [planner_server]: Computing path to goal.
+[planner_server-2] [INFO] [1790815394.721394321] [planner_server]: Computing path to goal.
+[rviz2-6] [INFO] [1790815395.427644707] [nav2_rviz_selector_node]: smoother_server service not available
+[rviz2-6] [INFO] [1790815396.430375434] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815397.433042630] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815397.434695855] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815397.434709839] [nav2_rviz_selector_node]: Trying to load plugins...
+[rviz2-6] [INFO] [1790815398.435856872] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815399.438376045] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815400.440966121] [nav2_rviz_selector_node]: smoother_server service not available
+[rviz2-6] [INFO] [1790815401.445168108] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815402.449704248] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815402.451985866] [nav2_rviz_selector_node]: Failed to load plugins. Retrying...
+[rviz2-6] [INFO] [1790815402.452000876] [nav2_rviz_selector_node]: Trying to load plugins...
+[rviz2-6] [INFO] [1790815403.454107029] [nav2_rviz_selector_node]: controller_server service not available
+[rviz2-6] [INFO] [1790815404.458127989] [nav2_rviz_selector_node]: controller_server service not available

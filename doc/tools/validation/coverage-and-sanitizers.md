@@ -37,8 +37,10 @@ CircleCI는 `collect_overlay_coverage`에서 `code_coverage_report.bash ci`를 �
 | --- | --- |
 | `-r` | 최대 횟수 |
 | `-d` | ctest를 실행할 디렉터리 |
-| `-t` | `-R`에 넘길 테스트 이름 |
+| `-t` | `-R`에 넘길 테스트 이름 (정규식) |
 | `-h` | 사용법 |
+
+모르는 옵션을 주면 사용법을 찍고 **rc 0**으로 끝납니다. 실행으로 확인한 동작은 [개발 스크립트](../dev/scripts.md#ctest_retrybash)에 있습니다.
 
 `run_test_suite.bash`가 `test_dynamic_obstacle`에 `-r 3`으로 호출합니다.
 

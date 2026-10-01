@@ -43,6 +43,32 @@ python3 process_data.py
 
 - 공개 `getPath`가 아니라 `_getPathImpl(..., use_start=True)`입니다. 시작 포즈를 서버에 넘깁니다.
 - 플래너 하나의 실패가 나머지 성공 경로도 그 사이클에서 버립니다. 어려운 맵에서는 100쌍을 채우는 데 시도가 더 듭니다.
+- launch가 `rviz_launch.py`를 포함하고, 그 파일은 RViz가 끝나면 launch 전체를 `Shutdown`합니다. 디스플레이가 없으면 서버들도 같이 내려가고, 따로 띄운 `metrics.py`는 `change map service not available, waiting...`을 찍으며 끝없이 기다립니다.
+
+## Docker에서 실제로 돌린 결과 (2026-10-01)
+
+[실행 로그](../logs/2026-10-01/README.md) P1–P4입니다. 위 README 블록만 넣은 `nav2_params.yaml`을 컨테이너의 설치 경로 위에 마운트하고, `xvfb`·`python3-transforms3d`·`python3-seaborn`·`python3-tabulate`를 컨테이너 안에서 apt로 설치했습니다(이미지에 `pip`이 없음).
+
+| 시도 | 결과 |
+| --- | --- |
+| 디스플레이 없음 | RViz `exit code -6` → launch 종료. `metrics.py`는 무한 대기 |
+| `QT_QPA_PLATFORM=offscreen` | Ogre가 `Couldn't open X display`로 같은 종료 |
+| `Xvfb :99` + `DISPLAY=:99` + `--gpus all` | 기동 5초, `metrics.py` 60초, `process_data.py` 5초 |
+
+```text
+Planner      길이 (m)  시간 (s)  평균 비용  최대 비용
+Navfn        47.08     0.0412    0.19       31.28
+ThetaStar    46.86     0.1144    0.44       64.32
+SmacHybrid   48.28     0.0858    1.32       64.07
+Smac2d       48.21     0.0545    4.71       68.54
+SmacLattice  48.63     0.0467    1.77       75.08
+```
+
+- 100쌍을 채우는 데 112사이클이 들었습니다. 버린 12번은 SmacHybrid 10번(207 `exceeded maximum iterations` 8, 205 `Start occupied` 2)과 SmacLattice 2번(207, 208)입니다. Navfn·ThetaStar·Smac2d는 실패하지 않았습니다.
+- Smac 계열은 기본 파라미터 그대로입니다(`maximum iterations 1000000`). README도 플러그인 클래스만 적습니다. 위 실패율은 튜닝 전 값입니다.
+- `results.pickle`이 103 MB입니다. 경로 500개를 통째로 저장합니다.
+- `expected_planner_frequency: 20.0`이라 계획 한 번이 50 ms를 넘을 때마다 `Planner loop missed its desired rate` 경고가 납니다(201번). 측정에는 영향이 없습니다.
+- `process_data.py`는 끝에서 `plt.show()`를 부릅니다. 화면이 없으면 `MPLBACKEND=Agg`로 두고 그림은 `savefig`로 따로 저장해야 합니다(`P4-paths.png`).
 
 ## 관련 문서
 

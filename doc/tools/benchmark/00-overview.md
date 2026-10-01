@@ -11,7 +11,8 @@
 | 성공 표본 | 100쌍 (`random_pairs`) |
 | 목표 최소 거리 | 시작에서 3.0 m |
 | 셀 상한 | `max_cost = 210` (이 값 미만인 셀만 시작·목표) |
-| 의존 패키지 | `transforms3d`, `seaborn`, `tabulate` (스무더 README가 명시) |
+| 의존 패키지 | `transforms3d`, `seaborn`, `tabulate` (스무더 README가 명시). 가이드 이미지에는 없고 `python3-*` apt 패키지로 설치됨 |
+| 디스플레이 | 필요. 두 launch가 `rviz_launch.py`를 포함하고, RViz가 죽으면 launch 전체가 종료됨. 헤드리스는 Xvfb ([실행 로그](../logs/2026-10-01/README.md)) |
 
 시작·목표 yaw는 `uniform(0, 1) * 2π`입니다. 프레임은 `map`입니다.
 
