@@ -113,7 +113,7 @@ docker logs -f nav2      # Ctrl-C는 로그 보기만 끝냄. 컨테이너는 �
 | --- | --- | --- |
 | 직후 | `Loopback simulator activated`, `Sim clock publisher started` | 1–2번 |
 | 직후 | `OpenGl version: 4.5 (GLSL 4.5)` (rviz2) | X11·GL 연결 성공 |
-| 직후 | `Failed to get parameters: …_plugins` WARN 6종 각 1회 (`controller`, `goal_checker`, `path_handler`, `planner`, `progress_checker`, `smoother`) | 플러그인 목록 파라미터를 기본값으로 채우는 시작 시 한 번의 경고. 이후 정상 |
+| 직후 | `Failed to get parameters: …_plugins` WARN 6종 각 1회 (`controller`, `goal_checker`, `path_handler`, `planner`, `progress_checker`, `smoother`) | RViz **Selector 패널**이 서버 configure 전에 플러그인 목록 파라미터를 조회해서 생기는 경고. 5초 뒤 재시도에서 성공, 이후 정상 ([rviz 02](../rviz/02-panels-and-tools.md#selector--플러그인-선택)) |
 | 초기 자세 전 | `Timed out waiting for transform from base_link to map to become available` **반복** | **5번. 정상입니다.** 0.5초마다 한 줄. 60초를 다 기다리면 약 122줄 (H0) |
 | 초기 자세 후 | `Received initial pose!` | 루프백이 `map→odom`을 냄 |
 | 초기 자세 후 | `Server … connected with bond.` ×12, `Managed nodes are active`, `Creating bond timer...` | 매니저의 `startup()` 성공 |

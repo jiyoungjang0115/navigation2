@@ -47,7 +47,7 @@ TB4 루프백만 `loopback_simulation.launch.py`에 `scan_frame_id:=rplidar_link
 
 멀티 로봇은 이 인자에 로봇 이름을 넣습니다. 클론 런치의 `robots` 예시 형식은 파일 독스트링에 있습니다. `{name: 'robot1', pose: {x: 1.0, y: 1.0, yaw: 1.5707}}`를 `;`로 이어 붙입니다.
 
-RViz 설정 `nav2_default_view.rviz`의 `<robot_namespace>`는 `rviz_launch.py`가 바꿉니다. 그 런치 **단독** 기본 네임스페이스는 `navigation`입니다. 시뮬·루프백은 빈 `namespace`를 넘기므로 이 기본은 쓰이지 않습니다.
+`rviz_launch.py`의 인자 설명은 `<robot_namespace>`를 바꾼다고 하지만, 현재 코드에는 치환이 없고 `nav2_default_view.rviz`에도 그 키워드가 없습니다. 대신 설정의 토픽이 전부 상대 이름이라 RViz 노드의 `namespace`를 따라갑니다([rviz 01](../rviz/01-config-files.md#토픽은-전부-상대-이름)). 그 런치 **단독** 기본 네임스페이스는 `navigation`입니다. 시뮬·루프백은 빈 `namespace`를 넘기므로 이 기본은 쓰이지 않습니다.
 
 ## 센서 토픽
 

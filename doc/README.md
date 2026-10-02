@@ -24,6 +24,7 @@ Notes taken from this tree. They do not replace [docs.nav2.org](https://docs.nav
 - [Guide](guide/00-overview.md) — run the loopback stack in Docker and check topics (every command was executed; logs in `guide/logs/`)
 - [Launcher](launcher/README.md) — how `nav2_bringup` selects nodes, params, and robot descriptions
 - [DevOps](devops/README.md) — version lines, release, CI, and container images
+- [RViz](rviz/README.md) — `.rviz` settings, Nav2 panels/tools, displays, and what the loopback run actually shows
 - [Tools](tools/README.md) — commander, RViz, loopback, benchmarks, and validation scripts
 - [Simulator](simulator/README.md) — loopback integrator and Gazebo launch contracts
 
