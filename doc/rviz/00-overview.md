@@ -108,7 +108,7 @@ ros2 launch nav2_bringup rviz_launch.py namespace:='' use_sim_time:=False
 | Docking 패널은 `docking_server` 액션을 **직접** 부름 | BT를 거치지 않음. 기본 BT에 도킹 노드가 없어도 동작 |
 | 표시 22개 중 **Nav2 전용은 `ParticleCloud` 1개** | 경로·코스트맵이 표준 메시지(`nav_msgs/Path`, `OccupancyGrid`)라 rviz2 기본 표시로 충분 — [data-structure 01·02](../data-structure/00-overview.md) |
 | 토픽이 전부 **상대 이름** | 한 설정 파일을 단일·멀티 로봇에 공유 |
-| `Realsense` 그룹·`Trajectories`·`Bumper Hit` 같은 **흔적 항목** | TB3/TB4 Gazebo·이전 컨트롤러 시절의 항목이 남음. 루프백·현재 MPPI에서는 데이터가 없음([03](03-displays.md)) |
+| `Realsense` 그룹·`Bumper Hit` 같은 **흔적 항목** | TB3/TB4 Gazebo 시절의 항목이 남음. 루프백에서는 데이터가 없음([03](03-displays.md)) |
 
 ## 문서 구성
 

@@ -436,7 +436,7 @@ Visualization Manager:
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
-            Value: marker
+            Value: controller_server/candidate_trajectories
           Value: false
         - Alpha: 1
           Class: rviz_default_plugins/Polygon

@@ -35,7 +35,7 @@
 | 15 | Controller (그룹) | `rviz_common/Group` |  |  |  | ✓ | ✓ |  |
 | 16 | Controller/Local Costmap | `rviz_default_plugins/Map` | `local_costmap/costmap` | `local_costmap/costmap_updates` | R / TL / 1 | ✓ | ✓ | Alpha: 0.7, Color Scheme: costmap, Draw Behind: False |
 | 17 | Controller/Local Plan | `rviz_default_plugins/Path` | `transformed_global_plan` |  | R / V / 5 | ✓ | ✓ | Alpha: 1, Color: 0; 12; 255, Line Width: 0.03, Pose Style: None, Buffer Length: 1 |
-| 18 | Controller/Trajectories | `rviz_default_plugins/MarkerArray` | `marker` |  | R / V / 5 |  |  |  |
+| 18 | Controller/Trajectories | `rviz_default_plugins/MarkerArray` | `controller_server/candidate_trajectories` |  | R / V / 5 |  |  |  |
 | 19 | Controller/Polygon | `rviz_default_plugins/Polygon` | `local_costmap/published_footprint` |  | R / V / 5 | ✓ | ✓ | Alpha: 1, Color: 25; 255; 0 |
 | 20 | Controller/VoxelGrid | `rviz_default_plugins/PointCloud2` | `local_costmap/voxel_marked_cloud` |  | R / V / 5 | ✓ | ✓ | Alpha: 1, Color: 255; 255; 255, Style: Flat Squares, Size (m): 0.01, Color Transformer: RGB8 |
 | 21 | Realsense (그룹) | `rviz_common/Group` |  |  |  |  |  |  |

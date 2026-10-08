@@ -115,5 +115,5 @@
 | 지도가 작고 오른쪽에 치우침 | 뷰 `X: -5.41`, `Scale: 54` 때문. Views 패널 `Zero` 후 휠로 확대, 또는 `Focus Camera`로 방 클릭 |
 | 로봇을 크게 보기 | `RobotModel` 체크. 또는 Views에서 `ThirdPersonFollower` · `Target Frame: base_link` |
 | 패널에서 목표 취소 | **패널의 Nav2 Goal이나 Start NavigateToPose로 보낸 목표만** Cancel 버튼이 생김. CLI 목표는 CLI에서 취소 |
-| MPPI가 무엇을 고려하는지 | `Controller/Trajectories` 토픽을 `controller_server/candidate_trajectories`로 바꿈([03](03-displays.md#controller)) |
+| MPPI가 무엇을 고려하는지 | `Controller/Trajectories`를 체크([03](03-displays.md#controller)) |
 | 셀 비용 숫자 | 도구 `+` → `CostmapCostTool`, 클릭 후 RViz 터미널(`docker logs nav2`)에서 `Local costmap cost: …` |

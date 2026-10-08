@@ -84,7 +84,7 @@
 | --- | --- | --- | :-: | --- | --- |
 | **Local Costmap** | `Map` (`costmap`, **α 0.7**) | `local_costmap/costmap` (+ `_updates`) | ✓ | ✅ 60×60, 1.7 Hz | `controller_server` 안의 `local_costmap` |
 | **Local Plan** | `Path` (파랑 `0;12;255`) | `transformed_global_plan` | ✓ | ✅ 목표 중 | `controller_server.cpp:194` |
-| Trajectories | `MarkerArray` | **`marker`** | | **토픽 불일치** | — |
+| Trajectories | `MarkerArray` | `controller_server/candidate_trajectories` | | 꺼짐 (데이터는 있음) | MPPI `TrajectoryVisualizer` |
 | **Polygon** | `Polygon` (초록 `25;255;0`) | `local_costmap/published_footprint` | ✓ | ✅ | `costmap_2d_ros.cpp:632` |
 | VoxelGrid | `PointCloud2` (Flat Squares 0.01) | `local_costmap/voxel_marked_cloud` | ✓ | **없음** | 위와 같은 이유 |
 
@@ -92,11 +92,11 @@
 
 **Local Plan** — 이름과 달리 **지역 계획(궤적)이 아닙니다.** 전역 경로를 지역 코스트맵 범위로 잘라 `odom`으로 변환한 것(`transformed_global_plan`)으로, 컨트롤러가 **입력**으로 받는 경로입니다. 컨트롤러의 출력 궤적은 아래 Trajectories입니다.
 
-**Trajectories — 토픽 이름이 낡았습니다.** 설정은 `marker`를 구독하지만 MPPI는 후보 궤적을 **`~/candidate_trajectories`**(= `/controller_server/candidate_trajectories`), 최적 경로를 `~/optimal_path`로 냅니다(`nav2_mppi_controller/src/trajectory_visualizer.cpp:31-33`). 파라미터도 `visualize: true`(`nav2_params.yaml:158`)라 발행은 되고 있습니다. 보려면:
+**Trajectories** — MPPI가 **고려한 후보 궤적들**입니다. MPPI는 후보 궤적을 `~/candidate_trajectories`(= `/controller_server/candidate_trajectories`), 최적 경로를 `~/optimal_path`로 냅니다(`nav2_mppi_controller/src/trajectory_visualizer.cpp:31-33`). 파라미터가 `visualize: true`(`nav2_params.yaml:158`)라 발행은 늘 되고 있고, 표시는 **기본으로 꺼져 있으니** 체크만 하면 보입니다.
+이전 설정은 이 표시가 `marker`를 구독해 켜도 아무것도 나오지 않았습니다(발행자 없음). MPPI 토픽에 맞춰 고쳤습니다.
 
-| 바꿀 것 | 값 |
+| 더 보고 싶을 때 | 값 |
 | --- | --- |
-| `Controller/Trajectories` → Topic | `controller_server/candidate_trajectories` |
 | (추가) `Path` 표시 | `controller_server/optimal_path` |
 | (추가) MPPI 최적 궤적 | `controller_server/optimal_trajectory` (`nav_msgs/Trajectory`, `publish_optimal_trajectory: true`) — rviz2 기본 표시가 없음 |
 

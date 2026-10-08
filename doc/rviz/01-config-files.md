@@ -116,7 +116,7 @@ CLI로 같은 토픽을 볼 때도 같은 QoS가 필요합니다. `ros2 topic ec
 | 개인 레이아웃 | 파일을 복사해 `rviz_config_file:=/abs/path.rviz`. 패키지 설치 경로의 원본은 그대로 둠 |
 | 저장소 기본값을 고침 | `nav2_bringup/rviz/nav2_default_view.rviz` 수정 후 재빌드(`--symlink-install`이면 불필요). 설치 위치는 `share/nav2_bringup/rviz/` |
 | **토픽은 상대 이름 유지** | 절대 이름(`/plan`)을 쓰면 멀티 로봇 런치에서 모든 창이 같은 토픽을 봄 — [architecture/tools/nav2_rviz_plugins §4](../architecture/tools/nav2_rviz_plugins.md#4-변경-시-체크리스트) |
-| MPPI 후보 궤적 보기 | `Controller/Trajectories`의 토픽을 `controller_server/candidate_trajectories`로 바꾸고 켬([03](03-displays.md#controller)) |
+| MPPI 후보 궤적 보기 | `Controller/Trajectories`를 켬 (토픽 `controller_server/candidate_trajectories`, [03](03-displays.md#controller)) |
 | 로봇 따라가기 뷰 | Views에서 `ThirdPersonFollower`, `Target Frame: base_link`를 만들고 `Save` |
 
 RViz에서 `Save Config`를 누르면 **설치 공간의 파일**에 씁니다(캡처의 창 제목 `…/install/nav2_bringup/share/nav2_bringup/rviz/nav2_default_view.rviz*`, `K-rviz.log` K0). `*`는 저장 안 된 변경이 있다는 뜻입니다. Docker 이미지 안이면 컨테이너를 지우는 순간 사라집니다.
